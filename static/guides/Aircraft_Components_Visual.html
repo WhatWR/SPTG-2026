@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>✈️ Aircraft Components – SPTG Visual Study Guide</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Arial, sans-serif; background: #0a0f1e; color: #e8eaf6; }
+
+.hero {
+  background: linear-gradient(135deg, #0d47a1 0%, #1565c0 50%, #1976d2 100%);
+  padding: 36px 20px 28px; text-align: center;
+}
+.hero h1 { font-size: 2rem; font-weight: 800; color: #fff; }
+.hero p { color: #90caf9; margin-top: 6px; font-size: 1rem; }
+
+.tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; padding: 18px; background: #060d1a; }
+.tab-btn { background: #1e3a5f; color: #90caf9; border: none; padding: 9px 18px; border-radius: 22px; cursor: pointer; font-size: 0.88rem; font-weight: 700; transition: all 0.2s; }
+.tab-btn:hover, .tab-btn.active { background: #1565c0; color: #fff; }
+
+.container { max-width: 1080px; margin: 0 auto; padding: 24px 16px; }
+.section { display: none; }
+.section.active { display: block; }
+
+.sec-title { font-size: 1.4rem; font-weight: 800; color: #42a5f5; margin: 0 0 20px; padding-bottom: 10px; border-bottom: 2px solid #1e3a5f; display: flex; align-items: center; gap: 10px; }
+
+.plane-diagram-wrap { background: #060d1a; border: 1px solid #1e3a5f; border-radius: 16px; padding: 20px; margin-bottom: 24px; }
+.plane-diagram-wrap h2 { color: #42a5f5; font-size: 1.05rem; text-align: center; margin-bottom: 14px; }
+
+.labels-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 20px; }
+.label-card { background: #0d1b2a; border: 1.5px solid #1e3a5f; border-radius: 10px; padding: 14px; cursor: pointer; transition: all 0.2s; }
+.label-card:hover { border-color: #42a5f5; transform: translateY(-2px); }
+.label-card.active-card { border-color: #ffcc02; background: #1a1800; }
+.label-card .num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; font-weight: 800; font-size: 0.8rem; margin-right: 8px; flex-shrink: 0; }
+.label-card .card-title { font-weight: 700; font-size: 0.95rem; color: #e8eaf6; display: flex; align-items: center; }
+.label-card .card-sub { font-size: 0.8rem; color: #546e7a; margin-top: 4px; padding-left: 36px; }
+.detail-box { display: none; background: #060d1a; border-left: 4px solid #42a5f5; padding: 12px 14px; margin-top: 10px; border-radius: 0 8px 8px 0; font-size: 0.86rem; color: #90caf9; line-height: 1.75; }
+.detail-box.open { display: block; }
+.warn { color: #ffcc02; font-weight: 700; }
+.tag-key { display: inline-block; background: #1565c0; color: #fff; border-radius: 5px; padding: 1px 8px; font-size: 0.75rem; font-weight: 700; margin: 0 2px; }
+
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 14px; margin: 16px 0; }
+.info-card { background: #0d1b2a; border: 1px solid #1e3a5f; border-radius: 12px; padding: 16px; }
+.info-card h3 { color: #42a5f5; font-size: 1rem; margin-bottom: 10px; }
+.info-card p, .info-card li { font-size: 0.88rem; color: #90a4ae; line-height: 1.7; }
+.info-card ul { padding-left: 16px; margin-top: 4px; }
+
+table { width: 100%; border-collapse: collapse; margin: 14px 0; }
+th { background: #1565c0; color: #fff; padding: 10px 14px; text-align: left; font-size: 0.9rem; }
+td { padding: 10px 14px; border-bottom: 1px solid #1e3a5f; font-size: 0.88rem; color: #90a4ae; }
+td.hi { color: #42a5f5; font-weight: 700; }
+tr:hover td { background: #0d1b2a; }
+
+.sys-card { background: #0d1b2a; border: 1px solid #1e3a5f; border-radius: 12px; padding: 18px; margin-bottom: 14px; }
+.sys-card h3 { color: #ffcc02; font-size: 1.05rem; margin-bottom: 10px; }
+.sys-card p, .sys-card li { font-size: 0.88rem; color: #90a4ae; line-height: 1.8; }
+.sys-card ul { padding-left: 18px; margin-top: 6px; }
+
+.layer-bar { padding: 12px 16px; border-radius: 0 10px 10px 0; margin-bottom: 8px; }
+
+footer { text-align: center; padding: 28px; color: #37474f; font-size: 0.82rem; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>✈️ Aircraft Components</h1>
+  <p>SPTG 2026 Visual Study Guide — Click each part to learn more</p>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showSec('overview')">✈️ Aircraft Overview</button>
+  <button class="tab-btn" onclick="showSec('controls')">🕹️ Flight Controls</button>
+  <button class="tab-btn" onclick="showSec('engines')">🔥 Engines & Fuel</button>
+  <button class="tab-btn" onclick="showSec('systems')">⚙️ Aircraft Systems</button>
+  <button class="tab-btn" onclick="showSec('axes')">🔄 Axes & Atmosphere</button>
+</div>
+
+<div class="container">
+
+<!-- ============================
+     TAB 1: AIRCRAFT OVERVIEW
+     ============================ -->
+<div id="sec-overview" class="section active">
+  <div class="sec-title">✈️ Aircraft Diagram — Click a number card to learn</div>
+
+  <div class="plane-diagram-wrap">
+    <h2>Commercial Jet Aircraft — Top-down & Side View (Annotated)</h2>
+    <svg viewBox="0 0 920 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:380px">
+      <defs>
+        <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 Z" fill="#42a5f5"/>
+        </marker>
+      </defs>
+      <rect width="920" height="400" fill="#060d1a" rx="12"/>
+
+      <!-- ── FUSELAGE ── -->
+      <ellipse cx="450" cy="200" rx="260" ry="36" fill="#1565c0" stroke="#42a5f5" stroke-width="1.5" opacity="0.9"/>
+      <!-- nose -->
+      <path d="M710,200 Q750,200 790,200 Q800,187 810,200 Q800,213 790,200" fill="#1976d2" stroke="#42a5f5" stroke-width="1.5"/>
+      <!-- tail cone -->
+      <path d="M190,200 Q168,200 152,210 Q142,200 152,190 Q168,200 190,200" fill="#1976d2" stroke="#42a5f5" stroke-width="1.5"/>
+
+      <!-- windows -->
+      <rect x="540" y="189" width="15" height="11" rx="3" fill="#0d47a1" stroke="#42a5f5" stroke-width="0.8"/>
+      <rect x="563" y="189" width="15" height="11" rx="3" fill="#0d47a1" stroke="#42a5f5" stroke-width="0.8"/>
+      <rect x="586" y="189" width="15" height="11" rx="3" fill="#0d47a1" stroke="#42a5f5" stroke-width="0.8"/>
+      <rect x="609" y="189" width="15" height="11" rx="3" fill="#0d47a1" stroke="#42a5f5" stroke-width="0.8"/>
+      <rect x="632" y="189" width="15" height="11" rx="3" fill="#0d47a1" stroke="#42a5f5" stroke-width="0.8"/>
+      <rect x="655" y="189" width="15" height="11" rx="3" fill="#0d47a1" stroke="#42a5f5" stroke-width="0.8"/>
+      <rect x="678" y="189" width="15" height="11" rx="3" fill="#0d47a1" stroke="#42a5f5" stroke-width="0.8"/>
+      <!-- cockpit -->
+      <ellipse cx="778" cy="195" rx="12" ry="8" fill="#0a2a4a" stroke="#64b5f6" stroke-width="1.2"/>
+      <ellipse cx="793" cy="195" rx="9" ry="6" fill="#0a2a4a" stroke="#64b5f6" stroke-width="1"/>
+
+      <!-- ── MAIN WINGS ── -->
+      <!-- left wing -->
+      <path d="M490,200 L390,48 L475,90 L555,162 Z" fill="#1565c0" stroke="#42a5f5" stroke-width="1.5"/>
+      <!-- right wing -->
+      <path d="M490,200 L390,352 L475,310 L555,238 Z" fill="#1565c0" stroke="#42a5f5" stroke-width="1.5"/>
+
+      <!-- WINGLETS -->
+      <path d="M390,48 L376,26 L394,44 Z" fill="#42a5f5" stroke="#64b5f6" stroke-width="1.2"/>
+      <path d="M390,352 L376,374 L394,356 Z" fill="#42a5f5" stroke="#64b5f6" stroke-width="1.2"/>
+
+      <!-- AILERONS (outer trailing edge) — yellow -->
+      <path d="M408,65 L392,50 L403,90 L418,82 Z" fill="#ffcc02" stroke="#ffa000" stroke-width="1.2"/>
+      <path d="M408,335 L392,350 L403,310 L418,318 Z" fill="#ffcc02" stroke="#ffa000" stroke-width="1.2"/>
+
+      <!-- FLAPS (inner trailing edge) — red -->
+      <path d="M462,96 L450,83 L497,148 L510,137 Z" fill="#ef5350" stroke="#c62828" stroke-width="1.2"/>
+      <path d="M462,304 L450,317 L497,252 L510,263 Z" fill="#ef5350" stroke="#c62828" stroke-width="1.2"/>
+
+      <!-- SLATS (leading edge) — green -->
+      <path d="M398,60 L383,68 L422,104 L432,95 Z" fill="#66bb6a" stroke="#2e7d32" stroke-width="1.2"/>
+      <path d="M398,340 L383,332 L422,296 L432,305 Z" fill="#66bb6a" stroke="#2e7d32" stroke-width="1.2"/>
+
+      <!-- SPOILERS — purple -->
+      <path d="M438,99 L450,91 L472,117 L459,122 Z" fill="#ab47bc" stroke="#7b1fa2" stroke-width="1.2"/>
+      <path d="M438,301 L450,309 L472,283 L459,278 Z" fill="#ab47bc" stroke="#7b1fa2" stroke-width="1.2"/>
+
+      <!-- ── ENGINES ── -->
+      <!-- left engine -->
+      <ellipse cx="450" cy="116" rx="30" ry="17" fill="#0d47a1" stroke="#42a5f5" stroke-width="1.5"/>
+      <ellipse cx="450" cy="116" rx="15" ry="11" fill="#060d1a" stroke="#64b5f6" stroke-width="1"/>
+      <rect x="420" y="107" width="24" height="18" rx="4" fill="#1565c0" stroke="#42a5f5" stroke-width="1"/>
+      <!-- right engine -->
+      <ellipse cx="450" cy="284" rx="30" ry="17" fill="#0d47a1" stroke="#42a5f5" stroke-width="1.5"/>
+      <ellipse cx="450" cy="284" rx="15" ry="11" fill="#060d1a" stroke="#64b5f6" stroke-width="1"/>
+      <rect x="420" y="275" width="24" height="18" rx="4" fill="#1565c0" stroke="#42a5f5" stroke-width="1"/>
+
+      <!-- ── VERTICAL TAIL ── -->
+      <path d="M190,200 L197,200 L212,100 L188,138 Z" fill="#1976d2" stroke="#42a5f5" stroke-width="1.5"/>
+      <!-- RUDDER -->
+      <path d="M197,200 L203,200 L218,116 L212,100 Z" fill="#ef5350" stroke="#c62828" stroke-width="1.2"/>
+
+      <!-- ── HORIZONTAL STABILIZER ── -->
+      <path d="M190,200 L197,200 L210,158 L185,167 Z" fill="#1565c0" stroke="#42a5f5" stroke-width="1.5"/>
+      <path d="M190,200 L197,200 L210,242 L185,233 Z" fill="#1565c0" stroke="#42a5f5" stroke-width="1.5"/>
+      <!-- ELEVATORS -->
+      <path d="M197,200 L203,198 L213,161 L210,158 Z" fill="#66bb6a" stroke="#2e7d32" stroke-width="1.2"/>
+      <path d="M197,200 L203,202 L213,239 L210,242 Z" fill="#66bb6a" stroke="#2e7d32" stroke-width="1.2"/>
+
+      <!-- ── LANDING GEAR ── -->
+      <line x1="450" y1="236" x2="450" y2="264" stroke="#546e7a" stroke-width="3"/>
+      <ellipse cx="450" cy="267" rx="13" ry="5" fill="#37474f" stroke="#546e7a" stroke-width="1.5"/>
+      <line x1="478" y1="236" x2="478" y2="258" stroke="#546e7a" stroke-width="3"/>
+      <ellipse cx="478" cy="261" rx="13" ry="5" fill="#37474f" stroke="#546e7a" stroke-width="1.5"/>
+      <!-- Nose gear -->
+      <line x1="720" y1="210" x2="720" y2="232" stroke="#546e7a" stroke-width="2.5"/>
+      <ellipse cx="720" cy="235" rx="9" ry="4" fill="#37474f" stroke="#546e7a" stroke-width="1.5"/>
+
+      <!-- ── CALLOUT NUMBERS ── -->
+      <circle cx="520" cy="168" r="13" fill="#0d47a1" stroke="#42a5f5" stroke-width="1.5"/>
+      <text x="520" y="173" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">1</text>
+
+      <circle cx="445" cy="82" r="13" fill="#1565c0" stroke="#42a5f5" stroke-width="1.5"/>
+      <text x="445" y="87" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">2</text>
+
+      <circle cx="394" cy="59" r="13" fill="#4a3000" stroke="#ffcc02" stroke-width="1.5"/>
+      <text x="394" y="64" text-anchor="middle" fill="#ffcc02" font-size="12" font-weight="bold">3</text>
+
+      <circle cx="476" cy="108" r="13" fill="#3e0f0f" stroke="#ef5350" stroke-width="1.5"/>
+      <text x="476" y="113" text-anchor="middle" fill="#ef5350" font-size="12" font-weight="bold">4</text>
+
+      <circle cx="413" cy="94" r="13" fill="#1b3a1b" stroke="#66bb6a" stroke-width="1.5"/>
+      <text x="413" y="99" text-anchor="middle" fill="#66bb6a" font-size="12" font-weight="bold">5</text>
+
+      <circle cx="460" cy="90" r="13" fill="#3a0a4a" stroke="#ab47bc" stroke-width="1.5"/>
+      <text x="460" y="95" text-anchor="middle" fill="#ab47bc" font-size="12" font-weight="bold">6</text>
+
+      <circle cx="424" cy="108" r="13" fill="#0d2a6b" stroke="#64b5f6" stroke-width="1.5"/>
+      <text x="424" y="113" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">7</text>
+
+      <circle cx="366" cy="28" r="13" fill="#0d3a5f" stroke="#42a5f5" stroke-width="1.5"/>
+      <text x="366" y="33" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">8</text>
+
+      <circle cx="192" cy="118" r="13" fill="#1a0a0a" stroke="#ef9a9a" stroke-width="1.5"/>
+      <text x="192" y="123" text-anchor="middle" fill="#ef9a9a" font-size="12" font-weight="bold">9</text>
+
+      <circle cx="208" cy="140" r="13" fill="#3e0f0f" stroke="#ef5350" stroke-width="1.5"/>
+      <text x="208" y="145" text-anchor="middle" fill="#ef5350" font-size="12" font-weight="bold">10</text>
+
+      <circle cx="200" cy="180" r="13" fill="#1b3a1b" stroke="#66bb6a" stroke-width="1.5"/>
+      <text x="200" y="185" text-anchor="middle" fill="#66bb6a" font-size="12" font-weight="bold">11</text>
+
+      <circle cx="462" cy="260" r="13" fill="#2a2a2a" stroke="#546e7a" stroke-width="1.5"/>
+      <text x="462" y="265" text-anchor="middle" fill="#90a4ae" font-size="12" font-weight="bold">12</text>
+
+      <circle cx="790" cy="178" r="13" fill="#0d47a1" stroke="#90caf9" stroke-width="1.5"/>
+      <text x="790" y="183" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">13</text>
+
+      <!-- LEGEND -->
+      <rect x="15" y="362" width="890" height="32" rx="6" fill="#0d1b2a" opacity="0.85"/>
+      <circle cx="38" cy="378" r="5" fill="#4a3000" stroke="#ffcc02" stroke-width="1.5"/>
+      <text x="48" y="382" fill="#ffcc02" font-size="10">Aileron</text>
+      <circle cx="102" cy="378" r="5" fill="#3e0f0f" stroke="#ef5350" stroke-width="1.5"/>
+      <text x="112" y="382" fill="#ef5350" font-size="10">Flap / Rudder</text>
+      <circle cx="196" cy="378" r="5" fill="#1b3a1b" stroke="#66bb6a" stroke-width="1.5"/>
+      <text x="206" y="382" fill="#66bb6a" font-size="10">Slat / Elevator</text>
+      <circle cx="290" cy="378" r="5" fill="#3a0a4a" stroke="#ab47bc" stroke-width="1.5"/>
+      <text x="300" y="382" fill="#ab47bc" font-size="10">Spoiler</text>
+      <circle cx="355" cy="378" r="5" fill="#0d2a6b" stroke="#42a5f5" stroke-width="1.5"/>
+      <text x="365" y="382" fill="#42a5f5" font-size="10">Engine / Structure</text>
+      <text x="530" y="382" fill="#546e7a" font-size="10" text-anchor="middle">▼ Click a number card below to see the explanation</text>
+    </svg>
+  </div>
+
+  <!-- CLICKABLE LABEL CARDS -->
+  <div class="labels-grid">
+
+    <div class="label-card" onclick="toggleCard(this)">
+      <div class="card-title"><span class="num" style="background:#0d47a1;color:#fff">1</span>Fuselage</div>
+      <div class="card-sub">Main body of the aircraft</div>
+      <div class="detail-box">
+        <strong>🔵 Fuselage</strong><br><br>
+        The central structural body of the aircraft. Everything else attaches to it. Contains:<br>
+        • <strong>Cockpit</strong> — flight deck for pilots<br>
+        • <strong>Passenger Cabin</strong> — main cabin<br>
+        • <strong>Cargo Hold</strong> — baggage & freight<br>
+        • Fuel, hydraulic, and electrical systems run through it<br><br>
+        <strong>Materials:</strong> Aluminum alloy (traditional) or Carbon Fiber Reinforced Polymer / CFRP (modern — e.g., Boeing 787)
+      </div>
+    </div>
+
+    <div class="label-card" onclick="toggleCard(this)">
+      <div class="card-title"><span class="num" style="background:#1565c0;color:#fff">2</span>Main Wing</div>
+      <div class="card-sub">Generates lift to fly</div>
+      <div class="detail-box">
+        <strong>🔵 Main Wing</strong><br><br>
+        The wing generates <strong>Lift</strong> by using Bernoulli's principle — air moves faster over the curved upper surface, creating lower pressure. This pressure difference pulls the wing upward.<br><br>
+        <span class="warn">⚠️ Lift Equation: L = CL × ½ρv²S</span><br><br>
+        Wing tanks also store jet fuel. Typical commercial aircraft has a <strong>swept wing</strong> design to reduce drag at high subsonic speeds.
+      </div>
+    </div>
+
+    <div class="label-card" onclick="toggleCard(this)">
+      <div class="card-title"><span class="num" style="background:#4a3000;color:#ffcc02">3</span>Aileron</div>
+      <div class="card-sub">Controls ROLL</div>
+      <div class="detail-box">
+        <strong>🟡 Aileron</strong><br><br>
+        Located on the <strong>outer trailing edge</strong> of each wing. They work in opposite directions — one goes up while the other goes down, tilting (rolling) the aircraft.<br><br>
+        <span class="tag-key">Controls</span> <strong>ROLL</strong><br>
+        <span class="tag-key">Axis</span> <strong>Longitudinal Axis</strong> (nose to tail)<br><br>
+        <span class="warn">⚠️ Exam key: Aileron = Roll = Longitudinal Axis</span>
+      </div>
+    </div>
+
+    <div class="label-card" onclick="toggleCard(this)">
+      <div class="card-title"><span class="num" style="background:#3e0f0f;color:#ef5350">4</span>Flap</div>
+      <div class="card-sub">Increases Lift + Drag</div>
+      <div class="detail-box">
+        <strong>🔴 Flap</strong><br><br>
+        Located on the <strong>inner trailing edge</strong> of each wing. When extended, flaps:<br>
+        • Increase <strong>Lift</strong> (raise the coefficient of lift)<br>
+        • Increase <strong>Drag</strong> (slow the aircraft down)<br>
+        • Allow flight at lower airspeeds without stalling<br><br>
+        <strong>Used during:</strong> Takeoff (partial) and Landing (full)<br><br>
+        <span class="warn">⚠️ Flap = Trailing Edge | Slat = Leading Edge</span>
+      </div>
+    </div>
+
+    <div class="label-card" onclick="toggleCard(this)">
+      <div class="card-title"><span class="num" style="background:#1b3a1b;color:#66bb6a">5</span>Slat</div>
+      <div class="card-sub">Increases low-speed Lift</div>
+      <div class="detail-box">
+        <strong>🟢 Slat (Leading Edge Slat)</strong><br><br>
+        Extends from the <strong>leading edge</strong> (front) of the wing. When extended, slats:<br>
+        • Increase wing camber and chord<br>
+        • Raise maximum Coefficient of Lift (CL max)<br>
+        • Prevent stall by allowing a higher angle of attack<br><br>
+        <strong>Used during:</strong> Takeoff and Landing<br><br>
+        <span class="warn">⚠️ Primary function: Increase lift at low-speed operations</span>
+      </div>
+    </div>
+
+    <div class="label-card" onclick="toggleCard(this)">
+      <div class="card-title"><span class="num" style="background:#3a0a4a;color:#ab47bc">6</span>Spoiler</div>
+      <div class="card-sub">Destroys Lift / Air Brake</div>
+      <div class="detail-box">
+        <strong>🟣 Spoiler</strong><br><br>
+        Panels that rise from the <strong>upper wing surface</strong>. Three roles:<br>
+        • <strong>Ground Spoiler</strong> — deployed fully after touchdown, destroys all remaining lift so the full aircraft weight loads the wheels for maximum braking<br>
+        • <strong>Flight Spoiler</strong> — assists ailerons for roll control<br>
+        • <strong>Speed Brake</strong> — deployed during descent to reduce speed without changing thrust<br>
+      </div>
+    </div>
+
+    <div class="label-card" onclick="toggleCard(this)">
+      <div class="card-title"><span class="num" style="background:#0d2a6b;color:#fff">7</span>Engine</div>
+      <div class="card-sub">Generates Thrust</div>
+      <div class="detail-box">
+        <strong>🔵 Turbofan Jet Engine</strong><br><br>
+        How it works: <em>Suck → Squeeze → Bang → Blow</em><br>
+        • <strong>Fan</strong> — draws air in, most bypasses the core (bypass air = most of thrust)<br>
+        • <strong>Compressor</strong> — squeezes air to high pressure<br>
+        • <strong>Combustion Chamber</strong> — fuel burns, gases expand<br>
+        • <strong>Turbine</strong> — extracts energy to spin compressor + fan<br>
+        • <strong>Nozzle</strong> — expels hot gas backward → thrust forward<br><br>
+        <span class="warn">⚠️ Thai Airways A321neo engine: CFM LEAP-1A</span>
+      </div>
+    </div>
+
+    <div class="label-card" onclick="toggleCard(this)">
+      <div class="card-title"><span class="num" style="background:#0d3a5f;color:#fff">8</span>Winglet</div>
+      <div class="card-sub">Reduces induced drag</div>
+      <div class="detail-box">
+        <strong>🔵 Winglet (Sharklet on Airbus)</strong><br><br>
+        Upturned wingtip extensions that reduce <strong>induced drag</strong> caused by wingtip vortices (spiraling air where high pressure under the wing meets low pressure above).<br><br>
+        <strong>Benefits:</strong><br>
+        • Reduces fuel burn by <strong>3–5%</strong><br>
+        • Does NOT increase thrust<br>
+        • Does NOT control yaw<br><br>
+        Types: Sharklet (A320neo), Split-tip (737 MAX), Blended Winglet (737 NG)
+      </div>
+    </div>
+
+    <div class="label-card" onclick="toggleCard(this)">
+      <div class="card-title"><span class="num" style="background:#1a0a0a;color:#ef9a9a">9</span>Vertical Stabilizer</div>
+      <div class="card-sub">Directional stability</div>
+      <div class="detail-box">
+        <strong>🔴 Vertical Stabilizer (Fin)</strong><br><br>
+        The upright tail fin. Provides <strong>directional stability</strong> — keeps the nose from yawing (swinging) left and right on its own.<br><br>
+        Without a vertical stabilizer, the aircraft would weathervane uncontrollably.<br><br>
+        The <strong>Rudder</strong> is hinged to the trailing edge of the vertical stabilizer.
+      </div>
+    </div>
+
+    <div class="label-card" onclick="toggleCard(this)">
+      <div class="card-title"><span class="num" style="background:#3e0f0f;color:#ef5350">10</span>Rudder</div>
+      <div class="card-sub">Controls YAW</div>
+      <div class="detail-box">
+        <strong>🔴 Rudder</strong><br><br>
+        Hinged to the vertical stabilizer (tail fin). Controlled by <strong>rudder pedals</strong> at the pilot's feet.<br><br>
+        <span class="tag-key">Controls</span> <strong>YAW</strong> (nose swings left / right)<br>
+        <span class="tag-key">Axis</span> <strong>Vertical Axis</strong> (top to bottom)<br><br>
+        <strong>Uses:</strong><br>
+        • Crosswind landing corrections<br>
+        • Coordinating turns with ailerons<br>
+        • Engine-out asymmetric thrust compensation<br><br>
+        <span class="warn">⚠️ Exam key: Rudder = Yaw = Vertical Axis</span>
+      </div>
+    </div>
+
+    <div class="label-card" onclick="toggleCard(this)">
+      <div class="card-title"><span class="num" style="background:#1b3a1b;color:#66bb6a">11</span>Elevator</div>
+      <div class="card-sub">Controls PITCH</div>
+      <div class="detail-box">
+        <strong>🟢 Elevator</strong><br><br>
+        Hinged to the horizontal stabilizer (horizontal tail). Controlled by pulling/pushing the yoke or sidestick.<br><br>
+        <span class="tag-key">Controls</span> <strong>PITCH</strong> (nose up / down)<br>
+        <span class="tag-key">Axis</span> <strong>Lateral Axis</strong> (wingtip to wingtip)<br><br>
+        Pull yoke back → Elevator up → Nose pitches UP (climb)<br>
+        Push yoke forward → Elevator down → Nose pitches DOWN (descend)<br><br>
+        <span class="warn">⚠️ Exam key: Elevator = Pitch = Lateral Axis</span>
+      </div>
+    </div>
+
+    <div class="label-card" onclick="toggleCard(this)">
+      <div class="card-title"><span class="num" style="background:#2a2a2a;color:#90a4ae">12</span>Landing Gear</div>
+      <div class="card-sub">Supports weight on ground</div>
+      <div class="detail-box">
+        <strong>⚙️ Landing Gear</strong><br><br>
+        <strong>Tricycle configuration</strong> (most common in commercial jets):<br>
+        • <strong>Nose Gear</strong> — under the nose, steerable for taxiing<br>
+        • <strong>Main Gear</strong> — under the wings/fuselage, absorbs landing loads<br><br>
+        After takeoff, gear is <strong>retracted</strong> (raised) to reduce aerodynamic drag.<br>
+        Systems: Hydraulic extension/retraction, anti-skid brakes, and a gear warning horn.
+      </div>
+    </div>
+
+    <div class="label-card" onclick="toggleCard(this)">
+      <div class="card-title"><span class="num" style="background:#0d47a1;color:#fff">13</span>Cockpit (Flight Deck)</div>
+      <div class="card-sub">Pilot control center</div>
+      <div class="detail-box">
+        <strong>🔵 Cockpit / Flight Deck</strong><br><br>
+        Key instruments and controls:<br>
+        • <strong>PFD</strong> (Primary Flight Display) — speed, altitude, attitude, heading<br>
+        • <strong>ND</strong> (Navigation Display) — map, route, weather<br>
+        • <strong>FCU/MCP</strong> — autopilot control panel<br>
+        • <strong>Overhead Panel</strong> — all aircraft system switches<br>
+        • <strong>Thrust Levers</strong> — engine power (throttle)<br>
+        • <strong>Yoke or Sidestick</strong> — controls Roll (aileron) and Pitch (elevator)
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================
+     TAB 2: FLIGHT CONTROLS
+     ============================ -->
+<div id="sec-controls" class="section">
+  <div class="sec-title">🕹️ Flight Control Surfaces</div>
+
+  <div class="plane-diagram-wrap">
+    <h2>Primary Flight Controls vs Secondary Flight Controls</h2>
+    <svg viewBox="0 0 820 290" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:280px">
+      <rect width="820" height="290" fill="#060d1a" rx="10"/>
+
+      <!-- PRIMARY (left) -->
+      <rect x="18" y="18" width="370" height="254" rx="12" fill="#0d1b2a" stroke="#1565c0" stroke-width="1.5"/>
+      <text x="203" y="42" text-anchor="middle" fill="#42a5f5" font-size="14" font-weight="bold">PRIMARY FLIGHT CONTROLS</text>
+      <text x="203" y="56" text-anchor="middle" fill="#546e7a" font-size="11">3 Surfaces — directly control attitude</text>
+
+      <!-- Aileron row -->
+      <rect x="32" y="66" width="344" height="56" rx="8" fill="#4a3000" stroke="#ffcc02" stroke-width="1.5"/>
+      <text x="80" y="88" fill="#ffcc02" font-size="13" font-weight="bold">AILERON</text>
+      <text x="80" y="104" fill="#ffa726" font-size="11">→ ROLL   ·   Longitudinal Axis (nose–tail)</text>
+      <text x="80" y="116" fill="#546e7a" font-size="10">Location: outer trailing edge of wing</text>
+      <text x="46" y="98" fill="#ffcc02" font-size="22" text-anchor="middle">↔</text>
+
+      <!-- Elevator row -->
+      <rect x="32" y="130" width="344" height="56" rx="8" fill="#1b3a1b" stroke="#66bb6a" stroke-width="1.5"/>
+      <text x="80" y="152" fill="#66bb6a" font-size="13" font-weight="bold">ELEVATOR</text>
+      <text x="80" y="168" fill="#81c784" font-size="11">→ PITCH   ·   Lateral Axis (wingtip–wingtip)</text>
+      <text x="80" y="180" fill="#546e7a" font-size="10">Location: horizontal stabilizer (tail)</text>
+      <text x="46" y="162" fill="#66bb6a" font-size="22" text-anchor="middle">↕</text>
+
+      <!-- Rudder row -->
+      <rect x="32" y="194" width="344" height="56" rx="8" fill="#3e0f0f" stroke="#ef5350" stroke-width="1.5"/>
+      <text x="80" y="216" fill="#ef5350" font-size="13" font-weight="bold">RUDDER</text>
+      <text x="80" y="232" fill="#ef9a9a" font-size="11">→ YAW   ·   Vertical Axis (top–bottom)</text>
+      <text x="80" y="244" fill="#546e7a" font-size="10">Location: vertical stabilizer (tail fin)</text>
+      <text x="46" y="226" fill="#ef5350" font-size="22" text-anchor="middle">↺</text>
+
+      <!-- SECONDARY (right) -->
+      <rect x="432" y="18" width="370" height="254" rx="12" fill="#0d1b2a" stroke="#546e7a" stroke-width="1.5"/>
+      <text x="617" y="42" text-anchor="middle" fill="#90a4ae" font-size="14" font-weight="bold">SECONDARY FLIGHT CONTROLS</text>
+      <text x="617" y="56" text-anchor="middle" fill="#546e7a" font-size="11">Lift devices, drag devices, and drag reducers</text>
+
+      <!-- Flaps -->
+      <rect x="446" y="68" width="342" height="44" rx="8" fill="#1a0a00" stroke="#ffa726" stroke-width="1.5"/>
+      <text x="466" y="86" fill="#ffa726" font-size="12" font-weight="bold">FLAPS</text>
+      <text x="466" y="101" fill="#78909c" font-size="10">Trailing edge · Increases Lift + Drag · Takeoff &amp; Landing</text>
+
+      <!-- Slats -->
+      <rect x="446" y="120" width="342" height="44" rx="8" fill="#1b3a1b" stroke="#66bb6a" stroke-width="1.2"/>
+      <text x="466" y="138" fill="#66bb6a" font-size="12" font-weight="bold">SLATS</text>
+      <text x="466" y="153" fill="#78909c" font-size="10">Leading edge · Increases lift at low speed · Prevents stall</text>
+
+      <!-- Spoilers -->
+      <rect x="446" y="172" width="342" height="44" rx="8" fill="#3a0a4a" stroke="#ab47bc" stroke-width="1.2"/>
+      <text x="466" y="190" fill="#ab47bc" font-size="12" font-weight="bold">SPOILERS</text>
+      <text x="466" y="205" fill="#78909c" font-size="10">Upper wing surface · Destroys lift / speed brake / roll assist</text>
+
+      <!-- Winglets -->
+      <rect x="446" y="224" width="342" height="44" rx="8" fill="#0d2a4a" stroke="#42a5f5" stroke-width="1.2"/>
+      <text x="466" y="242" fill="#42a5f5" font-size="12" font-weight="bold">WINGLETS</text>
+      <text x="466" y="257" fill="#78909c" font-size="10">Wingtip · Reduces induced drag · Saves 3–5% fuel</text>
+    </svg>
+  </div>
+
+  <div class="sec-title" style="margin-top:28px">🔄 3 Axes of Flight — Summary Table</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Motion</th>
+        <th>Name</th>
+        <th>Axis</th>
+        <th>Controlled By</th>
+        <th>Pilot Input</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Wings tilt left / right</td>
+        <td class="hi">ROLL</td>
+        <td>Longitudinal (nose → tail)</td>
+        <td class="hi">Aileron</td>
+        <td>Rotate yoke / tilt sidestick</td>
+      </tr>
+      <tr>
+        <td>Nose pitches up / down</td>
+        <td class="hi">PITCH</td>
+        <td>Lateral (wingtip → wingtip)</td>
+        <td class="hi">Elevator</td>
+        <td>Pull / push yoke or sidestick</td>
+      </tr>
+      <tr>
+        <td>Nose swings left / right</td>
+        <td class="hi">YAW</td>
+        <td>Vertical (top → bottom)</td>
+        <td class="hi">Rudder</td>
+        <td>Press left / right rudder pedals</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="sys-card" style="border-color:#ffcc02;margin-top:16px">
+    <h3>🧠 Memory Trick: A–E–R = Roll, Pitch, Yaw</h3>
+    <p>
+      <strong style="color:#ffcc02;font-size:1.1rem">A</strong>ileron → <strong>R</strong>oll → <strong>L</strong>ongitudinal Axis &nbsp;|&nbsp;
+      <strong style="color:#66bb6a;font-size:1.1rem">E</strong>levator → <strong>P</strong>itch → <strong>L</strong>ateral Axis &nbsp;|&nbsp;
+      <strong style="color:#ef5350;font-size:1.1rem">R</strong>udder → <strong>Y</strong>aw → <strong>V</strong>ertical Axis
+    </p>
+    <p style="margin-top:8px;color:#546e7a">Or: <strong style="color:#fff">APE → RPY → LLV</strong> (Aileron/Pitch/Elevator — Roll/Pitch/Yaw — Longitudinal/Lateral/Vertical)</p>
+  </div>
+</div>
+
+<!-- ============================
+     TAB 3: ENGINES & FUEL
+     ============================ -->
+<div id="sec-engines" class="section">
+  <div class="sec-title">🔥 Turbofan Jet Engine</div>
+
+  <div class="plane-diagram-wrap">
+    <h2>Turbofan Engine — Cross-section (Suck · Squeeze · Bang · Blow)</h2>
+    <svg viewBox="0 0 820 270" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:260px">
+      <rect width="820" height="270" fill="#060d1a" rx="10"/>
+
+      <!-- Engine nacelle outline -->
+      <rect x="135" y="82" width="560" height="104" fill="#0d1b2a" stroke="#42a5f5" stroke-width="1.5"/>
+      <!-- Nose inlet curve -->
+      <path d="M135,82 Q65,92 42,134 Q65,176 135,186" fill="#0d1b2a" stroke="#42a5f5" stroke-width="1.5"/>
+      <!-- Tail nozzle taper -->
+      <path d="M695,82 L810,90 L810,178 L695,186 Z" fill="#1a0a0a" stroke="#ef9a9a" stroke-width="1.2"/>
+
+      <!-- BYPASS AIR arrow (over nacelle) -->
+      <path d="M135,60 Q450,40 695,60" fill="none" stroke="#42a5f5" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="400" y="52" text-anchor="middle" fill="#42a5f5" font-size="10">Bypass Air flow (cold — provides ~75% of thrust in high-bypass turbofan)</text>
+
+      <!-- ① FAN -->
+      <ellipse cx="108" cy="134" rx="58" ry="58" fill="#0d2a4a" stroke="#42a5f5" stroke-width="2"/>
+      <line x1="108" y1="76" x2="108" y2="192" stroke="#42a5f5" stroke-width="3.5"/>
+      <line x1="50" y1="134" x2="166" y2="134" stroke="#42a5f5" stroke-width="3.5"/>
+      <line x1="67" y1="93" x2="149" y2="175" stroke="#42a5f5" stroke-width="3"/>
+      <line x1="149" y1="93" x2="67" y2="175" stroke="#42a5f5" stroke-width="3"/>
+      <ellipse cx="108" cy="134" rx="20" ry="20" fill="#1565c0" stroke="#42a5f5" stroke-width="2"/>
+      <!-- label -->
+      <rect x="20" y="12" width="70" height="22" rx="5" fill="#0d47a1"/>
+      <text x="55" y="27" text-anchor="middle" fill="#fff" font-size="12" font-weight="bold">① FAN</text>
+      <line x1="55" y1="34" x2="75" y2="78" stroke="#42a5f5" stroke-width="1" stroke-dasharray="3,3"/>
+
+      <!-- ② COMPRESSOR -->
+      <rect x="168" y="95" width="130" height="78" rx="4" fill="#0d2a4a" stroke="#42a5f5" stroke-width="1.2"/>
+      <line x1="195" y1="95" x2="195" y2="173" stroke="#42a5f5" stroke-width="1"/>
+      <line x1="222" y1="95" x2="222" y2="173" stroke="#42a5f5" stroke-width="1"/>
+      <line x1="249" y1="95" x2="249" y2="173" stroke="#42a5f5" stroke-width="1"/>
+      <line x1="276" y1="95" x2="276" y2="173" stroke="#42a5f5" stroke-width="1"/>
+      <rect x="168" y="12" width="115" height="22" rx="5" fill="#0d47a1"/>
+      <text x="226" y="27" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">② COMPRESSOR</text>
+      <line x1="226" y1="34" x2="226" y2="95" stroke="#42a5f5" stroke-width="1" stroke-dasharray="3,3"/>
+
+      <!-- ③ COMBUSTION -->
+      <rect x="302" y="90" width="138" height="88" rx="6" fill="#3e0f0f" stroke="#ef5350" stroke-width="1.5"/>
+      <ellipse cx="371" cy="134" rx="36" ry="29" fill="#4a1500" stroke="#ffa726" stroke-width="1.5"/>
+      <text x="371" y="140" text-anchor="middle" font-size="24">🔥</text>
+      <rect x="310" y="12" width="120" height="22" rx="5" fill="#3e0f0f" stroke="#ef5350" stroke-width="1"/>
+      <text x="370" y="27" text-anchor="middle" fill="#ef5350" font-size="11" font-weight="bold">③ COMBUSTION</text>
+      <line x1="370" y1="34" x2="370" y2="90" stroke="#ef5350" stroke-width="1" stroke-dasharray="3,3"/>
+
+      <!-- ④ TURBINE -->
+      <rect x="444" y="95" width="130" height="78" rx="4" fill="#2a1a00" stroke="#ffa726" stroke-width="1.2"/>
+      <line x1="470" y1="95" x2="470" y2="173" stroke="#ffa726" stroke-width="1.5"/>
+      <line x1="500" y1="95" x2="500" y2="173" stroke="#ffa726" stroke-width="1.5"/>
+      <line x1="530" y1="95" x2="530" y2="173" stroke="#ffa726" stroke-width="1.5"/>
+      <line x1="560" y1="95" x2="560" y2="173" stroke="#ffa726" stroke-width="1.5"/>
+      <rect x="450" y="12" width="105" height="22" rx="5" fill="#4a3000"/>
+      <text x="502" y="27" text-anchor="middle" fill="#ffa726" font-size="11" font-weight="bold">④ TURBINE</text>
+      <line x1="502" y1="34" x2="502" y2="95" stroke="#ffa726" stroke-width="1" stroke-dasharray="3,3"/>
+
+      <!-- ⑤ NOZZLE -->
+      <rect x="576" y="12" width="100" height="22" rx="5" fill="#3e0a0a" stroke="#ef9a9a" stroke-width="1"/>
+      <text x="626" y="27" text-anchor="middle" fill="#ef9a9a" font-size="11" font-weight="bold">⑤ NOZZLE</text>
+      <line x1="626" y1="34" x2="700" y2="90" stroke="#ef9a9a" stroke-width="1" stroke-dasharray="3,3"/>
+
+      <!-- Exhaust arrows -->
+      <line x1="810" y1="134" x2="780" y2="134" stroke="#ef5350" stroke-width="4"/>
+      <polygon points="810,127 826,134 810,141" fill="#ef5350"/>
+      <line x1="800" y1="118" x2="775" y2="108" stroke="#ffa726" stroke-width="2"/>
+      <line x1="800" y1="150" x2="775" y2="160" stroke="#ffa726" stroke-width="2"/>
+      <text x="826" y="130" fill="#ef5350" font-size="11" font-weight="bold">THRUST</text>
+      <text x="826" y="144" fill="#ef9a9a" font-size="10">→ Forward</text>
+
+      <!-- Air intake arrow -->
+      <path d="M0,134 L35,134" stroke="#90caf9" stroke-width="2.5"/>
+      <polygon points="35,128 48,134 35,140" fill="#90caf9"/>
+      <text x="5" y="124" fill="#90caf9" font-size="10">AIR IN</text>
+    </svg>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>① Fan</h3>
+      <p>Large front blades draw air in. Most air <strong>bypasses</strong> the core and is accelerated directly — this bypass air produces the majority of thrust in high-bypass turbofans. Also quieter and more fuel-efficient.</p>
+    </div>
+    <div class="info-card">
+      <h3>② Compressor</h3>
+      <p>Multiple stages of rotating blades compress air to 30–40× atmospheric pressure. Split into <strong>LPC</strong> (Low Pressure) and <strong>HPC</strong> (High Pressure) sections. Compresses air before combustion.</p>
+    </div>
+    <div class="info-card">
+      <h3>③ Combustion Chamber</h3>
+      <p>Fuel (Jet A-1) is injected and ignited with compressed air. Temperatures reach <strong>1,600–2,000°C</strong>. Hot expanding gases rush into the turbine section at high velocity.</p>
+    </div>
+    <div class="info-card">
+      <h3>④ Turbine</h3>
+      <p>Extracts energy from hot exhaust gases to drive the compressor and fan via a central shaft. Consists of <strong>HPT</strong> (High Pressure Turbine) and <strong>LPT</strong> (Low Pressure Turbine).</p>
+    </div>
+    <div class="info-card">
+      <h3>⑤ Nozzle (Exhaust)</h3>
+      <p>Accelerates remaining exhaust gases rearward. By Newton's 3rd Law (action–reaction), this generates <strong>thrust</strong> pushing the aircraft forward.</p>
+    </div>
+    <div class="info-card">
+      <h3>✈️ Thai Airways A321neo Engine</h3>
+      <p>Engine: <strong style="color:#42a5f5">CFM LEAP-1A</strong><br>
+      Made by CFM International (GE + Safran)<br>
+      ~15–20% more fuel efficient than the CFM56 (CEO)<br>
+      High bypass ratio = quieter + cleaner emissions</p>
+    </div>
+  </div>
+
+  <div class="sec-title" style="margin-top:20px">⛽ Jet Fuel Types</div>
+  <table>
+    <thead>
+      <tr><th>Fuel Type</th><th>Where Used</th><th>Freeze Point</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="hi">Jet A-1</td><td>International standard (Thailand, worldwide)</td><td class="hi">−47°C</td><td>Most common globally</td></tr>
+      <tr><td>Jet A</td><td>USA primarily</td><td>−40°C</td><td>Higher freeze point than A-1</td></tr>
+      <tr><td>Jet B</td><td>Extreme cold weather operations</td><td>−60°C</td><td>Wide-cut fuel, more volatile</td></tr>
+      <tr><td>Avgas 100LL</td><td>Piston-engine light aircraft</td><td>—</td><td>NOT for jet engines!</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============================
+     TAB 4: AIRCRAFT SYSTEMS
+     ============================ -->
+<div id="sec-systems" class="section">
+  <div class="sec-title">⚙️ Key Aircraft Systems</div>
+
+  <div class="info-grid">
+    <div class="sys-card">
+      <h3>🟠 CVR — Cockpit Voice Recorder</h3>
+      <p>Part of the "black box" (actually bright orange).</p>
+      <ul>
+        <li>Records last <strong>2 hours</strong> of cockpit audio</li>
+        <li>Captures crew speech, radio calls, background sounds (alarms, switches)</li>
+        <li>Microphone in the cockpit ceiling area</li>
+        <li>Survives: fire (1,100°C/30 min), impact (3,400 G), water (6,000 m depth)</li>
+      </ul>
+    </div>
+    <div class="sys-card">
+      <h3>🟠 FDR — Flight Data Recorder</h3>
+      <p>Part of the "black box" (also bright orange).</p>
+      <ul>
+        <li>Records <strong>88+ parameters</strong> for the last <strong>25 hours</strong></li>
+        <li>Parameters include: altitude, airspeed, heading, vertical acceleration, control surface positions, engine data</li>
+        <li>Same survival specs as CVR</li>
+        <li>Both units emit an <strong>Underwater Locator Beacon (ULB)</strong> for 30 days after immersion</li>
+      </ul>
+    </div>
+    <div class="sys-card">
+      <h3>📡 ELT — Emergency Locator Transmitter</h3>
+      <ul>
+        <li>Automatically activates on <strong>impact</strong></li>
+        <li>Transmits on <strong>406 MHz</strong> to Cospas-Sarsat satellites</li>
+        <li>Also transmits on <strong>121.5 MHz</strong> (guard frequency — backup)</li>
+        <li>Helps SAR (Search & Rescue) teams pinpoint a crash site</li>
+        <li>Required on all commercial aircraft</li>
+      </ul>
+    </div>
+    <div class="sys-card">
+      <h3>🛡️ Hydraulic System</h3>
+      <ul>
+        <li>High-pressure fluid (typically ~3,000 psi) powers heavy moving parts</li>
+        <li>Moves: Flight control surfaces, landing gear, flaps & slats, wheel brakes, thrust reversers</li>
+        <li>A320/A321 has <strong>3 independent hydraulic systems</strong>: Green, Blue, Yellow (redundancy)</li>
+      </ul>
+    </div>
+    <div class="sys-card">
+      <h3>⚡ Electrical System</h3>
+      <ul>
+        <li><strong>IDG</strong> (Integrated Drive Generator) — engine-driven generator, primary source</li>
+        <li><strong>APU</strong> (Auxiliary Power Unit) — small tail-mounted engine, used on ground and as backup</li>
+        <li><strong>External Power</strong> — Ground Power Unit (GPU) at the gate</li>
+        <li><strong>Battery</strong> — emergency backup</li>
+        <li><strong>RAT</strong> (Ram Air Turbine) — deploys in total electrical failure to power essential systems</li>
+      </ul>
+    </div>
+    <div class="sys-card">
+      <h3>🌡️ Pressurization System</h3>
+      <ul>
+        <li>At 35,000 ft, outside air is too thin to breathe</li>
+        <li>Bleed air from the compressor is used to pressurize the cabin</li>
+        <li>Cabin altitude maintained at equivalent of <strong>6,000–8,000 ft</strong></li>
+        <li>B787 exception: uses electric compressors → higher humidity → more comfortable</li>
+        <li>Pressure differential across the fuselage skin is constantly managed</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec-title" style="margin-top:20px">🏗️ Boeing 787 Dreamliner — Structural Materials</div>
+  <div class="plane-diagram-wrap">
+    <svg viewBox="0 0 720 185" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:185px">
+      <rect width="720" height="185" fill="#060d1a" rx="10"/>
+      <text x="360" y="22" text-anchor="middle" fill="#42a5f5" font-size="13" font-weight="bold">Boeing 787 Dreamliner — Material Breakdown by Weight</text>
+
+      <!-- Composites bar: 50% of 580px = 290px -->
+      <rect x="30" y="36" width="290" height="32" rx="5" fill="#1565c0" stroke="#42a5f5" stroke-width="1.5"/>
+      <text x="40" y="57" fill="#fff" font-size="12" font-weight="bold">Composites (CFRP)</text>
+      <text x="330" y="57" fill="#42a5f5" font-size="16" font-weight="bold">50%</text>
+
+      <!-- Aluminum: 20% = 116px -->
+      <rect x="30" y="78" width="116" height="28" rx="5" fill="#1976d2" stroke="#42a5f5" stroke-width="1"/>
+      <text x="40" y="97" fill="#fff" font-size="11">Aluminum</text>
+      <text x="155" y="97" fill="#90caf9" font-size="13" font-weight="bold">20%</text>
+
+      <!-- Titanium: 15% = 87px -->
+      <rect x="30" y="116" width="87" height="28" rx="5" fill="#0d47a1" stroke="#42a5f5" stroke-width="1"/>
+      <text x="40" y="135" fill="#fff" font-size="11">Titanium</text>
+      <text x="125" y="135" fill="#90caf9" font-size="13" font-weight="bold">15%</text>
+
+      <!-- Steel: 10% = 58px -->
+      <rect x="30" y="154" width="58" height="22" rx="5" fill="#1a1a3e" stroke="#546e7a" stroke-width="1"/>
+      <text x="38" y="169" fill="#90a4ae" font-size="10">Steel 10%</text>
+
+      <!-- Other: 5% = 29px -->
+      <rect x="96" y="154" width="29" height="22" rx="5" fill="#0a1628" stroke="#37474f" stroke-width="1"/>
+      <text x="100" y="169" fill="#546e7a" font-size="10">Other 5%</text>
+
+      <!-- Right side notes -->
+      <text x="420" y="55" fill="#42a5f5" font-size="12" font-weight="bold">Why Composites (CFRP)?</text>
+      <text x="420" y="73" fill="#90a4ae" font-size="11">✔ 20% lighter than equivalent aluminum</text>
+      <text x="420" y="91" fill="#90a4ae" font-size="11">✔ Higher strength-to-weight ratio</text>
+      <text x="420" y="109" fill="#90a4ae" font-size="11">✔ Does not corrode (no rust)</text>
+      <text x="420" y="127" fill="#90a4ae" font-size="11">✔ Higher cabin pressure &amp; humidity possible</text>
+      <text x="420" y="145" fill="#90a4ae" font-size="11">✔ Reduced maintenance costs over lifetime</text>
+      <text x="420" y="170" fill="#ffcc02" font-size="11">⚠️ Exam: B787 = ~50% composites by weight</text>
+    </svg>
+  </div>
+</div>
+
+<!-- ============================
+     TAB 5: AXES & ATMOSPHERE
+     ============================ -->
+<div id="sec-axes" class="section">
+  <div class="sec-title">🔄 3 Axes of Flight — Visual Diagrams</div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:24px">
+
+    <!-- ROLL diagram -->
+    <div class="plane-diagram-wrap" style="padding:14px">
+      <h2 style="color:#ffcc02">ROLL — Aileron</h2>
+      <svg viewBox="0 0 260 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:200px">
+        <rect width="260" height="210" fill="#060d1a" rx="8"/>
+        <!-- front view fuselage -->
+        <ellipse cx="130" cy="105" rx="14" ry="65" fill="#1565c0" stroke="#42a5f5" stroke-width="1.5"/>
+        <!-- wings horizontal -->
+        <line x1="18" y1="105" x2="242" y2="105" stroke="#42a5f5" stroke-width="3"/>
+        <!-- tilted ghost -->
+        <line x1="32" y1="75" x2="228" y2="135" stroke="#ffcc02" stroke-width="1.5" stroke-dasharray="5,4" opacity="0.5"/>
+        <!-- vertical tail -->
+        <line x1="130" y1="40" x2="130" y2="68" stroke="#ef9a9a" stroke-width="2"/>
+        <!-- roll arrows at wingtips -->
+        <path d="M22,103 Q14,88 22,73" fill="none" stroke="#ffcc02" stroke-width="2.5" marker-end="url(#aYw)"/>
+        <path d="M238,103 Q246,118 238,133" fill="none" stroke="#ffcc02" stroke-width="2.5" marker-end="url(#aYw)"/>
+        <!-- axis line -->
+        <line x1="130" y1="8" x2="130" y2="200" stroke="#ef5350" stroke-width="1.5" stroke-dasharray="6,4"/>
+        <text x="134" y="16" fill="#ef5350" font-size="9">Longitudinal Axis</text>
+        <!-- labels -->
+        <text x="130" y="195" text-anchor="middle" fill="#ffcc02" font-size="12" font-weight="bold">ROLL → AILERON</text>
+        <defs>
+          <marker id="aYw" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 Z" fill="#ffcc02"/>
+          </marker>
+        </defs>
+      </svg>
+      <p style="color:#546e7a;font-size:0.8rem;margin-top:8px;text-align:center">One aileron ↑ · opposite aileron ↓ → wing dips</p>
+    </div>
+
+    <!-- PITCH diagram -->
+    <div class="plane-diagram-wrap" style="padding:14px">
+      <h2 style="color:#66bb6a">PITCH — Elevator</h2>
+      <svg viewBox="0 0 260 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:200px">
+        <rect width="260" height="210" fill="#060d1a" rx="8"/>
+        <!-- side view fuselage -->
+        <ellipse cx="130" cy="105" rx="82" ry="17" fill="#1565c0" stroke="#42a5f5" stroke-width="1.5"/>
+        <!-- nose -->
+        <path d="M212,105 Q236,105 248,103 Q240,115 248,103" fill="#1976d2" stroke="#42a5f5" stroke-width="1"/>
+        <!-- wing side view -->
+        <path d="M120,105 L82,68 L138,90 Z" fill="#1565c0" stroke="#42a5f5" stroke-width="1"/>
+        <!-- tail -->
+        <path d="M52,103 L46,78 L62,92 Z" fill="#1565c0" stroke="#42a5f5" stroke-width="1"/>
+        <!-- elevator highlight -->
+        <path d="M52,106 L42,90 L58,97 Z" fill="#66bb6a" stroke="#2e7d32" stroke-width="1.5"/>
+        <!-- pitch arc arrow -->
+        <path d="M238,80 Q255,105 238,128" fill="none" stroke="#66bb6a" stroke-width="3" marker-end="url(#aGr)"/>
+        <!-- lateral axis line -->
+        <line x1="8" y1="105" x2="252" y2="105" stroke="#ef5350" stroke-width="1.5" stroke-dasharray="6,4"/>
+        <text x="12" y="100" fill="#ef5350" font-size="9">Lateral Axis</text>
+        <text x="130" y="195" text-anchor="middle" fill="#66bb6a" font-size="12" font-weight="bold">PITCH → ELEVATOR</text>
+        <defs>
+          <marker id="aGr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 Z" fill="#66bb6a"/>
+          </marker>
+        </defs>
+      </svg>
+      <p style="color:#546e7a;font-size:0.8rem;margin-top:8px;text-align:center">Pull yoke → nose up | Push yoke → nose down</p>
+    </div>
+
+    <!-- YAW diagram -->
+    <div class="plane-diagram-wrap" style="padding:14px">
+      <h2 style="color:#ef5350">YAW — Rudder</h2>
+      <svg viewBox="0 0 260 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:200px">
+        <rect width="260" height="210" fill="#060d1a" rx="8"/>
+        <!-- top-down fuselage -->
+        <ellipse cx="130" cy="105" rx="88" ry="14" fill="#1565c0" stroke="#42a5f5" stroke-width="1.5"/>
+        <!-- nose arrow -->
+        <polygon points="215,98 230,105 215,112" fill="#42a5f5"/>
+        <!-- wings top-down -->
+        <path d="M115,105 L78,52 L128,80 Z" fill="#1565c0" stroke="#42a5f5" stroke-width="1"/>
+        <path d="M115,105 L78,158 L128,130 Z" fill="#1565c0" stroke="#42a5f5" stroke-width="1"/>
+        <!-- rudder -->
+        <rect x="40" y="101" width="14" height="8" rx="2" fill="#ef5350" stroke="#c62828" stroke-width="1"/>
+        <!-- yaw arc arrow -->
+        <path d="M218,78 Q240,105 218,130" fill="none" stroke="#ef5350" stroke-width="3" marker-end="url(#aRd)"/>
+        <!-- vertical axis dot -->
+        <circle cx="130" cy="105" r="5" fill="#ef5350" stroke="#fff" stroke-width="1.5"/>
+        <text x="138" y="102" fill="#ef5350" font-size="9">Vertical Axis</text>
+        <text x="130" y="195" text-anchor="middle" fill="#ef5350" font-size="12" font-weight="bold">YAW → RUDDER</text>
+        <defs>
+          <marker id="aRd" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 Z" fill="#ef5350"/>
+          </marker>
+        </defs>
+      </svg>
+      <p style="color:#546e7a;font-size:0.8rem;margin-top:8px;text-align:center">Press right pedal → nose yaws right</p>
+    </div>
+
+  </div>
+
+  <!-- ATMOSPHERE -->
+  <div class="sec-title">🌤️ Layers of the Atmosphere</div>
+
+  <div class="plane-diagram-wrap">
+    <svg viewBox="0 0 820 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:220px">
+      <rect width="820" height="220" fill="#060d1a" rx="10"/>
+
+      <!-- TROPOSPHERE bar -->
+      <rect x="20" y="162" width="780" height="44" rx="6" fill="#1b2e4b" stroke="#42a5f5" stroke-width="1.5"/>
+      <text x="30" y="180" fill="#42a5f5" font-size="13" font-weight="bold">TROPOSPHERE</text>
+      <text x="30" y="196" fill="#546e7a" font-size="10">0 – 12 to 18 km  |  All weather occurs here  |  Temperature decreases with altitude  |  ✈️ Takeoff &amp; Landing</text>
+      <text x="790" y="188" text-anchor="end" fill="#90a4ae" font-size="11">0–12 km</text>
+
+      <!-- STRATOSPHERE bar -->
+      <rect x="20" y="108" width="780" height="48" rx="6" fill="#1b3a1b" stroke="#66bb6a" stroke-width="1.5"/>
+      <text x="30" y="126" fill="#66bb6a" font-size="13" font-weight="bold">STRATOSPHERE</text>
+      <text x="30" y="142" fill="#546e7a" font-size="10">12 – 50 km  |  Ozone layer at 15–35 km (absorbs UV)  |  Temperature increases with altitude  |  ✈️ Commercial CRUISE altitude (35,000–42,000 ft ≈ 10–13 km)</text>
+      <text x="790" y="134" text-anchor="end" fill="#90a4ae" font-size="11">12–50 km</text>
+
+      <!-- MESOSPHERE bar -->
+      <rect x="20" y="60" width="780" height="42" rx="6" fill="#3e2000" stroke="#ffa726" stroke-width="1.2"/>
+      <text x="30" y="76" fill="#ffa726" font-size="13" font-weight="bold">MESOSPHERE</text>
+      <text x="30" y="92" fill="#546e7a" font-size="10">50 – 80 km  |  Coldest layer  |  Meteors burn up here</text>
+      <text x="790" y="82" text-anchor="end" fill="#90a4ae" font-size="11">50–80 km</text>
+
+      <!-- THERMOSPHERE bar -->
+      <rect x="20" y="14" width="780" height="40" rx="6" fill="#3e0a0a" stroke="#ef5350" stroke-width="1.2"/>
+      <text x="30" y="30" fill="#ef5350" font-size="13" font-weight="bold">THERMOSPHERE</text>
+      <text x="30" y="46" fill="#546e7a" font-size="10">80 – 700 km  |  ISS orbits here  |  Aurora Borealis / Australis occurs here  |  Very high temperatures</text>
+      <text x="790" y="36" text-anchor="end" fill="#90a4ae" font-size="11">80–700 km</text>
+
+      <!-- Aircraft icon in stratosphere -->
+      <text x="720" y="144" font-size="20">✈️</text>
+      <line x1="710" y1="142" x2="660" y2="142" stroke="#66bb6a" stroke-width="1" stroke-dasharray="3,3"/>
+    </svg>
+  </div>
+
+  <!-- Lift Equation -->
+  <div class="sys-card" style="border-color:#42a5f5;margin-top:16px">
+    <h3 style="color:#42a5f5">📐 The Lift Equation — L = CL × ½ρv²S</h3>
+    <div style="font-family:monospace;font-size:1.6rem;color:#42a5f5;text-align:center;background:#0a1628;padding:14px;border-radius:8px;margin:12px 0;letter-spacing:2px">
+      L = C<sub style="font-size:1rem">L</sub> × ½ρv²S
+    </div>
+    <table>
+      <thead><tr><th>Symbol</th><th>Full Name</th><th>What it means</th></tr></thead>
+      <tbody>
+        <tr><td class="hi">L</td><td>Lift</td><td>Upward force produced by the wing (Newtons)</td></tr>
+        <tr><td class="hi">CL</td><td>Coefficient of Lift</td><td>Depends on angle of attack and wing shape — pilot controls this</td></tr>
+        <tr><td class="hi">ρ (rho)</td><td>Air Density</td><td>Decreases with altitude — thinner air = less lift!</td></tr>
+        <tr><td class="hi">v</td><td>Airspeed (velocity)</td><td>Faster speed = much more lift (squared effect)</td></tr>
+        <tr><td class="hi">S</td><td>Wing Reference Area</td><td>Larger wings = more lift</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:10px;color:#546e7a;font-size:0.85rem">
+      ⚠️ At high altitude airports (e.g., Chiang Mai, Kathmandu), ρ is lower → longer runway needed for the same lift.<br>
+      The v² term means doubling speed gives 4× more lift — aerodynamics is very sensitive to speed changes.
+    </p>
+  </div>
+
+</div>
+
+</div><!-- end container -->
+
+<footer>
+  ✈️ SPTG 2026 — Aircraft Components Visual Study Guide | Click any card or tab to explore
+</footer>
+
+<script>
+function showSec(name) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('sec-' + name).classList.add('active');
+  event.target.classList.add('active');
+}
+function toggleCard(card) {
+  const box = card.querySelector('.detail-box');
+  const isOpen = box.classList.contains('open');
+  document.querySelectorAll('.detail-box').forEach(b => b.classList.remove('open'));
+  document.querySelectorAll('.label-card').forEach(c => c.classList.remove('active-card'));
+  if (!isOpen) {
+    box.classList.add('open');
+    card.classList.add('active-card');
+    card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+</script>
+</body>
+</html>

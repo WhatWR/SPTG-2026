@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPTG 2026 Complete Study Guide — Thai Airways Cadet</title>
+<style>
+  :root {
+    --primary: #1a2744;
+    --accent: #c8a84b;
+    --red: #e53e3e;
+    --orange: #dd6b20;
+    --blue: #3182ce;
+    --green: #38a169;
+    --bg: #f0f4f8;
+    --card: #ffffff;
+    --text: #2d3748;
+    --muted: #718096;
+    --border: #e2e8f0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); color: var(--text); }
+
+  /* HEADER */
+  .hero {
+    background: linear-gradient(135deg, #1a2744 0%, #2c4a8c 60%, #c8a84b 100%);
+    color: white; text-align: center; padding: 40px 20px 30px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: "✈"; font-size: 200px; opacity: 0.06;
+    position: absolute; right: -30px; top: -40px; line-height: 1;
+  }
+  .hero h1 { font-size: 2.2rem; font-weight: 800; letter-spacing: 1px; }
+  .hero p { margin-top: 8px; font-size: 1.05rem; opacity: 0.9; }
+  .hero .badge-row { margin-top: 18px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .legend { background: rgba(255,255,255,0.15); border-radius: 20px; padding: 6px 16px; font-size: 0.85rem; }
+
+  /* NAV TABS */
+  .nav-wrap { background: var(--primary); position: sticky; top: 0; z-index: 100; overflow-x: auto; }
+  .nav-tabs { display: flex; min-width: max-content; }
+  .nav-tabs button {
+    background: none; border: none; color: rgba(255,255,255,0.7);
+    padding: 14px 18px; font-size: 0.88rem; cursor: pointer;
+    border-bottom: 3px solid transparent; white-space: nowrap;
+    transition: all 0.2s; font-family: inherit;
+  }
+  .nav-tabs button:hover { color: white; background: rgba(255,255,255,0.08); }
+  .nav-tabs button.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 700; }
+
+  /* SECTIONS */
+  .section { display: none; padding: 30px 20px; max-width: 1100px; margin: 0 auto; }
+  .section.active { display: block; }
+
+  /* CARDS */
+  .card { background: var(--card); border-radius: 12px; padding: 22px; margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07); border-left: 4px solid var(--accent); }
+  .card h2 { font-size: 1.3rem; color: var(--primary); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+  .card h3 { font-size: 1.05rem; color: var(--primary); margin: 14px 0 8px; }
+
+  /* PREDICTION BADGES */
+  .badge { display: inline-block; border-radius: 20px; padding: 3px 12px; font-size: 0.78rem; font-weight: 700; margin-left: 8px; }
+  .badge.hot { background: #fff5f5; color: var(--red); border: 1px solid #fed7d7; }
+  .badge.likely { background: #fffaf0; color: var(--orange); border: 1px solid #fbd38d; }
+  .badge.good { background: #ebf8ff; color: var(--blue); border: 1px solid #bee3f8; }
+
+  /* TABLE */
+  .tbl { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .tbl th { background: var(--primary); color: white; padding: 10px 12px; text-align: left; }
+  .tbl td { padding: 9px 12px; border-bottom: 1px solid var(--border); }
+  .tbl tr:hover td { background: #f7fafc; }
+  .tbl tr:nth-child(even) td { background: #fafafa; }
+
+  /* ACCORDION */
+  .acc-item { border: 1px solid var(--border); border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
+  .acc-header {
+    background: #f7fafc; padding: 13px 16px; cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+    font-weight: 600; color: var(--primary); transition: background 0.2s;
+  }
+  .acc-header:hover { background: #edf2f7; }
+  .acc-header .arrow { transition: transform 0.3s; font-size: 0.8rem; }
+  .acc-header.open .arrow { transform: rotate(180deg); }
+  .acc-body { display: none; padding: 16px; background: white; border-top: 1px solid var(--border); }
+  .acc-body.open { display: block; }
+
+  /* GRID */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  @media(max-width: 700px) { .grid2, .grid3 { grid-template-columns: 1fr; } }
+
+  /* MINI CARD */
+  .mini { background: var(--card); border-radius: 8px; padding: 14px 16px;
+    border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+  .mini .label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+  .mini .value { font-size: 1.05rem; font-weight: 700; color: var(--primary); }
+  .mini .sub { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
+
+  /* ALERT BOX */
+  .alert { border-radius: 8px; padding: 12px 16px; margin: 12px 0; font-size: 0.9rem; }
+  .alert.red { background: #fff5f5; border-left: 4px solid var(--red); color: #742a2a; }
+  .alert.orange { background: #fffaf0; border-left: 4px solid var(--orange); color: #7b341e; }
+  .alert.blue { background: #ebf8ff; border-left: 4px solid var(--blue); color: #2a4365; }
+  .alert.green { background: #f0fff4; border-left: 4px solid var(--green); color: #1c4532; }
+
+  /* QA BOX */
+  .qa { background: #f7fafc; border-radius: 8px; padding: 14px; margin: 8px 0; }
+  .qa .q { font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+  .qa .a { color: var(--green); font-weight: 600; }
+  .qa .exp { font-size: 0.85rem; color: var(--muted); margin-top: 4px; }
+
+  /* FACT TAG */
+  .tag { display: inline-block; background: #edf2f7; border-radius: 4px; padding: 2px 8px;
+    font-size: 0.8rem; margin: 2px; color: var(--text); }
+  .tag.gold { background: #fefcbf; color: #744210; }
+
+  /* SVG wrapper */
+  .svg-wrap { text-align: center; margin: 16px 0; overflow-x: auto; }
+  svg { max-width: 100%; }
+
+  ul.bullet { padding-left: 20px; margin: 8px 0; }
+  ul.bullet li { margin-bottom: 5px; font-size: 0.92rem; }
+  .hl { color: var(--red); font-weight: 700; }
+  .gold { color: #b7791f; font-weight: 700; }
+  .section-title { font-size: 1.6rem; color: var(--primary); font-weight: 800; margin-bottom: 6px; }
+  .section-sub { color: var(--muted); margin-bottom: 24px; font-size: 0.93rem; }
+  .divider { height: 1px; background: var(--border); margin: 20px 0; }
+  p { line-height: 1.65; font-size: 0.92rem; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>✈ SPTG 2026 — Complete Study Guide</h1>
+  <p>Thai Airways Cadet Pilot Exam · General Knowledge · All Topics</p>
+  <div class="badge-row">
+    <span class="legend">🔴 Must Know — Almost certain to appear</span>
+    <span class="legend">🟠 Likely — High probability</span>
+    <span class="legend">🔵 Good to Know — Review if time allows</span>
+  </div>
+</div>
+
+<div class="nav-wrap">
+  <div class="nav-tabs" id="navTabs">
+    <button class="active" onclick="showTab('thai-airways')">🛫 Thai Airways</button>
+    <button onclick="showTab('geography')">🌏 Geography & ASEAN</button>
+    <button onclick="showTab('politics')">🏛 World Politics</button>
+    <button onclick="showTab('aviation')">✈ Aviation & Aircraft</button>
+    <button onclick="showTab('aeromedical')">🏥 Aeromedical</button>
+    <button onclick="showTab('science')">🔬 Science & Space</button>
+    <button onclick="showTab('religion')">🙏 Religion & Culture</button>
+    <button onclick="showTab('sports')">⚽ Sports & Events</button>
+    <button onclick="showTab('quickref')">📋 Quick Reference</button>
+    <button onclick="showTab('cabinet')">🏛 Cabinet 2026</button>
+    <button onclick="showTab('thaihist')">🛫 TG History</button>
+    <button onclick="showTab('qna')">❓ Q&amp;A Bank</button>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB 1: THAI AIRWAYS -->
+<!-- ============================================================ -->
+<div id="tab-thai-airways" class="section active">
+  <div class="section-title">🛫 Thai Airways Current Affairs</div>
+  <div class="section-sub">2025–2026 updates — most likely to be tested in 2026 recruitment cycle</div>
+
+  <div class="alert red">🔴 <strong>Top Priority:</strong> Fleet changes, route expansions, CEO, financial rehabilitation, and new aircraft are the hottest topics for 2026.</div>
+
+  <div class="card">
+    <h2>🏢 Corporate Overview <span class="badge hot">🔴 Must Know</span></h2>
+    <div class="grid2">
+      <div>
+        <div class="mini"><div class="label">CEO / President</div><div class="value">Chai Eamsiri</div><div class="sub">Current President & Acting CEO</div></div>
+        <br>
+        <div class="mini"><div class="label">Headquarters</div><div class="value">Bangkok, Thailand</div><div class="sub">Vibhavadi Rangsit, Chatuchak</div></div>
+        <br>
+        <div class="mini"><div class="label">IATA / ICAO Code</div><div class="value">TG / THA</div><div class="sub">Call sign: THAI</div></div>
+      </div>
+      <div>
+        <div class="mini"><div class="label">Alliance</div><div class="value">Star Alliance</div><div class="sub">Member (currently suspended during rehab)</div></div>
+        <br>
+        <div class="mini"><div class="label">Hub</div><div class="value">Suvarnabhumi (BKK)</div><div class="sub">Also operates from Don Mueang (DMK) for some routes</div></div>
+        <br>
+        <div class="mini"><div class="label">Stock Market</div><div class="value">SET Relisted: Aug 4, 2025</div><div class="sub">After completing rehabilitation plan</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>✈ Fleet — Current & New <span class="badge hot">🔴 Must Know</span></h2>
+    <div class="alert orange">🟠 Thai Airways is adding 10 Boeing 787-8 Dreamliners on lease from Avolon (ex-China Southern), delivered starting June 2026.</div>
+    <table class="tbl">
+      <tr><th>Aircraft</th><th>Type</th><th>Notes</th><th>Status</th></tr>
+      <tr><td><strong>Boeing 777-300ER</strong></td><td>Long-haul wide-body</td><td>Main workhorse; ~46 aircraft</td><td>Active</td></tr>
+      <tr><td><strong>Boeing 787-8 Dreamliner</strong></td><td>Long-haul wide-body</td><td>10 new leases from Avolon (June 2026+)</td><td>New 🆕</td></tr>
+      <tr><td><strong>Boeing 787-9 Dreamliner</strong></td><td>Long-haul wide-body</td><td>Existing fleet</td><td>Active</td></tr>
+      <tr><td><strong>Airbus A350-900</strong></td><td>Long-haul wide-body</td><td>Premium fleet; cabin retrofit planned 2028</td><td>Active</td></tr>
+      <tr><td><strong>Airbus A380-800</strong></td><td>Ultra-wide double-deck</td><td>Bangkok–London, Frankfurt, Paris</td><td>Active (limited)</td></tr>
+      <tr><td><strong>Airbus A330-300</strong></td><td>Mid-range wide-body</td><td>Regional/medium-haul</td><td>Active</td></tr>
+      <tr><td><strong>Boeing 737 MAX 9</strong></td><td>Narrow-body</td><td>Order for future regional fleet</td><td>Ordered</td></tr>
+    </table>
+    <div class="alert blue" style="margin-top:12px">🔵 <strong>B787-8 Dreamliner key facts:</strong> Carbon fiber composite airframe (50%), GEnx or Rolls-Royce Trent 1000 engines, ~250 passengers, max range ~13,600 km, cruising altitude 43,000 ft.</div>
+  </div>
+
+  <div class="card">
+    <h2>🌍 New Routes 2026 <span class="badge hot">🔴 Must Know</span></h2>
+    <table class="tbl">
+      <tr><th>Route</th><th>Launch Date</th><th>Details</th></tr>
+      <tr><td><strong>Bangkok – Amsterdam</strong></td><td>July 1, 2026</td><td>Resuming European route; direct service</td></tr>
+      <tr><td><strong>Bangkok – Auckland</strong></td><td>Q3/Q4 2026</td><td>New long-haul to New Zealand</td></tr>
+      <tr><td>Bangkok – Tokyo (NRT/HND)</td><td>Ongoing</td><td>High-frequency route</td></tr>
+      <tr><td>Bangkok – London (LHR)</td><td>Ongoing</td><td>A380 service</td></tr>
+      <tr><td>Bangkok – Sydney</td><td>Ongoing</td><td>Key Australian route</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>📊 Financial Rehabilitation <span class="badge likely">🟠 Likely</span></h2>
+    <ul class="bullet">
+      <li>Thai Airways entered <strong>bankruptcy protection/rehabilitation</strong> in May 2020</li>
+      <li>Central Bankruptcy Court approved rehabilitation plan in <strong>May 2021</strong></li>
+      <li>Plan administrator: <strong>Piyasvasti Amranand</strong> (ex-Energy Minister)</li>
+      <li><strong>SET relisted August 4, 2025</strong> — major milestone; shares resumed trading on Stock Exchange of Thailand</li>
+      <li>Profitability restored 2023–2024; rehabilitation officially completed</li>
+      <li>Debt restructuring involved converting THB 117 billion debt to equity</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>🎨 Brand & Livery <span class="badge good">🔵 Good to Know</span></h2>
+    <div class="grid2">
+      <div>
+        <h3>Thai Smile Airways (subsidiary)</h3>
+        <ul class="bullet">
+          <li>Merged back into Thai Airways operations in 2023</li>
+          <li>Was the low-cost/regional subsidiary</li>
+        </ul>
+        <h3>Colors & Logo</h3>
+        <ul class="bullet">
+          <li>Purple, gold, and pink — inspired by lotus flower</li>
+          <li>Royal Orchid Service (business class brand)</li>
+          <li>Royal First Class (highest cabin)</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Frequent Flyer</h3>
+        <ul class="bullet">
+          <li><strong>Royal Orchid Plus (ROP)</strong> — FFP program</li>
+          <li>Miles currency: "Miles"</li>
+          <li>Tier levels: Member → Silver → Gold → Platinum</li>
+        </ul>
+        <h3>Cabin Classes</h3>
+        <ul class="bullet">
+          <li>First Class, Business (Royal Silk), Premium Economy, Economy</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB 2: GEOGRAPHY & ASEAN -->
+<!-- ============================================================ -->
+<div id="tab-geography" class="section">
+  <div class="section-title">🌏 Geography & ASEAN</div>
+  <div class="section-sub">Regional geography, ASEAN facts, world capitals — frequently tested</div>
+
+  <div class="card">
+    <h2>🤝 ASEAN 2026 Key Facts <span class="badge hot">🔴 Must Know</span></h2>
+    <div class="grid3">
+      <div class="mini"><div class="label">ASEAN Chair 2026</div><div class="value">🇵🇭 Philippines</div><div class="sub">"Navigating Our Future Together"</div></div>
+      <div class="mini"><div class="label">Number of Members</div><div class="value">11 Members</div><div class="sub">Timor-Leste joined Oct 26, 2025</div></div>
+      <div class="mini"><div class="label">Founded</div><div class="value">Aug 8, 1967</div><div class="sub">Bangkok Declaration</div></div>
+      <div class="mini"><div class="label">ASEAN Day</div><div class="value">August 8</div><div class="sub">Annual celebration</div></div>
+      <div class="mini"><div class="label">Secretariat</div><div class="value">Jakarta, Indonesia</div><div class="sub">Since 1976</div></div>
+      <div class="mini"><div class="label">Newest Member</div><div class="value">🇹🇱 Timor-Leste</div><div class="sub">Joined October 26, 2025</div></div>
+    </div>
+
+    <div class="divider"></div>
+    <h3>All 11 ASEAN Members</h3>
+    <table class="tbl">
+      <tr><th>Country</th><th>Capital</th><th>Currency</th><th>Year Joined</th></tr>
+      <tr><td>🇹🇭 Thailand</td><td>Bangkok</td><td>Baht (THB)</td><td>1967 (Founding)</td></tr>
+      <tr><td>🇮🇩 Indonesia</td><td>Jakarta → Nusantara (new capital)</td><td>Rupiah (IDR)</td><td>1967 (Founding)</td></tr>
+      <tr><td>🇲🇾 Malaysia</td><td>Kuala Lumpur</td><td>Ringgit (MYR)</td><td>1967 (Founding)</td></tr>
+      <tr><td>🇵🇭 Philippines</td><td>Manila</td><td>Peso (PHP)</td><td>1967 (Founding)</td></tr>
+      <tr><td>🇸🇬 Singapore</td><td>Singapore</td><td>Dollar (SGD)</td><td>1967 (Founding)</td></tr>
+      <tr><td>🇧🇳 Brunei</td><td>Bandar Seri Begawan</td><td>Dollar (BND)</td><td>1984</td></tr>
+      <tr><td>🇻🇳 Vietnam</td><td>Hanoi</td><td>Dong (VND)</td><td>1995</td></tr>
+      <tr><td>🇲🇲 Myanmar</td><td>Naypyidaw</td><td>Kyat (MMK)</td><td>1997</td></tr>
+      <tr><td>🇱🇦 Laos</td><td>Vientiane</td><td>Kip (LAK)</td><td>1997</td></tr>
+      <tr><td>🇰🇭 Cambodia</td><td>Phnom Penh</td><td>Riel (KHR)</td><td>1999</td></tr>
+      <tr><td>🇹🇱 Timor-Leste</td><td>Dili</td><td>USD</td><td>2025 🆕</td></tr>
+    </table>
+    <div class="alert orange">⚠️ Indonesia is moving its capital from Jakarta to <strong>Nusantara</strong> (Kalimantan island) — this is a hot exam topic!</div>
+  </div>
+
+  <div class="card">
+    <h2>🗺 World Geography Essentials <span class="badge likely">🟠 Likely</span></h2>
+    <div class="grid2">
+      <div>
+        <h3>Largest Countries (Area)</h3>
+        <ol style="padding-left:20px; font-size:0.9rem;">
+          <li>Russia — 17.1M km²</li>
+          <li>Canada — 10M km²</li>
+          <li>USA — 9.8M km²</li>
+          <li>China — 9.6M km²</li>
+          <li>Brazil — 8.5M km²</li>
+          <li>Australia — 7.7M km²</li>
+          <li>India — 3.3M km²</li>
+        </ol>
+      </div>
+      <div>
+        <h3>Most Populous Countries</h3>
+        <ol style="padding-left:20px; font-size:0.9rem;">
+          <li>India — ~1.44 billion (surpassed China 2023)</li>
+          <li>China — ~1.41 billion</li>
+          <li>USA — ~340 million</li>
+          <li>Indonesia — ~280 million</li>
+          <li>Pakistan — ~240 million</li>
+        </ol>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="grid2">
+      <div>
+        <h3>Longest Rivers</h3>
+        <ol style="padding-left:20px; font-size:0.9rem;">
+          <li>Nile — 6,650 km (Africa)</li>
+          <li>Amazon — 6,400 km (S. America)</li>
+          <li>Yangtze — 6,300 km (China)</li>
+          <li>Mississippi — 6,275 km (USA)</li>
+          <li>Mekong — 4,350 km (SE Asia)</li>
+        </ol>
+      </div>
+      <div>
+        <h3>Highest Mountains</h3>
+        <ol style="padding-left:20px; font-size:0.9rem;">
+          <li>Everest — 8,848.86 m (Nepal/China)</li>
+          <li>K2 — 8,611 m (Pakistan/China)</li>
+          <li>Kangchenjunga — 8,586 m</li>
+          <li>Doi Inthanon — 2,565 m (Thailand)</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🌊 Oceans & Seas <span class="badge good">🔵 Good to Know</span></h2>
+    <table class="tbl">
+      <tr><th>Ocean</th><th>Size Rank</th><th>Notes</th></tr>
+      <tr><td>Pacific</td><td>1st (largest)</td><td>Covers ~46% of Earth's water surface</td></tr>
+      <tr><td>Atlantic</td><td>2nd</td><td>S-shaped; separates Americas from Europe/Africa</td></tr>
+      <tr><td>Indian</td><td>3rd</td><td>Warmest ocean; surrounds Thailand's sea routes</td></tr>
+      <tr><td>Southern</td><td>4th</td><td>Around Antarctica; recognized as 5th ocean 2021</td></tr>
+      <tr><td>Arctic</td><td>5th (smallest)</td><td>Smallest and shallowest</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>🏖 Thailand Geography <span class="badge likely">🟠 Likely</span></h2>
+    <div class="grid2">
+      <div>
+        <ul class="bullet">
+          <li>Capital: <strong>Bangkok</strong> (official long name: Krung Thep Maha Nakhon)</li>
+          <li>Area: 513,120 km²</li>
+          <li>Population: ~72 million</li>
+          <li>Borders: Myanmar (W/NW), Laos (NE/E), Cambodia (SE), Malaysia (S)</li>
+          <li>Highest peak: <strong>Doi Inthanon</strong> — 2,565 m (Chiang Mai)</li>
+        </ul>
+      </div>
+      <div>
+        <ul class="bullet">
+          <li>Longest river: <strong>Chao Phraya</strong> (flows through Bangkok)</li>
+          <li>Longest river in Thailand: <strong>Mekong River</strong> (borders Laos)</li>
+          <li>77 provinces</li>
+          <li>Time zone: UTC+7 (Indochina Time)</li>
+          <li>King: <strong>Vajiralongkorn (Rama X)</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB 3: WORLD POLITICS -->
+<!-- ============================================================ -->
+<div id="tab-politics" class="section">
+  <div class="section-title">🏛 World Events & Politics 2026</div>
+  <div class="section-sub">Current world leaders, global events — updated for 2026</div>
+
+  <div class="alert red">🔴 World leaders change frequently — these are verified as of April 2026. Always know the Thai PM!</div>
+
+  <div class="card">
+    <h2>👔 Key World Leaders 2026 <span class="badge hot">🔴 Must Know</span></h2>
+    <table class="tbl">
+      <tr><th>Country</th><th>Leader</th><th>Party/Role</th><th>Since</th></tr>
+      <tr><td>🇹🇭 Thailand</td><td><strong>Anutin Charnvirakul</strong></td><td>PM — Bhumjaithai Party (reelected, sworn in Apr 6, 2026)</td><td>Apr 2026</td></tr>
+      <tr><td>🇯🇵 Japan</td><td><strong>Sanae Takaichi</strong></td><td>PM — LDP (Japan's first female PM; reappointed Feb 2026)</td><td>Feb 2026</td></tr>
+      <tr><td>🇬🇧 UK</td><td><strong>Keir Starmer</strong></td><td>PM — Labour Party</td><td>Jul 2024</td></tr>
+      <tr><td>🇺🇸 USA</td><td><strong>Donald Trump</strong></td><td>President — Republican (2nd term)</td><td>Jan 2025</td></tr>
+      <tr><td>🇫🇷 France</td><td><strong>Emmanuel Macron</strong></td><td>President</td><td>2017</td></tr>
+      <tr><td>🇩🇪 Germany</td><td><strong>Friedrich Merz</strong></td><td>Chancellor — CDU</td><td>Feb 2025</td></tr>
+      <tr><td>🇨🇳 China</td><td><strong>Xi Jinping</strong></td><td>President / General Secretary CPC</td><td>2013</td></tr>
+      <tr><td>🇷🇺 Russia</td><td><strong>Vladimir Putin</strong></td><td>President</td><td>2000/2012/2024</td></tr>
+      <tr><td>🇮🇳 India</td><td><strong>Narendra Modi</strong></td><td>PM — BJP (3rd term)</td><td>2014</td></tr>
+      <tr><td>🇵🇭 Philippines</td><td><strong>Ferdinand Marcos Jr.</strong></td><td>President (ASEAN Chair 2026)</td><td>2022</td></tr>
+      <tr><td>🇮🇩 Indonesia</td><td><strong>Prabowo Subianto</strong></td><td>President</td><td>Oct 2024</td></tr>
+      <tr><td>🇰🇷 South Korea</td><td><strong>Lee Jae-myung</strong></td><td>President (won 2025 election)</td><td>2025</td></tr>
+      <tr><td>🇸🇬 Singapore</td><td><strong>Lawrence Wong</strong></td><td>PM (since May 2024)</td><td>May 2024</td></tr>
+      <tr><td>🇦🇺 Australia</td><td><strong>Anthony Albanese</strong></td><td>PM — Labour</td><td>2022</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>🎪 Major Global Events 2025–2026 <span class="badge hot">🔴 Must Know</span></h2>
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">🏆 FIFA World Cup 2026 <span class="badge hot">🔴</span> <span class="arrow">▼</span></div>
+      <div class="acc-body">
+        <div class="grid2">
+          <div>
+            <ul class="bullet">
+              <li>Dates: <strong>June 11 – July 19, 2026</strong></li>
+              <li>Hosts: <strong>USA, Canada, Mexico</strong> (3 countries)</li>
+              <li>Teams: <strong>48 teams</strong> (expanded from 32)</li>
+              <li>Format: 16 groups of 3 → knockout</li>
+              <li>Total matches: 104</li>
+            </ul>
+          </div>
+          <div>
+            <ul class="bullet">
+              <li>Grand Final venue: <strong>MetLife Stadium, New Jersey</strong> — July 19</li>
+              <li>Mascots: <strong>Clutch</strong> (armadillo/USA), <strong>Maple</strong> (bear/Canada), <strong>Zayu</strong> (axolotl/Mexico)</li>
+              <li>Official ball: Adidas</li>
+              <li>Asian slots: <strong>8.5 spots</strong> (up from 4.5)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">🌍 World Expo 2025 — Osaka <span class="badge likely">🟠</span> <span class="arrow">▼</span></div>
+      <div class="acc-body">
+        <ul class="bullet">
+          <li>Location: <strong>Osaka, Japan</strong></li>
+          <li>Theme: <strong>"Designing Future Society for Our Lives"</strong></li>
+          <li>Dates: April 13 – October 13, 2025</li>
+          <li>Next Expo 2030: <strong>Riyadh, Saudi Arabia</strong></li>
+        </ul>
+      </div>
+    </div>
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">🛂 Passport Rankings 2026 <span class="badge likely">🟠</span> <span class="arrow">▼</span></div>
+      <div class="acc-body">
+        <table class="tbl">
+          <tr><th>Rank</th><th>Country</th><th>Visa-Free Destinations</th></tr>
+          <tr><td>1</td><td>🇸🇬 Singapore</td><td>192</td></tr>
+          <tr><td>2</td><td>🇩🇪🇫🇮🇫🇷🇮🇹🇪🇸 Germany, Finland, France, Italy, Spain, etc.</td><td>191</td></tr>
+          <tr><td>~67</td><td>🇹🇭 Thailand</td><td>~79</td></tr>
+        </table>
+        <p style="margin-top:8px">Source: Henley Passport Index 2026. Singapore has held #1 for several years running.</p>
+      </div>
+    </div>
+    <div class="acc-item">
+      <div class="acc-header" onclick="toggleAcc(this)">🏅 Other Major Events <span class="badge good">🔵</span> <span class="arrow">▼</span></div>
+      <div class="acc-body">
+        <ul class="bullet">
+          <li><strong>Olympics 2028:</strong> Los Angeles, USA</li>
+          <li><strong>Olympics 2032:</strong> Brisbane, Australia</li>
+          <li><strong>Commonwealth Games 2026:</strong> Glasgow, Scotland</li>
+          <li><strong>G20 2026:</strong> South Africa</li>
+          <li><strong>UN Secretary-General:</strong> António Guterres (since 2017; 2nd term until 2026)</li>
+          <li><strong>WHO Director-General:</strong> Tedros Adhanom Ghebreyesus (Ethiopia)</li>
+          <li><strong>NATO Secretary-General:</strong> Mark Rutte (Netherlands, since Oct 2024)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🇹🇭 Thai Politics <span class="badge hot">🔴 Must Know</span></h2>
+    <ul class="bullet">
+      <li><strong>PM:</strong> Anutin Charnvirakul (Bhumjaithai Party) — sworn in April 6, 2026 after re-election</li>
+      <li><strong>King:</strong> Vajiralongkorn (Rama X) — reigned since October 13, 2016</li>
+      <li><strong>Government system:</strong> Constitutional monarchy</li>
+      <li><strong>Parliament:</strong> National Assembly (Senate + House of Representatives)</li>
+      <li>Previous PM: Paetongtarn Shinawatra (Pheu Thai) — 2024–2025</li>
+      <li>Political capital: Bangkok</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB 4: AVIATION & AIRCRAFT -->
+<!-- ============================================================ -->
+<div id="tab-aviation" class="section">
+  <div class="section-title">✈ Aviation & Aircraft Knowledge</div>
+  <div class="section-sub">Aircraft components, systems, ICAO/IATA, navigation — core SPTG topics</div>
+
+  <div class="card">
+    <h2>🛩 Aircraft Anatomy — Visual Overview <span class="badge hot">🔴 Must Know</span></h2>
+    <div class="svg-wrap">
+      <svg width="780" height="300" viewBox="0 0 780 300" xmlns="http://www.w3.org/2000/svg">
+        <!-- Sky background -->
+        <defs>
+          <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#dbeafe;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#f0f9ff;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <rect width="780" height="300" fill="url(#skyGrad)" rx="12"/>
+
+        <!-- Fuselage -->
+        <ellipse cx="390" cy="155" rx="240" ry="38" fill="#1a2744" opacity="0.9"/>
+        <!-- Nose cone -->
+        <ellipse cx="152" cy="155" rx="22" ry="22" fill="#2c4a8c"/>
+        <!-- Tail cone -->
+        <ellipse cx="628" cy="155" rx="16" ry="16" fill="#2c4a8c"/>
+
+        <!-- Main Wings -->
+        <polygon points="310,155 220,220 180,218 200,155" fill="#c8a84b" opacity="0.85"/>
+        <polygon points="310,155 220,90 180,92 200,155" fill="#c8a84b" opacity="0.85"/>
+
+        <!-- Horizontal Stabilizer (tail) -->
+        <polygon points="590,155 560,195 540,193 555,155" fill="#e53e3e" opacity="0.8"/>
+        <polygon points="590,155 560,115 540,117 555,155" fill="#e53e3e" opacity="0.8"/>
+
+        <!-- Vertical Stabilizer -->
+        <polygon points="595,155 620,85 610,83 580,155" fill="#38a169" opacity="0.85"/>
+
+        <!-- Engines -->
+        <rect x="240" y="198" width="70" height="22" rx="11" fill="#4a5568"/>
+        <rect x="240" y="80" width="70" height="22" rx="11" fill="#4a5568"/>
+
+        <!-- Windows -->
+        <rect x="195" y="148" width="12" height="8" rx="2" fill="#93c5fd" opacity="0.9"/>
+        <rect x="215" y="148" width="12" height="8" rx="2" fill="#93c5fd" opacity="0.9"/>
+        <rect x="235" y="148" width="12" height="8" rx="2" fill="#93c5fd" opacity="0.9"/>
+        <rect x="255" y="148" width="12" height="8" rx="2" fill="#93c5fd" opacity="0.9"/>
+        <rect x="275" y="148" width="12" height="8" rx="2" fill="#93c5fd" opacity="0.9"/>
+        <rect x="295" y="148" width="12" height="8" rx="2" fill="#93c5fd" opacity="0.9"/>
+        <rect x="315" y="148" width="12" height="8" rx="2" fill="#93c5fd" opacity="0.9"/>
+        <rect x="335" y="148" width="12" height="8" rx="2" fill="#93c5fd" opacity="0.9"/>
+        <rect x="355" y="148" width="12" height="8" rx="2" fill="#93c5fd" opacity="0.9"/>
+
+        <!-- Cockpit -->
+        <path d="M152,155 Q165,138 185,138 L190,155 L185,172 Q165,172 152,155" fill="#93c5fd" opacity="0.7"/>
+
+        <!-- Labels -->
+        <text x="155" y="270" fill="#1a2744" font-size="11" font-weight="bold" text-anchor="middle">NOSE/COCKPIT</text>
+        <line x1="155" y1="265" x2="170" y2="175" stroke="#1a2744" stroke-width="1" stroke-dasharray="3"/>
+
+        <text x="390" y="60" fill="#1a2744" font-size="11" font-weight="bold" text-anchor="middle">FUSELAGE</text>
+        <line x1="390" y1="65" x2="390" y2="118" stroke="#1a2744" stroke-width="1" stroke-dasharray="3"/>
+
+        <text x="220" y="270" fill="#b7791f" font-size="11" font-weight="bold" text-anchor="middle">MAIN WING</text>
+        <line x1="220" y1="265" x2="230" y2="218" stroke="#b7791f" stroke-width="1" stroke-dasharray="3"/>
+
+        <text x="283" y="258" fill="#4a5568" font-size="11" font-weight="bold" text-anchor="middle">ENGINE</text>
+        <line x1="283" y1="253" x2="280" y2="222" stroke="#4a5568" stroke-width="1" stroke-dasharray="3"/>
+
+        <text x="596" y="270" fill="#c53030" font-size="11" font-weight="bold" text-anchor="middle">H. STABILIZER</text>
+        <line x1="580" y1="265" x2="575" y2="194" stroke="#c53030" stroke-width="1" stroke-dasharray="3"/>
+
+        <text x="670" y="100" fill="#276749" font-size="11" font-weight="bold" text-anchor="middle">VERTICAL FIN</text>
+        <line x1="650" y1="105" x2="620" y2="118" stroke="#276749" stroke-width="1" stroke-dasharray="3"/>
+
+        <text x="390" y="25" fill="#2c4a8c" font-size="14" font-weight="bold" text-anchor="middle">AIRCRAFT STRUCTURE OVERVIEW</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🔧 Control Surfaces & Functions <span class="badge hot">🔴 Must Know</span></h2>
+    <table class="tbl">
+      <tr><th>Surface</th><th>Location</th><th>Controls</th><th>Movement</th></tr>
+      <tr><td><strong>Ailerons</strong></td><td>Outer trailing edge of wings</td><td>Roll (bank)</td><td>Move opposite directions</td></tr>
+      <tr><td><strong>Elevator</strong></td><td>Trailing edge of horizontal stabilizer</td><td>Pitch (nose up/down)</td><td>Up = nose up; Down = nose down</td></tr>
+      <tr><td><strong>Rudder</strong></td><td>Trailing edge of vertical fin/stabilizer</td><td>Yaw (nose left/right)</td><td>Left pedal = nose left</td></tr>
+      <tr><td><strong>Flaps</strong></td><td>Inner trailing edge of wings</td><td>Lift & drag (slow-speed)</td><td>Deploy downward</td></tr>
+      <tr><td><strong>Slats</strong></td><td>Leading edge of wings</td><td>Increase lift at low speed</td><td>Extend forward/down</td></tr>
+      <tr><td><strong>Spoilers/Speedbrakes</strong></td><td>Upper wing surface</td><td>Reduce lift, increase drag</td><td>Raise up on wing</td></tr>
+      <tr><td><strong>Trim tabs</strong></td><td>On elevator/rudder/aileron</td><td>Relieve control forces</td><td>Small deflections</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>⚙️ 4 Forces of Flight <span class="badge hot">🔴 Must Know</span></h2>
+    <div class="grid2">
+      <div class="svg-wrap">
+        <svg width="280" height="220" viewBox="0 0 280 220">
+          <rect width="280" height="220" fill="#f8fafc" rx="8"/>
+          <!-- Plane body -->
+          <ellipse cx="140" cy="110" rx="60" ry="18" fill="#2c4a8c"/>
+          <!-- Wings -->
+          <polygon points="120,110 80,135 60,133 80,110" fill="#c8a84b"/>
+          <polygon points="120,110 80,85 60,87 80,110" fill="#c8a84b"/>
+          <!-- Arrows -->
+          <!-- LIFT up -->
+          <line x1="140" y1="92" x2="140" y2="30" stroke="#38a169" stroke-width="3" marker-end="url(#arrowGreen)"/>
+          <!-- WEIGHT down -->
+          <line x1="140" y1="128" x2="140" y2="190" stroke="#e53e3e" stroke-width="3" marker-end="url(#arrowRed)"/>
+          <!-- THRUST left -->
+          <line x1="80" y1="110" x2="20" y2="110" stroke="#3182ce" stroke-width="3" marker-end="url(#arrowBlue)"/>
+          <!-- DRAG right -->
+          <line x1="200" y1="110" x2="260" y2="110" stroke="#dd6b20" stroke-width="3" marker-end="url(#arrowOrange)"/>
+          <!-- Arrow markers -->
+          <defs>
+            <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="#38a169"/>
+            </marker>
+            <marker id="arrowRed" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="#e53e3e"/>
+            </marker>
+            <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="#3182ce"/>
+            </marker>
+            <marker id="arrowOrange" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="#dd6b20"/>
+            </marker>
+          </defs>
+          <!-- Labels -->
+          <text x="148" y="55" fill="#276749" font-size="13" font-weight="bold">LIFT ↑</text>
+          <text x="148" y="175" fill="#c53030" font-size="13" font-weight="bold">WEIGHT ↓</text>
+          <text x="5" y="105" fill="#2c5282" font-size="11" font-weight="bold">THRUST</text>
+          <text x="213" y="105" fill="#9c4221" font-size="11" font-weight="bold">DRAG</text>
+        </svg>
+      </div>
+      <div>
+        <ul class="bullet">
+          <li><strong style="color:#276749">LIFT</strong> — Generated by wings (Bernoulli's principle); acts upward perpendicular to flight path</li>
+          <li><strong style="color:#c53030">WEIGHT</strong> — Gravity acting downward through center of gravity</li>
+          <li><strong style="color:#2c5282">THRUST</strong> — Engine propulsion; acts forward along flight path</li>
+          <li><strong style="color:#9c4221">DRAG</strong> — Aerodynamic resistance; acts opposite to direction of flight</li>
+        </ul>
+        <div class="alert green" style="margin-top:10px">
+          ✅ In straight & level flight: <br>Lift = Weight, Thrust = Drag
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>📡 Aviation Codes & Numbers <span class="badge hot">🔴 Must Know</span></h2>
+    <div class="grid2">
+      <div>
+        <h3>Key Airport Codes</h3>
+        <table class="tbl">
+          <tr><th>Airport</th><th>IATA</th><th>ICAO</th></tr>
+          <tr><td>Suvarnabhumi, BKK</td><td>BKK</td><td>VTBS</td></tr>
+          <tr><td>Don Mueang, BKK</td><td>DMK</td><td>VTBD</td></tr>
+          <tr><td>Singapore Changi</td><td>SIN</td><td>WSSS</td></tr>
+          <tr><td>London Heathrow</td><td>LHR</td><td>EGLL</td></tr>
+          <tr><td>Tokyo Narita</td><td>NRT</td><td>RJAA</td></tr>
+          <tr><td>Tokyo Haneda</td><td>HND</td><td>RJTT</td></tr>
+          <tr><td>Dubai</td><td>DXB</td><td>OMDB</td></tr>
+          <tr><td>New York JFK</td><td>JFK</td><td>KJFK</td></tr>
+          <tr><td>Sydney Kingsford</td><td>SYD</td><td>YSSY</td></tr>
+        </table>
+      </div>
+      <div>
+        <h3>Aviation Altitudes & Speeds</h3>
+        <ul class="bullet">
+          <li>Standard cruising altitude: <strong>FL350–FL410</strong> (35,000–41,000 ft)</li>
+          <li>Speed of sound (Mach 1): <strong>~340 m/s = 661 knots</strong> at sea level</li>
+          <li>B777-300ER cruise: Mach 0.84 (~555 mph)</li>
+          <li>A380 max speed: Mach 0.89</li>
+          <li>1 nautical mile = <strong>1.852 km = 1.151 miles</strong></li>
+          <li>1 knot = 1 NM/hr</li>
+          <li>ISA standard temp at sea level: <strong>15°C / 59°F</strong></li>
+          <li>Standard pressure: <strong>1013.25 hPa / 29.92 inHg</strong></li>
+        </ul>
+        <h3 style="margin-top:14px">Runway Numbering</h3>
+        <ul class="bullet">
+          <li>Based on magnetic heading ÷ 10</li>
+          <li>Runway 18 = heading 180° (south)</li>
+          <li>Opposite ends differ by 18 (e.g., 09 and 27)</li>
+          <li>L/C/R = Left / Center / Right</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🛫 Aircraft Types — Boeing & Airbus <span class="badge likely">🟠 Likely</span></h2>
+    <table class="tbl">
+      <tr><th>Model</th><th>Type</th><th>Engines</th><th>Range</th><th>Pax (typical)</th></tr>
+      <tr><td><strong>B737 MAX</strong></td><td>Narrow-body</td><td>2 × CFM LEAP</td><td>7,000 km</td><td>150–200</td></tr>
+      <tr><td><strong>B777-300ER</strong></td><td>Wide-body</td><td>2 × GE90</td><td>13,600 km</td><td>~368</td></tr>
+      <tr><td><strong>B787-8</strong></td><td>Wide-body</td><td>2 × GEnx/T1000</td><td>13,600 km</td><td>~242</td></tr>
+      <tr><td><strong>B787-9</strong></td><td>Wide-body</td><td>2 × GEnx/T1000</td><td>14,140 km</td><td>~296</td></tr>
+      <tr><td><strong>A320neo</strong></td><td>Narrow-body</td><td>2 × LEAP/PW1100</td><td>6,300 km</td><td>150–194</td></tr>
+      <tr><td><strong>A330-300</strong></td><td>Wide-body</td><td>2 × various</td><td>11,750 km</td><td>~295</td></tr>
+      <tr><td><strong>A350-900</strong></td><td>Wide-body</td><td>2 × Trent XWB</td><td>15,000 km</td><td>~325</td></tr>
+      <tr><td><strong>A380-800</strong></td><td>Ultra-wide</td><td>4 × Trent 970/GP7270</td><td>15,200 km</td><td>~550</td></tr>
+    </table>
+    <div class="alert blue">🔵 <strong>A380 Key Facts:</strong> World's largest commercial aircraft, double-deck, 4 engines, first flight 2005, entered service 2007 (Singapore Airlines), max 853 passengers all-economy.</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB 5: AEROMEDICAL -->
+<!-- ============================================================ -->
+<div id="tab-aeromedical" class="section">
+  <div class="section-title">🏥 Aeromedical & Human Performance</div>
+  <div class="section-sub">Hypoxia, spatial disorientation, fatigue — critical for SPTG exam</div>
+
+  <div class="card">
+    <h2>💨 Hypoxia <span class="badge hot">🔴 Must Know</span></h2>
+    <div class="alert red">🔴 Hypoxia is the #1 most tested aeromedical topic in aviation exams worldwide!</div>
+    <h3>Definition & Types</h3>
+    <table class="tbl">
+      <tr><th>Type</th><th>Cause</th><th>Example</th></tr>
+      <tr><td><strong>Hypoxic</strong></td><td>Low O₂ partial pressure</td><td>High altitude, pressurization failure</td></tr>
+      <tr><td><strong>Hypemic (Anemic)</strong></td><td>Reduced O₂ carrying capacity of blood</td><td>Carbon monoxide poisoning, anemia</td></tr>
+      <tr><td><strong>Stagnant</strong></td><td>Reduced blood flow</td><td>Heart failure, pulling Gs, shock</td></tr>
+      <tr><td><strong>Histotoxic</strong></td><td>Cells can't use O₂</td><td>Alcohol, drugs, cyanide poisoning</td></tr>
+    </table>
+
+    <h3 style="margin-top:14px">Time of Useful Consciousness (TUC)</h3>
+    <table class="tbl">
+      <tr><th>Altitude</th><th>TUC</th></tr>
+      <tr><td>18,000 ft (5,500 m)</td><td>20–30 minutes</td></tr>
+      <tr><td>25,000 ft (7,600 m)</td><td>3–5 minutes</td></tr>
+      <tr><td>30,000 ft (9,100 m)</td><td>1–2 minutes</td></tr>
+      <tr><td>40,000 ft (12,200 m)</td><td>15–20 seconds</td></tr>
+      <tr><td>43,000 ft+ (13,000 m+)</td><td>9–12 seconds</td></tr>
+    </table>
+
+    <h3 style="margin-top:14px">Symptoms (remember: DEAD)</h3>
+    <ul class="bullet">
+      <li><strong>D</strong> — Dizziness, decreased vision (blue/grey color first to go)</li>
+      <li><strong>E</strong> — Euphoria, Errors in judgement</li>
+      <li><strong>A</strong> — Apprehension, Air hunger (late sign)</li>
+      <li><strong>D</strong> — Drowsiness, Decreased motor skills</li>
+    </ul>
+    <div class="alert orange">⚠️ Hypoxia is insidious — pilot feels fine (euphoria) while performance degrades!</div>
+  </div>
+
+  <div class="card">
+    <h2>🔄 Spatial Disorientation <span class="badge hot">🔴 Must Know</span></h2>
+    <div class="grid2">
+      <div>
+        <h3>The Leans</h3>
+        <ul class="bullet">
+          <li>Most common SD illusion</li>
+          <li>Body feels banked while instruments show wings-level</li>
+          <li>Caused by undetected slow roll, then correction</li>
+          <li>Trust instruments — not body senses!</li>
+        </ul>
+        <h3>Graveyard Spiral</h3>
+        <ul class="bullet">
+          <li>Sustained coordinated turn feels like straight and level</li>
+          <li>Pilot pulls back, tightening spiral</li>
+          <li>Usually fatal if not corrected with instruments</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Coriolis Illusion</h3>
+        <ul class="bullet">
+          <li>Head movement during turn causes tumbling sensation</li>
+          <li>Avoid head movements in IMC turns</li>
+        </ul>
+        <h3>Somatogravic Illusion</h3>
+        <ul class="bullet">
+          <li>Rapid acceleration feels like nose-up pitch</li>
+          <li>Pilot pushes nose down — dangerous at low altitude</li>
+          <li>Common during catapult launch or go-around</li>
+        </ul>
+        <h3>Black-Hole Approach</h3>
+        <ul class="bullet">
+          <li>Night approach over water/featureless terrain</li>
+          <li>No visual references — dangerously low approach</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🫁 Decompression Sickness (DCS) <span class="badge likely">🟠 Likely</span></h2>
+    <div class="grid2">
+      <div>
+        <h3>Causes</h3>
+        <ul class="bullet">
+          <li>Rapid decompression → N₂ bubbles form in blood/tissues</li>
+          <li>Like opening a soda can — gas comes out of solution</li>
+          <li>Risk above 25,000 ft (8,000 m)</li>
+        </ul>
+        <h3>Types</h3>
+        <ul class="bullet">
+          <li><strong>Type I (Mild):</strong> Joint pain (the "bends"), skin itch</li>
+          <li><strong>Type II (Serious):</strong> Respiratory (chokes), neurological (staggers), circulatory collapse</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Treatment</h3>
+        <ul class="bullet">
+          <li>100% oxygen immediately</li>
+          <li>Descend to lowest safe altitude</li>
+          <li>Hyperbaric chamber treatment</li>
+        </ul>
+        <h3>Prevention</h3>
+        <ul class="bullet">
+          <li>Pre-breathe 100% O₂ before ascent to high altitude</li>
+          <li>Wait 24 hours after SCUBA diving before flying</li>
+          <li>Cabin pressurized to equivalent of 6,000–8,000 ft</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>😴 Fatigue & Circadian Rhythm <span class="badge likely">🟠 Likely</span></h2>
+    <table class="tbl">
+      <tr><th>Concept</th><th>Key Facts</th></tr>
+      <tr><td>Circadian Rhythm</td><td>~24-hour biological clock; controlled by light exposure; disrupted by shift work/time zones</td></tr>
+      <tr><td>Nadir (lowest alertness)</td><td>Between 2:00–4:00 AM and 2:00–4:00 PM</td></tr>
+      <tr><td>Sleep Inertia</td><td>Grogginess immediately upon waking; impairs performance 15–30 min</td></tr>
+      <tr><td>Microsleep</td><td>Involuntary 2–30 second sleep episodes; dangerous while flying</td></tr>
+      <tr><td>FRMS</td><td>Fatigue Risk Management System — regulatory framework (ICAO Doc 9966)</td></tr>
+      <tr><td>ICAO FTL</td><td>Flight Duty Period limits; max FDP typically 13–14 hrs</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>👁 Vision in Aviation <span class="badge likely">🟠 Likely</span></h2>
+    <div class="grid2">
+      <div>
+        <h3>Night Vision</h3>
+        <ul class="bullet">
+          <li>Rods (peripheral) — for low light, no color</li>
+          <li>Cones (central/fovea) — color vision, bright light</li>
+          <li>Dark adaptation: ~30–45 min (red light preserves)</li>
+          <li>Off-center viewing: look 10° away from target at night</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Visual Illusions</h3>
+        <ul class="bullet">
+          <li>Narrow runway → pilot thinks high → lands short</li>
+          <li>Wide runway → pilot thinks low → lands long</li>
+          <li>Upsloping runway → pilot thinks high → lands short</li>
+          <li>Downsloping runway → pilot thinks low → overshoot</li>
+          <li>Rain on windscreen → runway appears further</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>💊 Other Aeromedical Topics <span class="badge good">🔵 Good to Know</span></h2>
+    <div class="grid3">
+      <div>
+        <h3>Hyperventilation</h3>
+        <ul class="bullet">
+          <li>Over-breathing → low CO₂ → symptoms mimic hypoxia</li>
+          <li>Tingling hands/feet, muscle spasms, light-headedness</li>
+          <li>Treatment: slow breathing, breathe into bag</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Ear/Sinus Blocks</h3>
+        <ul class="bullet">
+          <li>Eustachian tube equalizes middle ear pressure</li>
+          <li>Block occurs during descent with upper respiratory infection</li>
+          <li>Valsalva maneuver: pinch nose, blow gently</li>
+        </ul>
+      </div>
+      <div>
+        <h3>G-Forces</h3>
+        <ul class="bullet">
+          <li>+Gz (head-to-seat): greyout → blackout → G-LOC</li>
+          <li>AGSM: Anti-G Straining Maneuver (tensing muscles)</li>
+          <li>G-tolerance: typically +4 to +6 Gz untrained</li>
+          <li>-Gz (negative G): redout</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB 6: SCIENCE & SPACE -->
+<!-- ============================================================ -->
+<div id="tab-science" class="section">
+  <div class="section-title">🔬 Science, Space & Technology</div>
+  <div class="section-sub">NASA, solar system, physics fundamentals — exam prediction focus</div>
+
+  <div class="card">
+    <h2>🚀 Space & NASA Key Facts <span class="badge hot">🔴 Must Know</span></h2>
+    <div class="grid2">
+      <div>
+        <h3>Solar System — Planets in Order</h3>
+        <p style="margin:8px 0; font-weight:600; color:#2c4a8c">"My Very Educated Mother Just Served Us Nachos"</p>
+        <ol style="padding-left:20px; font-size:0.9rem;">
+          <li>Mercury — smallest, closest to Sun</li>
+          <li>Venus — hottest planet (~465°C)</li>
+          <li>Earth — only known life, 1 moon</li>
+          <li>Mars — 2 moons (Phobos, Deimos)</li>
+          <li>Jupiter — largest, Great Red Spot, 95 moons</li>
+          <li>Saturn — famous rings</li>
+          <li>Uranus — rotates on its side</li>
+          <li>Neptune — farthest, 16+ hours/day</li>
+        </ol>
+      </div>
+      <div>
+        <h3>Key Space Facts</h3>
+        <ul class="bullet">
+          <li>Light year ≈ <strong>9.461 × 10¹⁵ m</strong> ≈ 9.46 trillion km</li>
+          <li>Speed of light: <strong>299,792,458 m/s ≈ 3×10⁸ m/s</strong></li>
+          <li>Distance Earth–Sun: ~<strong>150 million km</strong> (1 AU)</li>
+          <li>Nearest star to Sun: <strong>Proxima Centauri</strong> — 4.24 light-years</li>
+          <li>Our galaxy: <strong>Milky Way</strong> — ~100,000 light-years diameter</li>
+          <li>Universe age: ~<strong>13.8 billion years</strong></li>
+        </ul>
+        <h3>ISS — International Space Station</h3>
+        <ul class="bullet">
+          <li>Launched 1998; continuously crewed since Nov 2000</li>
+          <li>Orbit: ~408 km altitude, 90-minute orbit</li>
+          <li>Partners: USA, Russia, ESA, Japan, Canada</li>
+          <li>Planned deorbit: 2030</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🌙 Moon & Space Missions <span class="badge likely">🟠 Likely</span></h2>
+    <table class="tbl">
+      <tr><th>Mission / Fact</th><th>Details</th></tr>
+      <tr><td>First human on Moon</td><td><strong>Neil Armstrong</strong> — Apollo 11, July 20, 1969</td></tr>
+      <tr><td>First human in space</td><td><strong>Yuri Gagarin</strong> (Soviet Union) — April 12, 1961</td></tr>
+      <tr><td>First woman in space</td><td><strong>Valentina Tereshkova</strong> (Soviet Union) — June 1963</td></tr>
+      <tr><td>James Webb Space Telescope</td><td>Launched Dec 25, 2021; L2 Lagrange point; successor to Hubble</td></tr>
+      <tr><td>Artemis Program (NASA)</td><td>Return humans to Moon; Artemis III targets lunar surface landing ~2026</td></tr>
+      <tr><td>SpaceX Starship</td><td>Most powerful rocket ever built; IFT-6/7 tests 2025</td></tr>
+      <tr><td>Mars rovers</td><td>Perseverance (2021–), Curiosity (2012–); searching for signs of past life</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>⚡ Physics Essentials <span class="badge likely">🟠 Likely</span></h2>
+    <div class="grid2">
+      <div>
+        <h3>Newton's Laws</h3>
+        <ul class="bullet">
+          <li><strong>1st (Inertia):</strong> Object stays at rest or motion unless acted on by force</li>
+          <li><strong>2nd (F=ma):</strong> Force = mass × acceleration</li>
+          <li><strong>3rd (Action-Reaction):</strong> Every action has equal & opposite reaction (basis of jet propulsion)</li>
+        </ul>
+        <h3>Bernoulli's Principle</h3>
+        <ul class="bullet">
+          <li>Faster airflow = lower pressure</li>
+          <li>Wing curved on top → faster airflow → lower pressure above → LIFT</li>
+          <li>Also explains Venturi tube, carburetors</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Thermodynamics</h3>
+        <ul class="bullet">
+          <li>Standard atmosphere: -2°C per 1,000 ft (ISA lapse rate)</li>
+          <li>Boiling point of water: 100°C at sea level; lower at altitude</li>
+          <li>Absolute zero: -273.15°C = 0 Kelvin</li>
+        </ul>
+        <h3>Electromagnetic Spectrum (shortest to longest wavelength)</h3>
+        <ul class="bullet">
+          <li>Gamma rays → X-rays → UV → Visible → IR → Microwave → Radio</li>
+          <li>Visible light: 400–700 nm (violet to red)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>💻 Technology & AI <span class="badge good">🔵 Good to Know</span></h2>
+    <ul class="bullet">
+      <li><strong>ChatGPT (OpenAI):</strong> Launched Nov 2022; GPT-4 series used in aviation training</li>
+      <li><strong>AI in aviation:</strong> Predictive maintenance, ATC optimization, pilot training simulators</li>
+      <li><strong>5G:</strong> Interference concerns with radar altimeters — temporary restrictions near airports</li>
+      <li><strong>SAF (Sustainable Aviation Fuel):</strong> ICAO target: 65% CO₂ reduction vs. conventional fuel by 2050</li>
+      <li><strong>eVTOL:</strong> Electric Vertical Take-Off and Landing aircraft (air taxis) — Joby, Archer, Lilium</li>
+      <li><strong>CORSIA:</strong> Carbon Offsetting and Reduction Scheme for International Aviation</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB 7: RELIGION & CULTURE -->
+<!-- ============================================================ -->
+<div id="tab-religion" class="section">
+  <div class="section-title">🙏 Religion, Culture & Special Days</div>
+  <div class="section-sub">Thai and world religious knowledge — often tested in general knowledge</div>
+
+  <div class="card">
+    <h2>☸️ Buddhism (Thailand's Main Religion) <span class="badge hot">🔴 Must Know</span></h2>
+    <div class="grid2">
+      <div>
+        <h3>Core Beliefs</h3>
+        <ul class="bullet">
+          <li>Founded by <strong>Siddhartha Gautama</strong> (~563–483 BCE, Nepal)</li>
+          <li>The <strong>4 Noble Truths:</strong> Suffering exists; cause is desire; cessation possible; path to end suffering</li>
+          <li>The <strong>Noble Eightfold Path:</strong> Right view, intention, speech, action, livelihood, effort, mindfulness, concentration</li>
+          <li><strong>3 Jewels (Triple Gem):</strong> Buddha, Dharma (teachings), Sangha (community)</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Thai Buddhist Holidays</h3>
+        <table class="tbl">
+          <tr><th>Holiday</th><th>Significance</th></tr>
+          <tr><td><strong>Makha Bucha</strong></td><td>3rd lunar month; 1,250 monks gathered spontaneously</td></tr>
+          <tr><td><strong>Visakha Bucha</strong></td><td>Most sacred; Birth, Enlightenment, Death of Buddha (all on same date — full moon 6th month)</td></tr>
+          <tr><td><strong>Asanha Bucha</strong></td><td>First teaching (Dharma Chakra); eve of Buddhist Lent</td></tr>
+          <tr><td><strong>Khao Phansa</strong></td><td>Beginning of Buddhist Lent (Vassa)</td></tr>
+          <tr><td><strong>Ok Phansa</strong></td><td>End of Buddhist Lent; Kathina ceremony follows</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🌍 World Religions Overview <span class="badge likely">🟠 Likely</span></h2>
+    <table class="tbl">
+      <tr><th>Religion</th><th>Followers</th><th>Holy Book</th><th>Holy City</th><th>Founded</th></tr>
+      <tr><td>Christianity</td><td>~2.4 billion (largest)</td><td>Bible</td><td>Jerusalem, Vatican</td><td>~1 CE (Jesus)</td></tr>
+      <tr><td>Islam</td><td>~1.9 billion</td><td>Quran</td><td>Mecca, Medina, Jerusalem</td><td>610 CE (Muhammad)</td></tr>
+      <tr><td>Hinduism</td><td>~1.2 billion</td><td>Vedas</td><td>Varanasi</td><td>~1500 BCE</td></tr>
+      <tr><td>Buddhism</td><td>~500 million</td><td>Tripitaka</td><td>Bodh Gaya, Lumbini</td><td>~500 BCE</td></tr>
+      <tr><td>Sikhism</td><td>~30 million</td><td>Guru Granth Sahib</td><td>Amritsar</td><td>15th century</td></tr>
+      <tr><td>Judaism</td><td>~15 million</td><td>Torah</td><td>Jerusalem</td><td>~2000 BCE</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>🗓 Thai Special Days & National Holidays <span class="badge hot">🔴 Must Know</span></h2>
+    <table class="tbl">
+      <tr><th>Date</th><th>Holiday</th><th>Significance</th></tr>
+      <tr><td>Jan 1</td><td>New Year's Day</td><td>International New Year</td></tr>
+      <tr><td>Feb (varies)</td><td>Makha Bucha Day</td><td>Buddhist; full moon 3rd lunar month</td></tr>
+      <tr><td>Apr 6</td><td>Chakri Day</td><td>Founder of Chakri Dynasty; King Rama I</td></tr>
+      <tr><td>Apr 13–15</td><td>Songkran Festival</td><td>Thai New Year; water festival</td></tr>
+      <tr><td>May 1</td><td>National Labour Day</td><td>Workers' rights</td></tr>
+      <tr><td>May 4</td><td>Coronation Day</td><td>King Vajiralongkorn coronation (2019)</td></tr>
+      <tr><td>May (varies)</td><td>Visakha Bucha</td><td>Most sacred Buddhist day</td></tr>
+      <tr><td>Jun 3</td><td>Queen Suthida's Birthday</td><td>HM Queen's Birthday</td></tr>
+      <tr><td>Jul (varies)</td><td>Asanha Bucha / Khao Phansa</td><td>Buddhist Lent begins</td></tr>
+      <tr><td>Jul 28</td><td>King's Birthday</td><td>Vajiralongkorn (Rama X)</td></tr>
+      <tr><td>Aug 12</td><td>Queen Mother's Birthday / Mother's Day</td><td>Late Queen Sirikit's birthday</td></tr>
+      <tr><td>Oct 13</td><td>King Bhumibol Memorial Day</td><td>Death anniversary of Rama IX</td></tr>
+      <tr><td>Oct 23</td><td>Chulalongkorn Day (Piyamaharaj)</td><td>Rama V; modernized Thailand</td></tr>
+      <tr><td>Oct (varies)</td><td>Ok Phansa</td><td>End of Buddhist Lent</td></tr>
+      <tr><td>Dec 5</td><td>National Day / Father's Day</td><td>Late King Bhumibol's Birthday (Rama IX)</td></tr>
+      <tr><td>Dec 10</td><td>Constitution Day</td><td>First Thai constitution 1932</td></tr>
+      <tr><td>Dec 31</td><td>New Year's Eve</td><td>Public holiday</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>🌐 International Days <span class="badge good">🔵 Good to Know</span></h2>
+    <div class="grid2">
+      <div>
+        <ul class="bullet">
+          <li>Jan 26 — Australia Day</li>
+          <li>Feb 14 — Valentine's Day</li>
+          <li>Mar 8 — International Women's Day</li>
+          <li>Apr 22 — Earth Day</li>
+          <li>May 3 — World Press Freedom Day</li>
+          <li>Jun 5 — World Environment Day</li>
+          <li>Jun 21 — World Music Day</li>
+        </ul>
+      </div>
+      <div>
+        <ul class="bullet">
+          <li>Aug 8 — ASEAN Day</li>
+          <li>Sep 16 — World Ozone Day</li>
+          <li>Oct 1 — International Day of Older Persons</li>
+          <li>Oct 24 — UN Day</li>
+          <li>Nov 11 — Remembrance/Veterans Day</li>
+          <li>Dec 1 — World AIDS Day</li>
+          <li>Dec 10 — Human Rights Day</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB 8: SPORTS -->
+<!-- ============================================================ -->
+<div id="tab-sports" class="section">
+  <div class="section-title">⚽ Sports, Events & Entertainment</div>
+  <div class="section-sub">FIFA, Olympics, world records — popular exam topics</div>
+
+  <div class="card">
+    <h2>🏆 FIFA World Cup 2026 — Deep Dive <span class="badge hot">🔴 Must Know</span></h2>
+    <div class="grid2">
+      <div>
+        <div class="mini"><div class="label">Dates</div><div class="value">June 11 – July 19, 2026</div></div><br>
+        <div class="mini"><div class="label">Host Countries</div><div class="value">🇺🇸 USA + 🇨🇦 Canada + 🇲🇽 Mexico</div></div><br>
+        <div class="mini"><div class="label">Teams</div><div class="value">48 teams (first time)</div><div class="sub">Expanded from 32 in Qatar 2022</div></div><br>
+        <div class="mini"><div class="label">Final Venue</div><div class="value">MetLife Stadium, NJ</div><div class="sub">July 19, 2026</div></div>
+      </div>
+      <div>
+        <div class="mini"><div class="label">Mascots</div><div class="value">Clutch, Maple, Zayu</div><div class="sub">Armadillo (USA), Bear (Canada), Axolotl (Mexico)</div></div><br>
+        <div class="mini"><div class="label">Asian Slots</div><div class="value">8.5 spots</div><div class="sub">Up from 4.5 in Qatar 2022</div></div><br>
+        <div class="mini"><div class="label">Total Matches</div><div class="value">104 matches</div></div><br>
+        <div class="mini"><div class="label">Defending Champion</div><div class="value">🇦🇷 Argentina</div><div class="sub">Won Qatar 2022 (Messi's final WC)</div></div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <h3>USA Host Cities</h3>
+    <p style="font-size:0.9rem">Los Angeles, San Francisco Bay, Seattle, New York/NJ, Boston, Philadelphia, Dallas, Houston, Kansas City, Miami, Atlanta</p>
+    <h3 style="margin-top:10px">Canada & Mexico Host Cities</h3>
+    <p style="font-size:0.9rem">Toronto, Vancouver (Canada) · Mexico City, Guadalajara, Monterrey (Mexico)</p>
+  </div>
+
+  <div class="card">
+    <h2>🏅 Olympics <span class="badge likely">🟠 Likely</span></h2>
+    <table class="tbl">
+      <tr><th>Event</th><th>Year</th><th>Location</th></tr>
+      <tr><td>Summer Olympics (most recent)</td><td>2024</td><td>Paris, France</td></tr>
+      <tr><td>Winter Olympics (most recent)</td><td>2026</td><td>Milan-Cortina, Italy</td></tr>
+      <tr><td>Summer Olympics (next)</td><td>2028</td><td>Los Angeles, USA</td></tr>
+      <tr><td>Summer Olympics</td><td>2032</td><td>Brisbane, Australia</td></tr>
+    </table>
+    <h3 style="margin-top:14px">Paris 2024 Key Facts</h3>
+    <ul class="bullet">
+      <li>Dates: July 26 – August 11, 2024</li>
+      <li>Athletes: 10,500+ from 206 nations</li>
+      <li>Top medal countries: USA (40G), China (40G), Great Britain, Australia</li>
+      <li>New sports: Breaking (breakdancing), Sport Climbing, Skateboarding</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>🎾 Major Annual Sports Events <span class="badge good">🔵 Good to Know</span></h2>
+    <table class="tbl">
+      <tr><th>Event</th><th>Sport</th><th>Venue/Country</th></tr>
+      <tr><td>Wimbledon</td><td>Tennis</td><td>London, UK (June–July)</td></tr>
+      <tr><td>The Masters</td><td>Golf</td><td>Augusta, Georgia, USA (April)</td></tr>
+      <tr><td>Super Bowl</td><td>American Football</td><td>USA (February)</td></tr>
+      <tr><td>Tour de France</td><td>Cycling</td><td>France (July)</td></tr>
+      <tr><td>F1 World Championship</td><td>Motor Racing</td><td>Various countries</td></tr>
+      <tr><td>Boston Marathon</td><td>Running</td><td>Boston, USA (April)</td></tr>
+      <tr><td>SEA Games</td><td>Multi-sport</td><td>SE Asian nations (rotating)</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>🌟 Entertainment & Pop Culture <span class="badge good">🔵 Good to Know</span></h2>
+    <div class="grid2">
+      <div>
+        <h3>Oscars (Academy Awards) 2025</h3>
+        <ul class="bullet">
+          <li>Best Picture: <em>Anora</em></li>
+          <li>Best Director: Sean Baker (Anora)</li>
+          <li>Best Actor: Adrien Brody (The Brutalist)</li>
+          <li>Best Actress: Demi Moore (The Substance)</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Grammy Awards 2025</h3>
+        <ul class="bullet">
+          <li>Album of the Year: Beyoncé — "Cowboy Carter"</li>
+          <li>Record of the Year: Kendrick Lamar — "Not Like Us"</li>
+          <li>Song of the Year: Kendrick Lamar — "Not Like Us"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB 9: QUICK REFERENCE -->
+<!-- ============================================================ -->
+<div id="tab-quickref" class="section">
+  <div class="section-title">📋 Quick Reference — Exam Cheat Sheet</div>
+  <div class="section-sub">Everything you need in one place — review the night before the exam!</div>
+
+  <div class="alert red">🔴 <strong>MUST MEMORIZE:</strong> Thai PM (Anutin Charnvirakul), ASEAN Chair 2026 (Philippines), FIFA 2026 (USA/Canada/Mexico, 48 teams, June 11–July 19), Singapore #1 passport, Thai Airways CEO (Chai Eamsiri), SET relisted Aug 4, 2025, Timor-Leste joined ASEAN Oct 26, 2025</div>
+
+  <div class="card">
+    <h2>🔴 HOT TOPICS — Prediction Table</h2>
+    <table class="tbl">
+      <tr><th>Topic</th><th>Key Answer</th><th>Likelihood</th></tr>
+      <tr><td>Thai PM 2026</td><td>Anutin Charnvirakul (sworn Apr 6, 2026)</td><td><span class="badge hot">🔴 Must Know</span></td></tr>
+      <tr><td>Japan's first female PM</td><td>Sanae Takaichi (reappointed Feb 2026)</td><td><span class="badge hot">🔴 Must Know</span></td></tr>
+      <tr><td>ASEAN Chair 2026</td><td>Philippines — "Navigating Our Future Together"</td><td><span class="badge hot">🔴 Must Know</span></td></tr>
+      <tr><td>ASEAN new member</td><td>Timor-Leste — joined Oct 26, 2025 (11th member)</td><td><span class="badge hot">🔴 Must Know</span></td></tr>
+      <tr><td>FIFA World Cup 2026</td><td>USA+Canada+Mexico; June 11–Jul 19; 48 teams; Final MetLife NJ</td><td><span class="badge hot">🔴 Must Know</span></td></tr>
+      <tr><td>Thai Airways CEO</td><td>Chai Eamsiri</td><td><span class="badge hot">🔴 Must Know</span></td></tr>
+      <tr><td>Thai Airways SET relisting</td><td>August 4, 2025</td><td><span class="badge hot">🔴 Must Know</span></td></tr>
+      <tr><td>New aircraft type (THAI)</td><td>Boeing 787-8 Dreamliner (10 from Avolon, June 2026)</td><td><span class="badge hot">🔴 Must Know</span></td></tr>
+      <tr><td>New route 2026 (THAI)</td><td>Amsterdam (Jul 1), Auckland (Q3/Q4)</td><td><span class="badge hot">🔴 Must Know</span></td></tr>
+      <tr><td>Strongest passport 2026</td><td>Singapore (192 visa-free destinations)</td><td><span class="badge likely">🟠 Likely</span></td></tr>
+      <tr><td>World Expo 2025</td><td>Osaka, Japan — "Designing Future Society for Our Lives"</td><td><span class="badge likely">🟠 Likely</span></td></tr>
+      <tr><td>World Expo 2030</td><td>Riyadh, Saudi Arabia</td><td><span class="badge likely">🟠 Likely</span></td></tr>
+      <tr><td>FIFA mascots 2026</td><td>Clutch (armadillo/USA), Maple (bear/Canada), Zayu (axolotl/Mexico)</td><td><span class="badge likely">🟠 Likely</span></td></tr>
+      <tr><td>Indonesia new capital</td><td>Nusantara (Kalimantan)</td><td><span class="badge likely">🟠 Likely</span></td></tr>
+      <tr><td>Hypoxia TUC at 40,000 ft</td><td>15–20 seconds</td><td><span class="badge hot">🔴 Must Know</span></td></tr>
+      <tr><td>Most sacred Buddhist day</td><td>Visakha Bucha (birth/enlightenment/death of Buddha)</td><td><span class="badge hot">🔴 Must Know</span></td></tr>
+      <tr><td>Largest commercial aircraft</td><td>Airbus A380-800 (double-deck, 4 engines)</td><td><span class="badge hot">🔴 Must Know</span></td></tr>
+      <tr><td>First man on Moon</td><td>Neil Armstrong — Apollo 11 — July 20, 1969</td><td><span class="badge likely">🟠 Likely</span></td></tr>
+      <tr><td>India vs China population</td><td>India now #1 (surpassed China in 2023)</td><td><span class="badge likely">🟠 Likely</span></td></tr>
+      <tr><td>NATO Sec-Gen (2024–)</td><td>Mark Rutte (Netherlands)</td><td><span class="badge likely">🟠 Likely</span></td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>✈ Aviation Quick Reference</h2>
+    <div class="grid2">
+      <div>
+        <h3>3 Axes of Flight</h3>
+        <table class="tbl">
+          <tr><th>Axis</th><th>Movement</th><th>Control</th></tr>
+          <tr><td>Lateral (wingtip-to-wingtip)</td><td>Pitch ↑↓</td><td>Elevator</td></tr>
+          <tr><td>Longitudinal (nose-to-tail)</td><td>Roll ⟳</td><td>Ailerons</td></tr>
+          <tr><td>Vertical (top-to-bottom)</td><td>Yaw ←→</td><td>Rudder</td></tr>
+        </table>
+      </div>
+      <div>
+        <h3>Phonetic Alphabet</h3>
+        <div style="font-size:0.83rem; columns: 2; column-gap: 10px;">
+          <p>A-Alpha · B-Bravo · C-Charlie · D-Delta · E-Echo · F-Foxtrot · G-Golf · H-Hotel · I-India · J-Juliet · K-Kilo · L-Lima · M-Mike · N-November · O-Oscar · P-Papa · Q-Quebec · R-Romeo · S-Sierra · T-Tango · U-Uniform · V-Victor · W-Whiskey · X-X-ray · Y-Yankee · Z-Zulu</p>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="grid3">
+      <div>
+        <h3>ISA Standard Atmosphere</h3>
+        <ul class="bullet">
+          <li>Sea level temp: 15°C</li>
+          <li>Sea level pressure: 1013.25 hPa</li>
+          <li>Lapse rate: -2°C / 1,000 ft</li>
+          <li>Tropopause: ~36,000 ft</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Unit Conversions</h3>
+        <ul class="bullet">
+          <li>1 NM = 1.852 km = 6,076 ft</li>
+          <li>1 knot = 1 NM/hr</li>
+          <li>1 ft = 0.3048 m</li>
+          <li>1 kg = 2.205 lbs</li>
+          <li>°C to °F: (°C × 9/5) + 32</li>
+        </ul>
+      </div>
+      <div>
+        <h3>VHF Comm Frequencies</h3>
+        <ul class="bullet">
+          <li>VHF: 118.000–136.975 MHz</li>
+          <li>Emergency: 121.5 MHz (Guard)</li>
+          <li>ATIS: Usually lowest freq</li>
+          <li>Ground: 121.x MHz typical</li>
+          <li>Tower: 118–120 MHz typical</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>📚 Study Strategy — Last Week Before Exam</h2>
+    <div class="grid2">
+      <div>
+        <h3>Day 1–2: Focus on 🔴 Red Topics</h3>
+        <ul class="bullet">
+          <li>Thai PM + Cabinet</li>
+          <li>Thai Airways fleet & route news</li>
+          <li>ASEAN Chair + new member</li>
+          <li>FIFA 2026 details</li>
+          <li>Hypoxia types & TUC</li>
+          <li>Aircraft control surfaces</li>
+        </ul>
+        <h3>Day 3–4: 🟠 Orange Topics</h3>
+        <ul class="bullet">
+          <li>World leaders (UK, Japan, USA, China)</li>
+          <li>Passport rankings</li>
+          <li>World Expo</li>
+          <li>Spatial disorientation</li>
+          <li>Boeing/Airbus comparisons</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Day 5: 🔵 Blue Topics + Review</h3>
+        <ul class="bullet">
+          <li>Space & NASA missions</li>
+          <li>World religions</li>
+          <li>Olympics history</li>
+          <li>Unit conversions & formulas</li>
+        </ul>
+        <h3>Day 6: Mock Quiz Practice</h3>
+        <ul class="bullet">
+          <li>Review AERO MATE 125 Qs</li>
+          <li>Review Mock B 100 Qs</li>
+          <li>Focus on weak areas</li>
+        </ul>
+        <h3>Day 7 (Eve of Exam): Light Review</h3>
+        <ul class="bullet">
+          <li>Read Quick Reference tab only</li>
+          <li>Sleep 7–8 hours</li>
+          <li>Light breakfast; arrive early</li>
+        </ul>
+      </div>
+    </div>
+    <div class="alert green" style="margin-top:14px">
+      🛫 <strong>You've got this, kul!</strong> Consistent review + positive mindset = exam success. Thai Airways is waiting for its next cadet pilot! ✈️
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB: CABINET 2026 -->
+<!-- ============================================================ -->
+<div id="tab-cabinet" class="section">
+  <div class="section-title">🏛 ครม. อนุทิน 2 — Cabinet Ministers 2026</div>
+  <div class="section-sub">Thailand's 65th Cabinet — sworn in April 6, 2026 · 35 Ministers · Bhumjaithai-led coalition</div>
+
+  <div class="alert red">🔴 <strong>EXAM HOT TOPIC:</strong> รมว. คลัง / คมนาคม / พลังงาน / มหาดไทย / กลาโหม — these 5 are most likely to be tested!</div>
+
+  <div class="card">
+    <h2>⭐ The 5 KEY Ministries <span class="badge hot">🔴 Must Know</span></h2>
+    <table class="tbl">
+      <tr><th>Ministry (กระทรวง)</th><th>Minister (รัฐมนตรี)</th><th>Notes</th></tr>
+      <tr><td>💰 <strong>Finance (คลัง)</strong></td><td><strong>เอกนิติ นิติทัณฑ์ประภาศ (Ekniti Nitithanprapas)</strong></td><td>Deputy PM + Finance; technocrat/outsider pick</td></tr>
+      <tr><td>🚆 <strong>Transport (คมนาคม)</strong></td><td><strong>พิพัฒน์ รัชกิจประการ (Piphat Ratchakitprakarn)</strong></td><td>Deputy PM + Transport; Bhumjaithai stalwart</td></tr>
+      <tr><td>⚡ <strong>Energy (พลังงาน)</strong></td><td><strong>เอกนัฏ พร้อมพันธุ์ (Ekanat Promphan)</strong></td><td>"ขิง" — outsider technocrat; reform agenda</td></tr>
+      <tr><td>🏠 <strong>Interior (มหาดไทย)</strong></td><td><strong>อนุทิน ชาญวีรกูล (Anutin Charnvirakul)</strong></td><td>PM himself doubles as Interior Minister</td></tr>
+      <tr><td>🪖 <strong>Defence (กลาโหม)</strong></td><td><strong>พล.อ.อดุลย์ แสงสิงแก้ว (Gen. Adul Saengsingkaew "บิ๊กดุลย์")</strong></td><td>"Big Dul" — former ISOC chief</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>👥 Full Cabinet — All 35 Ministers <span class="badge likely">🟠 Likely</span></h2>
+    <h3>Prime Minister & Deputy PMs</h3>
+    <table class="tbl">
+      <tr><th>Position</th><th>Name</th><th>Also Holds</th></tr>
+      <tr><td>นายกรัฐมนตรี (PM)</td><td><strong>อนุทิน ชาญวีรกูล</strong></td><td>รมว. มหาดไทย</td></tr>
+      <tr><td>รองนายกฯ 1</td><td>พิพัฒน์ รัชกิจประการ</td><td>รมว. คมนาคม</td></tr>
+      <tr><td>รองนายกฯ 2</td><td>เอกนิติ นิติทัณฑ์ประภาศ</td><td>รมว. คลัง</td></tr>
+      <tr><td>รองนายกฯ 3</td><td>สีหศักดิ์ พวงเกตุแก้ว (Sihasak Phuangketkaew)</td><td>รมว. การต่างประเทศ (Foreign Affairs)</td></tr>
+      <tr><td>รองนายกฯ 4</td><td>ปกรณ์ นิลประพันธ์ (Pakorn Nilpraphan)</td><td>ฝ่ายกฎหมาย (Legal)</td></tr>
+      <tr><td>รองนายกฯ 5</td><td>ยุทธพงษ์ วงศ์สุทธิพัฒน์</td><td>รมว. อุดมศึกษาฯ (Higher Education)</td></tr>
+      <tr><td>รองนายกฯ 6</td><td>สุพัชรี สุทธิธรรม</td><td>รมว. พาณิชย์ (Commerce)</td></tr>
+    </table>
+
+    <h3 style="margin-top:16px">Key Ministry Ministers</h3>
+    <table class="tbl">
+      <tr><th>กระทรวง (Ministry)</th><th>รัฐมนตรีว่าการ (Minister)</th><th>Party</th></tr>
+      <tr><td>🏠 มหาดไทย (Interior)</td><td>อนุทิน ชาญวีรกูล (PM ควบ)</td><td>Bhumjaithai</td></tr>
+      <tr><td>💰 คลัง (Finance)</td><td>เอกนิติ นิติทัณฑ์ประภาศ</td><td>Independent (outsider)</td></tr>
+      <tr><td>🚆 คมนาคม (Transport)</td><td>พิพัฒน์ รัชกิจประการ</td><td>Bhumjaithai</td></tr>
+      <tr><td>⚡ พลังงาน (Energy)</td><td>เอกนัฏ พร้อมพันธุ์</td><td>Independent (outsider)</td></tr>
+      <tr><td>🪖 กลาโหม (Defence)</td><td>พล.อ.อดุลย์ แสงสิงแก้ว</td><td>Independent (military)</td></tr>
+      <tr><td>🌐 การต่างประเทศ (Foreign Affairs)</td><td>สีหศักดิ์ พวงเกตุแก้ว</td><td>Independent (diplomat)</td></tr>
+      <tr><td>🛒 พาณิชย์ (Commerce)</td><td>สุพัชรี สุทธิธรรม</td><td>Bhumjaithai</td></tr>
+      <tr><td>⚖️ ยุติธรรม (Justice)</td><td>รัตนพล นาควัตร (Rattanapol Naokwat)</td><td>Bhumjaithai</td></tr>
+      <tr><td>🎓 ศึกษาธิการ (Education)</td><td>ประเสริฐ จันทรรวงทอง (Prasert Jantharawongthong)</td><td>Pheu Thai</td></tr>
+      <tr><td>🏥 สาธารณสุข (Public Health)</td><td>พัฒนา พร้อมพัฒน์ (Pattana Promphan)</td><td>Bhumjaithai</td></tr>
+      <tr><td>🌾 เกษตรและสหกรณ์ (Agriculture)</td><td>สุริยะ จึงรุ่งเรืองกิจ (Suriya Jungrungruangkit)</td><td>Pheu Thai</td></tr>
+      <tr><td>🏭 อุตสาหกรรม (Industry)</td><td>วราวุธ ศิลปอาชา (Warawut Silpa-archa)</td><td>Bhumjaithai</td></tr>
+      <tr><td>🔬 อุดมศึกษาฯ (Higher Ed/Science)</td><td>ยุทธพงษ์ วงศ์สุทธิพัฒน์</td><td>Bhumjaithai</td></tr>
+      <tr><td>🏗️ ทรัพยากรธรรมชาติ (Natural Resources)</td><td>ชาดา ไทยเศรษฐ์ (Chada Thaiseth)</td><td>Bhumjaithai</td></tr>
+      <tr><td>💼 แรงงาน (Labour)</td><td>จุลพันธ์ อมรวิวัฒน์ (Julaphan Amornwiwat)</td><td>Pheu Thai</td></tr>
+      <tr><td>🎭 วัฒนธรรม (Culture)</td><td>สบิดา ทาเสถียร (Sabida Thaseathian)</td><td>Bhumjaithai</td></tr>
+      <tr><td>💻 ดิจิทัล (Digital Economy)</td><td>ประเสริฐ จันทรรวงทอง</td><td>Pheu Thai</td></tr>
+      <tr><td>🏦 การคลัง / รัฐวิสาหกิจ</td><td>ควบรวมกับ รมว.คลัง</td><td>—</td></tr>
+      <tr><td>🤝 พัฒนาสังคมฯ (Social Dev)</td><td>นิกร จำนง (Nikorn Jamnong)</td><td>Pheu Thai</td></tr>
+    </table>
+
+    <div class="alert blue" style="margin-top:12px">🔵 <strong>Coalition breakdown:</strong> Bhumjaithai Party (27 seats, 32 positions) + Pheu Thai Party (8 seats, 9 positions). Total 35 ministers. Cabinet = Thailand's 65th (คณะที่ 65).</div>
+  </div>
+
+  <div class="card">
+    <h2>❓ Cabinet Q&A Predictions <span class="badge hot">🔴 Must Know</span></h2>
+    <div class="qa"><div class="q">Q: Who is Thailand's Minister of Finance in 2026?</div><div class="a">A: เอกนิติ นิติทัณฑ์ประภาศ (Ekniti Nitithanprapas) — also Deputy PM</div></div>
+    <div class="qa"><div class="q">Q: Who holds the Defence Ministry in Anutin's 2026 cabinet?</div><div class="a">A: พล.อ.อดุลย์ แสงสิงแก้ว (General Adul Saengsingkaew) — nicknamed "บิ๊กดุลย์"</div></div>
+    <div class="qa"><div class="q">Q: Who is Minister of Energy (พลังงาน)?</div><div class="a">A: เอกนัฏ พร้อมพันธุ์ (Ekanat Promphan) — independent/outsider technocrat; nicknamed "ขิง"</div></div>
+    <div class="qa"><div class="q">Q: Who is Minister of Transport (คมนาคม)?</div><div class="a">A: พิพัฒน์ รัชกิจประการ (Piphat Ratchakitprakarn) — also Deputy PM</div></div>
+    <div class="qa"><div class="q">Q: Who is Minister of Interior (มหาดไทย)?</div><div class="a">A: อนุทิน ชาญวีรกูล — the PM himself also holds the Interior portfolio</div><div class="exp">PM ควบ รมว.มหาดไทย ในเวลาเดียวกัน</div></div>
+    <div class="qa"><div class="q">Q: Which party leads the Anutin 2 government coalition?</div><div class="a">A: Bhumjaithai Party (ภูมิใจไทย) — Anutin is party leader</div></div>
+    <div class="qa"><div class="q">Q: How many ministers are in Thailand's 2026 cabinet?</div><div class="a">A: 35 ministers (คณะรัฐมนตรีคณะที่ 65)</div></div>
+    <div class="qa"><div class="q">Q: When was the Anutin 2 cabinet sworn in?</div><div class="a">A: April 6, 2026 (6 เมษายน 2569)</div></div>
+    <div class="qa"><div class="q">Q: Who is Thailand's Foreign Affairs minister (ต่างประเทศ)?</div><div class="a">A: สีหศักดิ์ พวงเกตุแก้ว (Sihasak Phuangketkaew) — veteran diplomat, also Deputy PM</div></div>
+    <div class="qa"><div class="q">Q: Who is Minister of Education (ศึกษาธิการ)?</div><div class="a">A: ประเสริฐ จันทรรวงทอง (Prasert Jantharawongthong) — from Pheu Thai Party</div></div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB: THAI AIRWAYS HISTORY -->
+<!-- ============================================================ -->
+<div id="tab-thaihist" class="section">
+  <div class="section-title">🛫 Thai Airways — Complete History & Company Facts</div>
+  <div class="section-sub">From founding in 1960 to today — all the SPTG exam details from your source files</div>
+
+  <div class="alert red">🔴 Thai Airways history facts appear EVERY year in SPTG exams. Memorize the dates!</div>
+
+  <div class="card">
+    <h2>📅 Key Founding Dates <span class="badge hot">🔴 Must Know</span></h2>
+    <table class="tbl">
+      <tr><th>Date</th><th>Event</th></tr>
+      <tr><td><strong>29 March 1960</strong> (มีนาคม 2503)</td><td>Thai Airways International (THAI) officially <strong>founded/incorporated</strong> — joint venture between Thai Airways Company (TAC) + SAS (Scandinavian Airlines System) 70%:30%</td></tr>
+      <tr><td><strong>1 May 1960</strong></td><td><strong>First commercial flight</strong> — Bangkok to Hong Kong, Taipei, Tokyo using Douglas DC-6B (60 seats). First year: 11 Asian destinations, 83,000 passengers, 3 DC-6B aircraft</td></tr>
+      <tr><td><strong>30 March 1977</strong> (มีนาคม 2520)</td><td>Thai government bought out remaining 15% SAS shares → THAI became <strong>100% Thai state enterprise</strong></td></tr>
+      <tr><td><strong>1 April 1988</strong> (เมษายน 2531)</td><td>Thai Airways Company (domestic) <strong>merged into THAI</strong> — combined into one airline</td></tr>
+      <tr><td><strong>19 July 1991</strong> (กรกฎาคม 2534)</td><td>THAI listed on the <strong>Stock Exchange of Thailand (SET)</strong></td></tr>
+      <tr><td><strong>14 May 1997</strong></td><td>THAI became a <strong>founding member of Star Alliance</strong> (with Lufthansa, SAS, United, Air Canada) — first Asian airline in Star Alliance</td></tr>
+      <tr><td><strong>May 2020</strong></td><td>Filed for <strong>bankruptcy rehabilitation</strong> (Central Bankruptcy Court)</td></tr>
+      <tr><td><strong>May 2021</strong></td><td>Court approved <strong>rehabilitation plan</strong></td></tr>
+      <tr><td><strong>August 4, 2025</strong></td><td>THAI <strong>relisted on SET</strong> — rehabilitation milestone completed</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>🌍 Route Milestones <span class="badge hot">🔴 Must Know</span></h2>
+    <table class="tbl">
+      <tr><th>Year</th><th>Milestone</th></tr>
+      <tr><td>1960</td><td>First routes: Bangkok → Hong Kong, Taipei, Tokyo + 8 other Asian cities</td></tr>
+      <tr><td>1971</td><td>First <strong>intercontinental route</strong>: Bangkok → Australia (Sydney)</td></tr>
+      <tr><td>1972</td><td>First <strong>European route</strong>: Bangkok → Frankfurt (then expanded to London, Paris, Amsterdam, Rome, Zurich, Copenhagen, Vienna)</td></tr>
+      <tr><td>1980</td><td>First <strong>North American route</strong>: Bangkok → Los Angeles → New York</td></tr>
+      <tr><td>July 1, 2026</td><td><strong>Amsterdam route resumes</strong></td></tr>
+      <tr><td>Q3/Q4 2026</td><td><strong>Auckland, New Zealand</strong> — new route launch</td></tr>
+    </table>
+    <div class="alert orange">🟠 <strong>Exam trick question:</strong> THAI does NOT fly to which continents? Answer: Antarctica and (currently limited) South America</div>
+  </div>
+
+  <div class="card">
+    <h2>✈ Fleet & Services Deep Dive <span class="badge hot">🔴 Must Know</span></h2>
+    <div class="grid2">
+      <div>
+        <h3>Aircraft currently offering First Class (Royal First)</h3>
+        <ul class="bullet">
+          <li>Airbus A380-800</li>
+          <li>Boeing 777-300ER (select routes)</li>
+        </ul>
+        <h3>Royal First Class routes</h3>
+        <ul class="bullet">
+          <li>Bangkok – London (LHR)</li>
+          <li>Bangkok – Frankfurt (FRA)</li>
+          <li>Bangkok – Tokyo (NRT)</li>
+        </ul>
+        <h3>Premium Economy</h3>
+        <ul class="bullet">
+          <li>Available on Boeing 787 Dreamliner series</li>
+          <li>Also on some B777-300ER</li>
+        </ul>
+      </div>
+      <div>
+        <h3>4 Classes of Service</h3>
+        <ul class="bullet">
+          <li><strong>Royal First</strong> — Suite-style, flat bed</li>
+          <li><strong>Royal Silk (Business)</strong> — Flat bed, wide seats</li>
+          <li><strong>Premium Economy</strong> — Extra legroom</li>
+          <li><strong>Economy</strong> — Standard</li>
+        </ul>
+        <h3>THAI Bakery Brand</h3>
+        <ul class="bullet">
+          <li><strong>"Puff & Pie"</strong> — retail bakery chain owned by THAI</li>
+        </ul>
+        <h3>In-flight Magazine</h3>
+        <ul class="bullet">
+          <li><strong>"Sawasdee"</strong> — THAI's inflight magazine</li>
+          <li>Electronic version: Sawasdee Digital</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>⭐ Star Alliance Facts <span class="badge likely">🟠 Likely</span></h2>
+    <div class="grid2">
+      <div>
+        <ul class="bullet">
+          <li>Founded: <strong>May 14, 1997</strong></li>
+          <li>Founding airlines: <strong>THAI, Lufthansa, SAS, Air Canada, United Airlines</strong></li>
+          <li>THAI = <strong>first Asian airline</strong> to join Star Alliance</li>
+          <li>Largest airline alliance by number of member airlines</li>
+          <li>Members: 26 airlines</li>
+        </ul>
+      </div>
+      <div>
+        <ul class="bullet">
+          <li>Other alliances: <strong>Oneworld</strong> (British Airways, Cathay, etc.), <strong>SkyTeam</strong> (Air France, Korean Air, etc.)</li>
+          <li>THAI's status: Currently suspended from Star Alliance during rehabilitation</li>
+          <li>HQ of Star Alliance: Frankfurt, Germany</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🏢 Company Basics — Fill-in Facts <span class="badge hot">🔴 Must Know</span></h2>
+    <table class="tbl">
+      <tr><th>Question</th><th>Answer</th></tr>
+      <tr><td>Full Thai name</td><td>บริษัท การบินไทย จำกัด (มหาชน)</td></tr>
+      <tr><td>Full English name</td><td>Thai Airways International Public Company Limited</td></tr>
+      <tr><td>IATA code</td><td><strong>TG</strong></td></tr>
+      <tr><td>ICAO code</td><td><strong>THA</strong></td></tr>
+      <tr><td>Radio call sign</td><td><strong>THAI</strong></td></tr>
+      <tr><td>Logo flower</td><td>กล้วยไม้ (Orchid) — specifically the <strong>Purple Orchid</strong></td></tr>
+      <tr><td>Logo colors</td><td>Purple (ม่วง), Gold (ทอง), Pink (ชมพู)</td></tr>
+      <tr><td>Largest shareholder</td><td>Ministry of Finance (กระทรวงการคลัง) — Thai government</td></tr>
+      <tr><td>HQ address</td><td>89 Vibhavadi Rangsit Road, Chatuchak, Bangkok</td></tr>
+      <tr><td>Contact Center</td><td>1566 (domestic)</td></tr>
+      <tr><td>FFP Program</td><td>Royal Orchid Plus (ROP)</td></tr>
+      <tr><td>Current CEO/President</td><td>Chai Eamsiri (ไชย เอื้อโอภาส)</td></tr>
+      <tr><td>SAS partnership duration</td><td>1960–1977 (17 years)</td></tr>
+      <tr><td>Age in 2025</td><td>65 years (ครบรอบ 65 ปี)</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB: Q&A BANK -->
+<!-- ============================================================ -->
+<div id="tab-qna" class="section">
+  <div class="section-title">❓ Complete Q&amp;A Bank — All Topics</div>
+  <div class="section-sub">Compiled from AERO MATE 125Qs + Mock B 100Qs + your source files + 2026 web research</div>
+
+  <div class="alert red">🔴 These are the highest-probability questions based on pattern analysis of all your exam files!</div>
+
+  <!-- THAI AIRWAYS Q&A -->
+  <div class="card">
+    <h2>🛫 Thai Airways Q&amp;A <span class="badge hot">🔴 Must Know</span></h2>
+    <div class="qa"><div class="q">Q1. When was Thai Airways International founded?</div><div class="a">✅ 29 March 1960 (2503)</div><div class="exp">Joint venture: Thai Airways Company + SAS (Scandinavian), 70%:30%</div></div>
+    <div class="qa"><div class="q">Q2. What was THAI's first commercial aircraft type?</div><div class="a">✅ Douglas DC-6B (60 seats)</div></div>
+    <div class="qa"><div class="q">Q3. What was THAI's first international route?</div><div class="a">✅ Bangkok → Hong Kong (May 1, 1960)</div></div>
+    <div class="qa"><div class="q">Q4. When did THAI fly its first intercontinental route?</div><div class="a">✅ 1971 → Australia (Sydney)</div></div>
+    <div class="qa"><div class="q">Q5. When did THAI fly its first European route?</div><div class="a">✅ 1972 → Frankfurt, Germany</div></div>
+    <div class="qa"><div class="q">Q6. When did THAI join Star Alliance and who were the other founding members?</div><div class="a">✅ May 14, 1997 — with Lufthansa, SAS, Air Canada, United Airlines</div><div class="exp">THAI = first Asian airline in Star Alliance</div></div>
+    <div class="qa"><div class="q">Q7. What is THAI's inflight magazine called?</div><div class="a">✅ Sawasdee (สวัสดี)</div></div>
+    <div class="qa"><div class="q">Q8. What is THAI's retail bakery chain?</div><div class="a">✅ Puff & Pie</div></div>
+    <div class="qa"><div class="q">Q9. What is the symbol flower of Thai Airways?</div><div class="a">✅ Purple Orchid (กล้วยไม้สีม่วง)</div></div>
+    <div class="qa"><div class="q">Q10. Who is THAI's largest shareholder?</div><div class="a">✅ Ministry of Finance (กระทรวงการคลัง) — the Thai government</div></div>
+    <div class="qa"><div class="q">Q11. What are THAI's 3 logo colors?</div><div class="a">✅ Purple (ม่วง), Gold (ทอง), Pink (ชมพู)</div></div>
+    <div class="qa"><div class="q">Q12. What new aircraft type is THAI adding in June 2026?</div><div class="a">✅ Boeing 787-8 Dreamliner — 10 aircraft leased from Avolon (ex-China Southern)</div></div>
+    <div class="qa"><div class="q">Q13. What two new routes is THAI launching in 2026?</div><div class="a">✅ Amsterdam (July 1, 2026) and Auckland, New Zealand (Q3/Q4 2026)</div></div>
+    <div class="qa"><div class="q">Q14. When did Thai Airways relist on the SET stock exchange?</div><div class="a">✅ August 4, 2025</div></div>
+    <div class="qa"><div class="q">Q15. What does TG / THA stand for?</div><div class="a">✅ TG = IATA code; THA = ICAO code; Radio call sign = "THAI"</div></div>
+  </div>
+
+  <!-- GEOGRAPHY & ASEAN Q&A -->
+  <div class="card">
+    <h2>🌏 Geography & ASEAN Q&amp;A <span class="badge hot">🔴 Must Know</span></h2>
+    <div class="qa"><div class="q">Q16. How many members does ASEAN have in 2026?</div><div class="a">✅ 11 members (Timor-Leste joined October 26, 2025)</div></div>
+    <div class="qa"><div class="q">Q17. Who chairs ASEAN in 2026?</div><div class="a">✅ Philippines — theme: "Navigating Our Future Together"</div></div>
+    <div class="qa"><div class="q">Q18. When and where was ASEAN founded?</div><div class="a">✅ August 8, 1967 — Bangkok, Thailand (Bangkok Declaration)</div></div>
+    <div class="qa"><div class="q">Q19. Where is the ASEAN Secretariat located?</div><div class="a">✅ Jakarta, Indonesia (since 1976)</div></div>
+    <div class="qa"><div class="q">Q20. Which mountain range forms the Thailand-Myanmar northern border?</div><div class="a">✅ Thanon Thong Chai Range (ถนนธงชัย) in the north; Tenasserim Range (ตะนาวศรี) further south</div></div>
+    <div class="qa"><div class="q">Q21. Which mountain range forms the Thailand-Cambodia border?</div><div class="a">✅ Phanom Dong Rak Range (พนมดงรัก)</div></div>
+    <div class="qa"><div class="q">Q22. Which mountain range forms the Thailand-Malaysia border?</div><div class="a">✅ Sankalakhiri Range (สันกาลาคีรี)</div></div>
+    <div class="qa"><div class="q">Q23. Which Strait connects the Persian Gulf to the Gulf of Oman?</div><div class="a">✅ Strait of Hormuz — bordered by Iran, Oman, UAE</div></div>
+    <div class="qa"><div class="q">Q24. What is the world's longest river?</div><div class="a">✅ Nile River — 6,650 km (Africa)</div></div>
+    <div class="qa"><div class="q">Q25. What is the world's largest island?</div><div class="a">✅ Greenland</div></div>
+    <div class="qa"><div class="q">Q26. What is the deepest point in the ocean?</div><div class="a">✅ Challenger Deep — approx. 10,900 m (Mariana Trench, Pacific)</div></div>
+    <div class="qa"><div class="q">Q27. What is the world's largest freshwater lake?</div><div class="a">✅ Lake Superior (USA/Canada) — by surface area</div><div class="exp">Deepest freshwater: Lake Baikal (Russia); Most volume: Lake Baikal</div></div>
+    <div class="qa"><div class="q">Q28. Where is Indonesia moving its capital?</div><div class="a">✅ From Jakarta to Nusantara (Borneo/Kalimantan island)</div></div>
+    <div class="qa"><div class="q">Q29. Which country has the greatest number of overseas territories?</div><div class="a">✅ UK and France — both have 17 territories across 6 continents</div></div>
+    <div class="qa"><div class="q">Q30. What is the world's largest sea (not ocean)?</div><div class="a">✅ South China Sea (ทะเลจีนใต้)</div></div>
+  </div>
+
+  <!-- POLITICS Q&A -->
+  <div class="card">
+    <h2>🏛 World Politics Q&amp;A <span class="badge hot">🔴 Must Know</span></h2>
+    <div class="qa"><div class="q">Q31. Who is Thailand's Prime Minister in April 2026?</div><div class="a">✅ อนุทิน ชาญวีรกูล (Anutin Charnvirakul) — Bhumjaithai Party — sworn in April 6, 2026</div></div>
+    <div class="qa"><div class="q">Q32. Who is Japan's first female Prime Minister?</div><div class="a">✅ Sanae Takaichi (高市早苗) — LDP — reappointed February 2026</div></div>
+    <div class="qa"><div class="q">Q33. Who is the UK Prime Minister?</div><div class="a">✅ Keir Starmer — Labour Party — since July 5, 2024</div></div>
+    <div class="qa"><div class="q">Q34. Who is the US President in 2026?</div><div class="a">✅ Donald Trump — Republican — 2nd term, since January 20, 2025</div></div>
+    <div class="qa"><div class="q">Q35. Who is Singapore's PM (since May 2024)?</div><div class="a">✅ Lawrence Wong — PAP — succeeded Lee Hsien Loong</div></div>
+    <div class="qa"><div class="q">Q36. Who is Indonesia's President (since October 2024)?</div><div class="a">✅ Prabowo Subianto</div></div>
+    <div class="qa"><div class="q">Q37. Who is the Prime Minister of Israel?</div><div class="a">✅ Benjamin Netanyahu (Likud Party)</div></div>
+    <div class="qa"><div class="q">Q38. Who is the Supreme Leader of Iran?</div><div class="a">✅ Ali Khamenei</div></div>
+    <div class="qa"><div class="q">Q39. Who is the NATO Secretary-General since October 2024?</div><div class="a">✅ Mark Rutte (Netherlands)</div></div>
+    <div class="qa"><div class="q">Q40. Which country has the strongest passport in 2026?</div><div class="a">✅ Singapore — 192 visa-free destinations (Henley Passport Index 2026)</div></div>
+    <div class="qa"><div class="q">Q41. Where is the 2026 FIFA World Cup Final?</div><div class="a">✅ MetLife Stadium, New Jersey, USA — July 19, 2026</div></div>
+    <div class="qa"><div class="q">Q42. What are the 3 FIFA 2026 mascots?</div><div class="a">✅ Clutch (armadillo, USA), Maple (bear, Canada), Zayu (axolotl, Mexico)</div><div class="exp">Note: "Zayu" mascot is an axolotl — a Mexican salamander, NOT a jaguar! This is a common trick question.</div></div>
+    <div class="qa"><div class="q">Q43. Which of these is NOT a FIFA 2026 mascot? (a) Maple (b) Zayu (c) Pele (d) Clutch</div><div class="a">✅ Pele — not a mascot. The real mascots are Clutch, Maple, Zayu.</div></div>
+    <div class="qa"><div class="q">Q44. What is the theme of World Expo 2025 in Osaka?</div><div class="a">✅ "Designing Future Society for Our Lives"</div></div>
+    <div class="qa"><div class="q">Q45. Where will World Expo 2030 be held?</div><div class="a">✅ Riyadh, Saudi Arabia</div></div>
+  </div>
+
+  <!-- SCIENCE & SPACE Q&A -->
+  <div class="card">
+    <h2>🔬 Science, Space & Physics Q&amp;A <span class="badge likely">🟠 Likely</span></h2>
+    <div class="qa"><div class="q">Q46. What does NASA stand for?</div><div class="a">✅ National Aeronautics and Space Administration</div></div>
+    <div class="qa"><div class="q">Q47. Who was the first human to walk on the Moon?</div><div class="a">✅ Neil Armstrong — Apollo 11 — July 20, 1969. The lunar module was named "Eagle".</div></div>
+    <div class="qa"><div class="q">Q48. Who was the first human in space?</div><div class="a">✅ Yuri Gagarin (USSR) — April 12, 1961 — Vostok 1</div></div>
+    <div class="qa"><div class="q">Q49. What was the world's first artificial satellite?</div><div class="a">✅ Sputnik 1 — launched by USSR, October 4, 1957</div></div>
+    <div class="qa"><div class="q">Q50. How many rare earth elements (REEs) are there?</div><div class="a">✅ 17 chemically similar metals</div></div>
+    <div class="qa"><div class="q">Q51. Which country dominates rare earth element supply?</div><div class="a">✅ China (~60-80% of global supply)</div></div>
+    <div class="qa"><div class="q">Q52. What is the approximate speed of sound at sea level?</div><div class="a">✅ 340 m/s (also = 661 knots = Mach 1)</div></div>
+    <div class="qa"><div class="q">Q53. What is the approximate speed of light?</div><div class="a">✅ 3 × 10⁸ m/s (299,792,458 m/s)</div></div>
+    <div class="qa"><div class="q">Q54. What is the SI prefix for 10⁻⁹?</div><div class="a">✅ Nano (n)</div></div>
+    <div class="qa"><div class="q">Q55. What is the SI prefix for 10⁹?</div><div class="a">✅ Giga (G)</div></div>
+    <div class="qa"><div class="q">Q56. During a lunar eclipse, what blocks sunlight from reaching the Moon?</div><div class="a">✅ Earth (Earth passes between the Sun and Moon)</div></div>
+    <div class="qa"><div class="q">Q57. During a solar eclipse, what blocks sunlight from reaching Earth?</div><div class="a">✅ The Moon (Moon passes between Earth and Sun)</div></div>
+    <div class="qa"><div class="q">Q58. What is the dew point?</div><div class="a">✅ The temperature at which air becomes saturated and condensation (dew/fog) begins to form</div></div>
+    <div class="qa"><div class="q">Q59. What happens during hyperventilation?</div><div class="a">✅ Rapid breathing causes CO₂ levels to DROP → symptoms: tingling hands/feet, dizziness, muscle spasms</div></div>
+    <div class="qa"><div class="q">Q60. What is the hottest planet in our solar system?</div><div class="a">✅ Venus (~465°C) — despite Mercury being closest to the Sun</div></div>
+    <div class="qa"><div class="q">Q61. Artemis II mission objective?</div><div class="a">✅ Fly a crewed mission AROUND the Moon without landing (first crewed lunar flyby since Apollo)</div></div>
+    <div class="qa"><div class="q">Q62. What is the Tropic of Cancer?</div><div class="a">✅ Latitude 23.5°N — northernmost point where Sun is directly overhead (June solstice)</div></div>
+    <div class="qa"><div class="q">Q63. What is the Tropic of Capricorn?</div><div class="a">✅ Latitude 23.5°S — southernmost point where Sun is directly overhead (December solstice)</div></div>
+  </div>
+
+  <!-- RELIGION & CULTURE Q&A -->
+  <div class="card">
+    <h2>🙏 Religion, Culture & Special Days Q&amp;A <span class="badge hot">🔴 Must Know</span></h2>
+    <div class="qa"><div class="q">Q64. What does Easter commemorate?</div><div class="a">✅ The resurrection of Jesus Christ (NOT birth — that's Christmas)</div></div>
+    <div class="qa"><div class="q">Q65. Is Easter on a fixed date each year?</div><div class="a">✅ NO — Easter date changes each year (calculated based on lunar calendar)</div></div>
+    <div class="qa"><div class="q">Q66. When is World Pilots' Day?</div><div class="a">✅ April 26</div></div>
+    <div class="qa"><div class="q">Q67. When is International Women's Day?</div><div class="a">✅ March 8</div></div>
+    <div class="qa"><div class="q">Q68. What is the most sacred Buddhist holiday?</div><div class="a">✅ Visakha Bucha — commemorates birth, enlightenment, AND death of Buddha (all same date, full moon 6th lunar month)</div></div>
+    <div class="qa"><div class="q">Q69. What does Makha Bucha commemorate?</div><div class="a">✅ 1,250 monks gathered spontaneously (unscheduled) to hear Buddha preach — full moon 3rd lunar month</div></div>
+    <div class="qa"><div class="q">Q70. When is Chakri Day and what does it mark?</div><div class="a">✅ April 6 — founding of Chakri Dynasty by King Rama I</div></div>
+    <div class="qa"><div class="q">Q71. When is Thailand's Father's Day?</div><div class="a">✅ December 5 — late King Bhumibol Adulyadej's (Rama IX) birthday</div></div>
+    <div class="qa"><div class="q">Q72. When is Thailand's Mother's Day?</div><div class="a">✅ August 12 — late Queen Sirikit's birthday</div></div>
+    <div class="qa"><div class="q">Q73. What is the world's most followed religion?</div><div class="a">✅ Christianity (~2.4 billion followers)</div></div>
+    <div class="qa"><div class="q">Q74. Who founded Buddhism, and where?</div><div class="a">✅ Siddhartha Gautama — born in Lumbini, Nepal, ~563 BCE</div></div>
+    <div class="qa"><div class="q">Q75. What are the 3 Jewels of Buddhism?</div><div class="a">✅ Buddha (teacher), Dharma (teachings), Sangha (monastic community)</div></div>
+    <div class="qa"><div class="q">Q76. When is ASEAN Day?</div><div class="a">✅ August 8 (every year)</div></div>
+    <div class="qa"><div class="q">Q77. When is Human Rights Day?</div><div class="a">✅ December 10 (also Thailand's Constitution Day)</div></div>
+    <div class="qa"><div class="q">Q78. When is Earth Day?</div><div class="a">✅ April 22</div></div>
+    <div class="qa"><div class="q">Q79. What is Big Ben?</div><div class="a">✅ The name of the BELL (ระฆัง) inside the Elizabeth Tower at Westminster, London — NOT the tower itself</div><div class="exp">Also known as "The Great Bell" — the clock tower has 5 bells total; 4 for melody, Big Ben for the hours</div></div>
+    <div class="qa"><div class="q">Q80. What language do people in Turkiye speak, and what is its currency?</div><div class="a">✅ Language: Turkish; Currency: Lira (TRY)</div></div>
+  </div>
+
+  <!-- AEROMEDICAL Q&A -->
+  <div class="card">
+    <h2>🏥 Aeromedical Q&amp;A <span class="badge hot">🔴 Must Know</span></h2>
+    <div class="qa"><div class="q">Q81. What is the Time of Useful Consciousness (TUC) at 40,000 ft?</div><div class="a">✅ 15–20 seconds</div></div>
+    <div class="qa"><div class="q">Q82. What type of hypoxia is caused by carbon monoxide poisoning?</div><div class="a">✅ Hypemic (Anemic) Hypoxia — CO binds to hemoglobin, reducing O₂ carrying capacity</div></div>
+    <div class="qa"><div class="q">Q83. What is the most common spatial disorientation illusion?</div><div class="a">✅ The Leans — body feels banked while aircraft is actually wings-level</div></div>
+    <div class="qa"><div class="q">Q84. What is the Somatogravic Illusion?</div><div class="a">✅ Rapid acceleration feels like nose-up pitch → pilot pushes nose DOWN dangerously</div></div>
+    <div class="qa"><div class="q">Q85. What causes hyperventilation and how do you treat it?</div><div class="a">✅ Cause: Over-breathing → CO₂ drops. Treatment: Slow breathing rate; breathe into bag to restore CO₂</div></div>
+    <div class="qa"><div class="q">Q86. How long before flying must you wait after SCUBA diving?</div><div class="a">✅ At least 24 hours (to prevent decompression sickness / N₂ bubble formation)</div></div>
+    <div class="qa"><div class="q">Q87. What body cells are used for night vision?</div><div class="a">✅ RODS (peripheral retina) — no color; for low-light; use off-center viewing (look 10° away from target)</div></div>
+    <div class="qa"><div class="q">Q88. What happens if you approach a NARROW runway at night?</div><div class="a">✅ Pilot perceives they are TOO HIGH → tends to land SHORT of the threshold</div></div>
+    <div class="qa"><div class="q">Q89. What periods of the day have the lowest alertness (circadian nadir)?</div><div class="a">✅ 2:00–4:00 AM and 2:00–4:00 PM</div></div>
+    <div class="qa"><div class="q">Q90. What is Histotoxic Hypoxia?</div><div class="a">✅ Cells CANNOT use oxygen even though O₂ is available — caused by alcohol, drugs, cyanide poisoning</div></div>
+  </div>
+
+  <!-- AVIATION Q&A -->
+  <div class="card">
+    <h2>✈ Aviation & Aircraft Q&amp;A <span class="badge hot">🔴 Must Know</span></h2>
+    <div class="qa"><div class="q">Q91. Which control surface controls ROLL?</div><div class="a">✅ Ailerons (outer trailing edge of wings) — move in opposite directions</div></div>
+    <div class="qa"><div class="q">Q92. Which control surface controls PITCH?</div><div class="a">✅ Elevator (trailing edge of horizontal stabilizer)</div></div>
+    <div class="qa"><div class="q">Q93. Which control surface controls YAW?</div><div class="a">✅ Rudder (trailing edge of vertical fin/stabilizer)</div></div>
+    <div class="qa"><div class="q">Q94. What are the 4 forces acting on an aircraft in flight?</div><div class="a">✅ Lift, Weight (Gravity), Thrust, Drag</div></div>
+    <div class="qa"><div class="q">Q95. What is the world's largest commercial passenger aircraft?</div><div class="a">✅ Airbus A380-800 — double-deck, 4 engines, max 853 passengers, first service 2007 (Singapore Airlines)</div></div>
+    <div class="qa"><div class="q">Q96. What is the emergency VHF frequency?</div><div class="a">✅ 121.5 MHz (VHF Guard / International Distress Frequency)</div></div>
+    <div class="qa"><div class="q">Q97. What is the ISA standard sea level temperature and pressure?</div><div class="a">✅ Temperature: 15°C (59°F); Pressure: 1013.25 hPa (29.92 inHg)</div></div>
+    <div class="qa"><div class="q">Q98. What is the ISA temperature lapse rate?</div><div class="a">✅ -2°C per 1,000 ft (approximately)</div></div>
+    <div class="qa"><div class="q">Q99. How is a runway number determined?</div><div class="a">✅ Magnetic heading ÷ 10 (rounded) — e.g., Runway 27 = heading 270° (West)</div></div>
+    <div class="qa"><div class="q">Q100. What does the "B" stand for in Boeing 787-8?</div><div class="a">✅ Boeing; 787 = model; 8 = variant. Material: 50% carbon fiber composite. Engines: GEnx or Rolls-Royce Trent 1000</div></div>
+    <div class="qa"><div class="q">Q101. What is the IATA code for Suvarnabhumi Airport?</div><div class="a">✅ BKK — ICAO: VTBS</div></div>
+    <div class="qa"><div class="q">Q102. What does the phonetic alphabet letter "O" stand for?</div><div class="a">✅ Oscar</div></div>
+    <div class="qa"><div class="q">Q103. What is 1 nautical mile equal to in km?</div><div class="a">✅ 1 NM = 1.852 km = 6,076 feet</div></div>
+    <div class="qa"><div class="q">Q104. What is Bernoulli's Principle (applied to flight)?</div><div class="a">✅ Faster airflow over curved wing upper surface = lower pressure = LIFT generated upward</div></div>
+    <div class="qa"><div class="q">Q105. What is Mach 1?</div><div class="a">✅ Speed of sound = ~340 m/s = 661 knots at sea level. B777 cruises ~Mach 0.84.</div></div>
+  </div>
+
+  <!-- MISC Q&A from files -->
+  <div class="card">
+    <h2>🌍 Misc World Knowledge Q&amp;A (from your files) <span class="badge likely">🟠 Likely</span></h2>
+    <div class="qa"><div class="q">Q106. What is the tallest mountain measured from base (not sea level)?</div><div class="a">✅ Mauna Kea, Hawaii — 10,205 m total height (but only 4,205 m above sea level)</div><div class="exp">Everest is highest above sea level (8,848.86 m); Mauna Kea is tallest from base (mostly underwater)</div></div>
+    <div class="qa"><div class="q">Q107. Which is the tallest mountain in Europe?</div><div class="a">✅ Mt. Elbrus, Russia — 5,642 m</div></div>
+    <div class="qa"><div class="q">Q108. Which country exports the most rice?</div><div class="a">✅ India (surpassed Thailand as world's #1 rice exporter)</div><div class="exp">Thailand = major exporter; India = #1 by volume since ~2012</div></div>
+    <div class="qa"><div class="q">Q109. Which country invented gunpowder and paper?</div><div class="a">✅ China</div></div>
+    <div class="qa"><div class="q">Q110. Who invented the telephone?</div><div class="a">✅ Alexander Graham Bell (1876)</div></div>
+    <div class="qa"><div class="q">Q111. What is the world's most densely populated city?</div><div class="a">✅ Manila, Philippines — ~46,000 people per km²</div></div>
+    <div class="qa"><div class="q">Q112. What is the world's youngest nation (most recent independent country)?</div><div class="a">✅ South Sudan — gained independence July 9, 2011</div></div>
+    <div class="qa"><div class="q">Q113. What is the world's smallest country?</div><div class="a">✅ Vatican City (Holy See) — 0.44 km²</div></div>
+    <div class="qa"><div class="q">Q114. What is the national anthem of the UK?</div><div class="a">✅ "God Save the King" (changed from "God Save the Queen" when Charles III became King in 2022)</div></div>
+    <div class="qa"><div class="q">Q115. What is the US national anthem?</div><div class="a">✅ "The Star-Spangled Banner"</div></div>
+    <div class="qa"><div class="q">Q116. What is the flag of the UK called?</div><div class="a">✅ Union Jack (or Union Flag)</div></div>
+    <div class="qa"><div class="q">Q117. What does "JULY IV MDCCLXXVI" inscribed on the Statue of Liberty mean?</div><div class="a">✅ July 4, 1776 — US Declaration of Independence from UK</div></div>
+    <div class="qa"><div class="q">Q118. What is the Statue of Liberty's island location?</div><div class="a">✅ Liberty Island, New York Harbor (gift from France to USA for 100th anniversary of independence)</div></div>
+    <div class="qa"><div class="q">Q119. What is Big Ben's official tower name?</div><div class="a">✅ Elizabeth Tower (previously "St. Stephen's Tower") — located at Palace of Westminster, London</div></div>
+    <div class="qa"><div class="q">Q120. Where is Cannes Film Festival held and when?</div><div class="a">✅ Cannes, France — every May</div></div>
+    <div class="qa"><div class="q">Q121. Which countries are NOT in the Eurozone (use their own currency in Europe)?</div><div class="a">✅ UK (GBP), Switzerland (CHF), Norway/Denmark/Sweden (crowns), Poland, Hungary, Czech Republic, Bulgaria, Romania</div></div>
+    <div class="qa"><div class="q">Q122. What is the capital of New Zealand?</div><div class="a">✅ Wellington (NOT Auckland — common mistake!)</div></div>
+    <div class="qa"><div class="q">Q123. What is the capital of Australia?</div><div class="a">✅ Canberra (NOT Sydney!)</div></div>
+    <div class="qa"><div class="q">Q124. What is the capital of Canada?</div><div class="a">✅ Ottawa (NOT Toronto!)</div></div>
+    <div class="qa"><div class="q">Q125. What is the largest exporter of coffee?</div><div class="a">✅ Brazil</div></div>
+  </div>
+</div>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  document.querySelectorAll('.nav-tabs button').forEach((b, i) => b.classList.remove('active'));
+  const tabs = ['thai-airways','geography','politics','aviation','aeromedical','science','religion','sports','quickref','cabinet','thaihist','qna'];
+  const idx = tabs.indexOf(id);
+  if (idx !== -1) document.querySelectorAll('.nav-tabs button')[idx].classList.add('active');
+}
+
+function toggleAcc(header) {
+  header.classList.toggle('open');
+  const body = header.nextElementSibling;
+  body.classList.toggle('open');
+}
+</script>
+</body>
+</html>

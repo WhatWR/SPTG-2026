@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>✈️ Aviation Knowledge – SPTG Study Guide (Q51–85)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #0a0f1e; color: #e8eaf6; min-height: 100vh; }
+
+  /* Header */
+  .hero {
+    background: linear-gradient(135deg, #1a237e 0%, #283593 40%, #1565c0 100%);
+    padding: 40px 20px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 200'%3E%3Cpath d='M0,100 Q200,20 400,100 T800,100' stroke='rgba(255,255,255,0.05)' fill='none' stroke-width='2'/%3E%3Cpath d='M0,130 Q200,50 400,130 T800,130' stroke='rgba(255,255,255,0.05)' fill='none' stroke-width='2'/%3E%3C/svg%3E") center/cover;
+  }
+  .hero h1 { font-size: 2.2rem; font-weight: 800; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.4); position: relative; }
+  .hero p { color: #90caf9; font-size: 1rem; margin-top: 8px; position: relative; }
+  .hero .plane-icon { font-size: 3rem; display: block; margin-bottom: 10px; }
+
+  /* Nav tabs */
+  .tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; padding: 20px; background: #0d1b2a; border-bottom: 2px solid #1e3a5f; }
+  .tab-btn {
+    background: #1e3a5f; color: #90caf9; border: none; padding: 8px 16px; border-radius: 20px;
+    cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: all 0.2s;
+  }
+  .tab-btn:hover, .tab-btn.active { background: #1565c0; color: #fff; transform: translateY(-1px); }
+
+  /* Main layout */
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+
+  /* Section headers */
+  .section-title {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 1.4rem; font-weight: 700; color: #42a5f5;
+    margin: 30px 0 16px; padding-bottom: 8px;
+    border-bottom: 2px solid #1e3a5f;
+  }
+  .section-title .icon { font-size: 1.6rem; }
+
+  /* Question cards */
+  .q-card {
+    background: #0d1b2a; border: 1px solid #1e3a5f; border-radius: 12px;
+    margin-bottom: 14px; overflow: hidden; transition: border-color 0.2s;
+  }
+  .q-card:hover { border-color: #1565c0; }
+  .q-header {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 14px 16px; cursor: pointer; user-select: none;
+  }
+  .q-num {
+    background: #1565c0; color: #fff; border-radius: 50%;
+    width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.8rem; flex-shrink: 0; margin-top: 2px;
+  }
+  .q-text { flex: 1; font-size: 0.95rem; color: #cfd8dc; line-height: 1.5; }
+  .q-answer-badge {
+    background: #1b5e20; color: #a5d6a7; padding: 3px 10px; border-radius: 12px;
+    font-size: 0.78rem; font-weight: 700; white-space: nowrap; align-self: flex-start; margin-top: 4px;
+  }
+  .q-body { padding: 0 16px 14px 60px; display: none; }
+  .q-body.open { display: block; }
+
+  /* Answer options */
+  .options { display: grid; gap: 6px; margin-bottom: 12px; }
+  .option {
+    padding: 8px 12px; border-radius: 8px; font-size: 0.9rem;
+    background: #1a2744; border: 1px solid #1e3a5f; color: #90a4ae;
+  }
+  .option.correct { background: #1b3a1b; border-color: #2e7d32; color: #a5d6a7; font-weight: 600; }
+  .option.correct::before { content: '✅ '; }
+
+  /* Explanation box */
+  .explain {
+    background: #0a1628; border-left: 4px solid #1565c0; border-radius: 0 8px 8px 0;
+    padding: 12px 14px; font-size: 0.88rem; color: #b0bec5; line-height: 1.6;
+  }
+  .explain strong { color: #42a5f5; }
+  .explain .warn { color: #ffcc02; font-weight: 700; }
+
+  /* Info cards / visual blocks */
+  .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin: 16px 0; }
+  .info-card {
+    background: #0d1b2a; border: 1px solid #1e3a5f; border-radius: 12px; padding: 16px;
+  }
+  .info-card h3 { color: #42a5f5; font-size: 1rem; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+  .info-card p, .info-card li { font-size: 0.88rem; color: #90a4ae; line-height: 1.7; }
+  .info-card ul { padding-left: 16px; }
+  .badge { display: inline-block; background: #1565c0; color: #fff; border-radius: 6px; padding: 2px 8px; font-size: 0.75rem; margin: 2px; }
+  .badge.green { background: #1b5e20; color: #a5d6a7; }
+  .badge.amber { background: #4a3000; color: #ffcc02; }
+  .badge.red { background: #3e0f0f; color: #ef9a9a; }
+
+  /* Diagram: Aircraft axes */
+  .diagram-box {
+    background: #060d1a; border: 1px solid #1e3a5f; border-radius: 12px;
+    padding: 20px; margin: 16px 0; text-align: center;
+  }
+  .diagram-box svg { max-width: 100%; height: auto; }
+  .diagram-box p { font-size: 0.85rem; color: #546e7a; margin-top: 10px; }
+
+  /* Airport table */
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.88rem; }
+  th { background: #1565c0; color: #fff; padding: 10px 12px; text-align: left; }
+  td { padding: 9px 12px; border-bottom: 1px solid #1e3a5f; color: #90a4ae; }
+  tr:hover td { background: #0d1b2a; }
+  td.highlight { color: #42a5f5; font-weight: 700; }
+
+  /* Progress bar */
+  .progress-wrap { background: #1e3a5f; border-radius: 999px; height: 8px; margin: 8px 0; overflow: hidden; }
+  .progress-fill { background: linear-gradient(90deg, #1565c0, #42a5f5); height: 100%; border-radius: 999px; }
+
+  /* Score section */
+  .score-box {
+    background: linear-gradient(135deg, #1a237e, #283593);
+    border-radius: 16px; padding: 20px; text-align: center; margin: 20px 0;
+  }
+  .score-box .big { font-size: 3rem; font-weight: 800; color: #fff; }
+  .score-box p { color: #90caf9; }
+
+  /* Hide sections */
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* Footer */
+  footer { text-align: center; padding: 30px; color: #37474f; font-size: 0.82rem; }
+  footer strong { color: #546e7a; }
+
+  /* Atmosphere diagram */
+  .atm-layer { padding: 10px 14px; border-radius: 8px; margin-bottom: 6px; font-size: 0.88rem; }
+  .layer-tropo { background: #1b2e4b; border-left: 4px solid #42a5f5; }
+  .layer-strato { background: #1b3a1b; border-left: 4px solid #66bb6a; }
+  .layer-meso { background: #3e2000; border-left: 4px solid #ffa726; }
+  .layer-thermo { background: #3e0a0a; border-left: 4px solid #ef5350; }
+  .layer-label { font-weight: 700; color: #fff; }
+  .layer-detail { color: #90a4ae; font-size: 0.82rem; margin-top: 3px; }
+
+  /* Accordion toggle */
+  .toggle-hint { font-size: 0.75rem; color: #37474f; text-align: right; margin-bottom: 10px; }
+  .chevron { margin-left: auto; color: #37474f; font-size: 0.8rem; flex-shrink: 0; align-self: center; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="plane-icon">✈️</span>
+  <h1>Aviation Knowledge Study Guide</h1>
+  <p>SPTG 2026 Recruitment Exam — Section 6 (Q51–85) • Click any question to reveal the answer</p>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <button class="tab-btn active" onclick="showSection('all')">📚 All Questions</button>
+  <button class="tab-btn" onclick="showSection('airports')">🏢 Airports & Codes</button>
+  <button class="tab-btn" onclick="showSection('tg')">🇹🇭 Thai Airways</button>
+  <button class="tab-btn" onclick="showSection('aircraft')">🛩️ Aircraft Systems</button>
+  <button class="tab-btn" onclick="showSection('atmosphere')">🌤️ Atmosphere</button>
+  <button class="tab-btn" onclick="showSection('quick')">⚡ Quick Reference</button>
+</div>
+
+<div class="container">
+
+<!-- ===== ALL QUESTIONS SECTION ===== -->
+<div id="sec-all" class="section active">
+
+  <div class="section-title"><span class="icon">🏢</span> Airport Codes (Q51–57)</div>
+  <p class="toggle-hint">💡 Click each question to see the answer & explanation</p>
+
+  <!-- Q51 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">51</div>
+      <div class="q-text">What is the <strong>IATA</strong> code for Thai Airways?</div>
+      <div class="q-answer-badge">✈ TG</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) TH</div>
+        <div class="option correct">B) TG</div>
+        <div class="option">C) TA</div>
+        <div class="option">D) TW</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: B) TG</strong><br>
+        IATA (International Air Transport Association) assigns 2-letter airline codes. Thai Airways International uses <strong>TG</strong>, which stands for its historical abbreviation. This is the code you see on boarding passes and booking systems worldwide.
+        <br><br><span class="warn">⚠️ Exam tip:</span> IATA = 2 letters for airlines, 3 letters for airports.
+      </div>
+    </div>
+  </div>
+
+  <!-- Q52 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">52</div>
+      <div class="q-text">What is the <strong>ICAO</strong> code for Thai Airways?</div>
+      <div class="q-answer-badge">✈ THA</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) TGW</div>
+        <div class="option">B) TAI</div>
+        <div class="option correct">C) THA</div>
+        <div class="option">D) THW</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: C) THA</strong><br>
+        ICAO (International Civil Aviation Organization) uses 3-letter airline codes. Thai Airways is <strong>THA</strong>. ICAO codes are used in ATC communications and official documents.<br><br>
+        <span class="warn">⚠️ Remember:</span> IATA = TG (2 letters) | ICAO = THA (3 letters)
+      </div>
+    </div>
+  </div>
+
+  <!-- Q53 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">53</div>
+      <div class="q-text">What is the <strong>ICAO</strong> code for Suvarnabhumi Airport?</div>
+      <div class="q-answer-badge">VTBS</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) VTBD</div>
+        <div class="option correct">B) VTBS</div>
+        <div class="option">C) VTSP</div>
+        <div class="option">D) VTCC</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: B) VTBS</strong><br>
+        ICAO airport codes: VT = Thailand, B = Bangkok area, S = Suvarnabhumi. The IATA code is <strong>BKK</strong>.<br><br>
+        <span class="warn">⚠️ Don't confuse VTBS (Suvarnabhumi) with VTBD (Don Mueang)!</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q54 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">54</div>
+      <div class="q-text">What is the <strong>IATA</strong> code for Don Mueang Airport?</div>
+      <div class="q-answer-badge">DMK</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) BKK</div>
+        <div class="option">B) CNX</div>
+        <div class="option correct">C) DMK</div>
+        <div class="option">D) HKT</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: C) DMK</strong><br>
+        Don Mueang International Airport IATA = <strong>DMK</strong> (from "Don Mueang"). BKK is Suvarnabhumi, CNX is Chiang Mai, HKT is Phuket.
+      </div>
+    </div>
+  </div>
+
+  <!-- Q55 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">55</div>
+      <div class="q-text">What is the <strong>ICAO</strong> code for Don Mueang Airport?</div>
+      <div class="q-answer-badge">VTBD</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) VTBS</div>
+        <div class="option correct">B) VTBD</div>
+        <div class="option">C) VTCC</div>
+        <div class="option">D) VTSP</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: B) VTBD</strong><br>
+        VT = Thailand, B = Bangkok area, D = Don Mueang. The "D" at the end is your memory hook — <strong>D</strong>on Mueang = VTB<strong>D</strong>.
+      </div>
+    </div>
+  </div>
+
+  <!-- Q56 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">56</div>
+      <div class="q-text">What is the <strong>IATA</strong> code for Chiang Mai International Airport?</div>
+      <div class="q-answer-badge">CNX</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) CEI</div>
+        <div class="option">B) HKT</div>
+        <div class="option correct">C) CNX</div>
+        <div class="option">D) KKC</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: C) CNX</strong><br>
+        Chiang Mai = <strong>CNX</strong>. CEI = Chiang Rai, HKT = Phuket, KKC = Khon Kaen.<br>
+        Memory trick: <strong>C</strong>hiang mai <strong>N</strong>orth <strong>X</strong> = CNX
+      </div>
+    </div>
+  </div>
+
+  <!-- Q57 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">57</div>
+      <div class="q-text">What is the <strong>ICAO</strong> code for Phuket International Airport?</div>
+      <div class="q-answer-badge">VTSP</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option correct">A) VTSP</div>
+        <div class="option">B) VTSG</div>
+        <div class="option">C) VTSS</div>
+        <div class="option">D) VTBS</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: A) VTSP</strong><br>
+        VT = Thailand, S = South Thailand, P = Phuket. IATA code is <strong>HKT</strong> (Historical name Hatyai area/old region code — just memorize it!).<br><br>
+        <span class="warn">⚠️ VTSS = Hat Yai Airport, VTBS = Suvarnabhumi.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q58 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">58</div>
+      <div class="q-text">Which runways are available at Suvarnabhumi Airport (BKK)?</div>
+      <div class="q-answer-badge">01/19, 02L/20R, 02R/20L</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) 09L/27R and 09R/27L</div>
+        <div class="option correct">B) 01/19, 02L/20R, and 02R/20L</div>
+        <div class="option">C) 36L/18R and 36R/18L</div>
+        <div class="option">D) 10/28 only</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: B) 01/19, 02L/20R, and 02R/20L</strong><br>
+        Suvarnabhumi Airport has <strong>3 runways</strong> (as of 2024–2026 after expansion). The original 2 parallel runways run roughly North–South (headings ~01°/19°), and a 3rd runway (02L/20R) was added. Runway numbers reflect magnetic heading in tens of degrees.<br><br>
+        <span class="warn">⚠️ This is a recent update — Suvarnabhumi completed its 3rd runway expansion for the 2026 cycle.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title"><span class="icon">✈️</span> Aircraft & Equipment (Q59–63)</div>
+
+  <!-- Q59 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">59</div>
+      <div class="q-text">NEO in A321neo stands for what?</div>
+      <div class="q-answer-badge">New Engine Option</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) New Efficiency Operation</div>
+        <div class="option correct">B) New Engine Option</div>
+        <div class="option">C) Next Evolution Output</div>
+        <div class="option">D) New Energy Optimization</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: B) New Engine Option</strong><br>
+        Airbus introduced the "neo" (new engine option) suffix for their re-engined A320 family, including the A319neo, A320neo, and A321neo. The new engines (CFM LEAP or Pratt & Whitney GTF) deliver ~15–20% better fuel efficiency vs. the CEO (Current Engine Option).
+      </div>
+    </div>
+  </div>
+
+  <!-- Q60 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">60</div>
+      <div class="q-text">What type of engine powers the A321neo?</div>
+      <div class="q-answer-badge">LEAP-1A (CFM)</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) GE90</div>
+        <div class="option">B) Trent XWB</div>
+        <div class="option correct">C) LEAP-1A (CFM)</div>
+        <div class="option">D) PW4000</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: C) LEAP-1A (CFM)</strong><br>
+        The A321neo has two engine options: <br>
+        • <strong>CFM LEAP-1A</strong> (CFM International) — used by Thai Airways' A321neo<br>
+        • <strong>Pratt & Whitney PW1100G</strong> (Geared Turbofan)<br><br>
+        GE90 = Boeing 777 | Trent XWB = A350 | PW4000 = older wide-bodies<br><br>
+        <span class="warn">⚠️ Thai Airways A321neo uses the CFM LEAP-1A engine.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q61 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">61</div>
+      <div class="q-text">CVR in aviation's "black box" stands for what?</div>
+      <div class="q-answer-badge">Cockpit Voice Recorder</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) Central Voice Recorder</div>
+        <div class="option correct">B) Cockpit Voice Recorder</div>
+        <div class="option">C) Cabin Video Recorder</div>
+        <div class="option">D) Command Voice Relay</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: B) Cockpit Voice Recorder</strong><br>
+        The CVR records all cockpit audio including crew conversations, radio communications, and background sounds for the last 2 hours. It is bright orange (not black!) and designed to survive crashes and fires.
+      </div>
+    </div>
+  </div>
+
+  <!-- Q62 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">62</div>
+      <div class="q-text">FDR in aviation's "black box" stands for what?</div>
+      <div class="q-answer-badge">Flight Data Recorder</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option correct">A) Flight Data Recorder</div>
+        <div class="option">B) Flight Distance Reader</div>
+        <div class="option">C) Fuel Data Register</div>
+        <div class="option">D) Final Descent Recorder</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: A) Flight Data Recorder</strong><br>
+        The FDR records over 88 parameters including altitude, airspeed, heading, vertical acceleration, and control surface positions for the last 25 hours of flight. Together with the CVR, it forms what's known as the "black box."<br><br>
+        <span class="warn">⚠️ Fun fact: Black boxes are actually bright orange to help rescuers find them!</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q63 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">63</div>
+      <div class="q-text">ELT in aviation stands for what?</div>
+      <div class="q-answer-badge">Emergency Locator Transmitter</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) Engine Location Tracker</div>
+        <div class="option correct">B) Emergency Locator Transmitter</div>
+        <div class="option">C) Electronic Landing Tool</div>
+        <div class="option">D) Emergency Light Terminal</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: B) Emergency Locator Transmitter</strong><br>
+        An ELT automatically activates upon impact and transmits a distress signal on 406 MHz (and 121.5 MHz as backup) to Cospas-Sarsat satellites, helping Search & Rescue teams locate a downed aircraft.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title"><span class="icon">🇹🇭</span> Thai Airways (Q64, Q80–85)</div>
+
+  <!-- Q64 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">64</div>
+      <div class="q-text">Thai Airways is a member of which airline alliance?</div>
+      <div class="q-answer-badge">Star Alliance</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) Oneworld</div>
+        <div class="option">B) SkyTeam</div>
+        <div class="option correct">C) Star Alliance</div>
+        <div class="option">D) None, independent</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: C) Star Alliance</strong><br>
+        Thai Airways International is a founding member of Star Alliance (launched 1997). Star Alliance members include Lufthansa, United, Singapore Airlines, ANA, and many others.<br><br>
+        Oneworld = Cathay Pacific, British Airways | SkyTeam = Air France, Korean Air
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title"><span class="icon">🛩️</span> Flight Controls (Q65–70)</div>
+
+  <!-- Q65 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">65</div>
+      <div class="q-text">The primary flight controls are ailerons, elevator, and ___?</div>
+      <div class="q-answer-badge">Rudder</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) Flaps</div>
+        <div class="option">B) Spoilers</div>
+        <div class="option correct">C) Rudder</div>
+        <div class="option">D) Slats</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: C) Rudder</strong><br>
+        The three <strong>primary flight controls</strong> are:<br>
+        • <strong>Ailerons</strong> → Roll (longitudinal axis)<br>
+        • <strong>Elevator</strong> → Pitch (lateral axis)<br>
+        • <strong>Rudder</strong> → Yaw (vertical axis)<br><br>
+        Flaps, slats, and spoilers are <em>secondary/auxiliary</em> controls.
+      </div>
+    </div>
+  </div>
+
+  <!-- Q66 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">66</div>
+      <div class="q-text">Which primary control surface controls the <strong>roll</strong> of an aircraft?</div>
+      <div class="q-answer-badge">Aileron</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) Rudder</div>
+        <div class="option">B) Elevator</div>
+        <div class="option correct">C) Aileron</div>
+        <div class="option">D) Flaps</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: C) Aileron</strong><br>
+        Ailerons are located on the outer trailing edge of each wing. When one aileron goes up, the other goes down — one wing rises, the other drops — creating <strong>roll</strong> around the longitudinal axis (nose to tail).
+      </div>
+    </div>
+  </div>
+
+  <!-- Q67 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">67</div>
+      <div class="q-text">Which primary control surface controls the <strong>pitch</strong> (nose up/down)?</div>
+      <div class="q-answer-badge">Elevator</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) Rudder</div>
+        <div class="option correct">B) Elevator</div>
+        <div class="option">C) Aileron</div>
+        <div class="option">D) Spoiler</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: B) Elevator</strong><br>
+        The elevator is on the horizontal tail (stabilizer). Pulling back on the yoke raises the elevator → nose pitches up. Pushing forward lowers elevator → nose pitches down. Controls movement around the <strong>lateral axis</strong>.
+      </div>
+    </div>
+  </div>
+
+  <!-- Q68 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">68</div>
+      <div class="q-text">Which primary control surface controls the <strong>yaw</strong> (side to side)?</div>
+      <div class="q-answer-badge">Rudder</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option correct">A) Rudder</div>
+        <div class="option">B) Elevator</div>
+        <div class="option">C) Aileron</div>
+        <div class="option">D) Flaps</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: A) Rudder</strong><br>
+        The rudder is on the vertical tail fin. Pressing right rudder pedal → nose yaws right. Controls movement around the <strong>vertical axis</strong>. Used mainly for coordination during turns and crosswind landings.
+      </div>
+    </div>
+  </div>
+
+  <!-- Q69 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">69</div>
+      <div class="q-text">The aileron rotates around which axis?</div>
+      <div class="q-answer-badge">Longitudinal axis</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) Lateral axis</div>
+        <div class="option">B) Vertical axis</div>
+        <div class="option correct">C) Longitudinal axis</div>
+        <div class="option">D) Diagonal axis</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: C) Longitudinal axis</strong><br>
+        The <strong>longitudinal axis</strong> runs from nose to tail (like a skewer through the fuselage). Roll around this axis is controlled by ailerons.<br><br>
+        Memory: <strong>L</strong>ongitudinal → <strong>L</strong>ateral roll → <strong>L</strong>eft/Right wing goes up/down
+      </div>
+    </div>
+  </div>
+
+  <!-- Q70 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">70</div>
+      <div class="q-text">The rudder rotates around which axis?</div>
+      <div class="q-answer-badge">Vertical axis</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) Longitudinal axis</div>
+        <div class="option">B) Lateral axis</div>
+        <div class="option correct">C) Vertical axis</div>
+        <div class="option">D) Horizontal axis</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: C) Vertical axis</strong><br>
+        The <strong>vertical axis</strong> runs top to bottom through the aircraft (like a flagpole). Yaw around this axis is controlled by the rudder.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title"><span class="icon">🔧</span> Wing Devices & Aerodynamics (Q71–73)</div>
+
+  <!-- Q71 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">71</div>
+      <div class="q-text">What is the primary function of <strong>slats</strong> on an aircraft wing?</div>
+      <div class="q-answer-badge">Increase lift at low speed</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) Reduce drag at high speed</div>
+        <div class="option correct">B) Increase lift during low-speed operations</div>
+        <div class="option">C) Control the yaw of the aircraft</div>
+        <div class="option">D) Reduce fuel consumption during cruise</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: B) Increase lift during low-speed operations like takeoff and landing</strong><br>
+        Slats extend from the <strong>leading edge</strong> (front) of the wing. They increase the wing's camber and chord, raising the maximum coefficient of lift and allowing flight at lower airspeeds. This prevents stall during takeoff and landing.<br><br>
+        <span class="warn">⚠️ Slats = Leading edge | Flaps = Trailing edge (both increase lift, flaps also increase drag)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q72 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">72</div>
+      <div class="q-text">What is the primary purpose of <strong>winglets</strong> on an aircraft?</div>
+      <div class="q-answer-badge">Decrease drag / save fuel</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) Increase thrust</div>
+        <div class="option correct">B) Decrease drag and reduce fuel consumption</div>
+        <div class="option">C) Improve yaw control</div>
+        <div class="option">D) Increase maximum speed</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: B) Decrease drag and reduce fuel consumption</strong><br>
+        Winglets are upturned wingtip extensions that reduce <strong>induced drag</strong> caused by vortices at the wingtip. This improves aerodynamic efficiency and reduces fuel burn by 3–5%. Common on A320neo, Boeing 737 MAX (split-tip winglets), and many modern aircraft.
+      </div>
+    </div>
+  </div>
+
+  <!-- Q73 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">73</div>
+      <div class="q-text">In the lift equation L = CL × ½ρv²S, what does <strong>ρ</strong> represent?</div>
+      <div class="q-answer-badge">Air density</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) Wing area</div>
+        <div class="option">B) Velocity</div>
+        <div class="option correct">C) Air density</div>
+        <div class="option">D) Coefficient of lift</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: C) Air density</strong><br>
+        Breaking down the lift equation: <strong>L = CL × ½ρv²S</strong><br>
+        • <strong>L</strong> = Lift force (Newtons)<br>
+        • <strong>CL</strong> = Coefficient of lift (depends on angle of attack & wing shape)<br>
+        • <strong>ρ</strong> (rho) = Air density (kg/m³) — decreases with altitude!<br>
+        • <strong>v</strong> = True airspeed (m/s)<br>
+        • <strong>S</strong> = Wing reference area (m²)<br><br>
+        <span class="warn">⚠️ This is why aircraft need longer takeoff runs at high-altitude airports — lower ρ = less lift!</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title"><span class="icon">⚙️</span> Materials & Fuel (Q74–76)</div>
+
+  <!-- Q74 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">74</div>
+      <div class="q-text">The Boeing 787 Dreamliner is primarily made of which material (by weight)?</div>
+      <div class="q-answer-badge">Composites ~50%</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) Aluminum (50%)</div>
+        <div class="option correct">B) Composites (50%)</div>
+        <div class="option">C) Titanium (50%)</div>
+        <div class="option">D) Steel (50%)</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: B) Composites (50%)</strong><br>
+        The Boeing 787 is famous for its extensive use of <strong>carbon fiber reinforced polymer (CFRP)</strong> composites — approximately 50% by weight. Benefits include lighter weight, higher strength-to-weight ratio, better corrosion resistance, and higher cabin humidity/pressure comfort.<br><br>
+        787 material breakdown: ~50% composites, ~20% aluminum, ~15% titanium, ~10% steel, ~5% other.
+      </div>
+    </div>
+  </div>
+
+  <!-- Q75 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">75</div>
+      <div class="q-text">What is the most common aviation jet fuel used internationally (outside USA)?</div>
+      <div class="q-answer-badge">Jet A-1</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) Jet A</div>
+        <div class="option correct">B) Jet A-1</div>
+        <div class="option">C) Jet B</div>
+        <div class="option">D) Avgas 100LL</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: B) Jet A-1</strong><br>
+        • <strong>Jet A-1</strong>: International standard, freezing point −47°C. Used in Thailand and most countries.<br>
+        • <strong>Jet A</strong>: Used mainly in USA, freezing point −40°C.<br>
+        • <strong>Jet B</strong>: Wide-cut fuel for cold-weather operations.<br>
+        • <strong>Avgas 100LL</strong>: Aviation gasoline for piston-engine aircraft (not jets).
+      </div>
+    </div>
+  </div>
+
+  <!-- Q76 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">76</div>
+      <div class="q-text">What is the freezing point of <strong>Jet A-1</strong> fuel?</div>
+      <div class="q-answer-badge">-47°C</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) -40°C</div>
+        <div class="option correct">B) -47°C</div>
+        <div class="option">C) -60°C</div>
+        <div class="option">D) -20°C</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: B) -47°C</strong><br>
+        Jet A-1 must have a freezing point of <strong>-47°C or below</strong> (maximum). This is crucial because fuel in wing tanks can cool down to very low temperatures during long-haul high-altitude flights, especially polar routes.<br><br>
+        Jet A (USA): -40°C | Jet A-1 (international): -47°C
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title"><span class="icon">🌤️</span> Atmosphere (Q77–79)</div>
+
+  <!-- Q77 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">77</div>
+      <div class="q-text">In which layer of the atmosphere do commercial aircraft typically fly?</div>
+      <div class="q-answer-badge">Stratosphere (cruise) / Troposphere (lower)</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) Troposphere</div>
+        <div class="option correct">B) Stratosphere</div>
+        <div class="option">C) Mesosphere</div>
+        <div class="option">D) Thermosphere</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: B) Stratosphere</strong><br>
+        Commercial aircraft cruise at 35,000–42,000 ft (approximately 10–13 km), which puts them in the <strong>lower stratosphere</strong> (just above the tropopause). This layer has stable, smooth air with low turbulence — ideal for fuel-efficient cruise.<br><br>
+        <span class="warn">⚠️ Note: Takeoff and landing occur in the troposphere. Cruise altitude overlaps the tropopause into the lower stratosphere.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q78 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">78</div>
+      <div class="q-text">The troposphere extends from the surface to approximately what altitude?</div>
+      <div class="q-answer-badge">0–12 to 18 km</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) 0-5 km</div>
+        <div class="option correct">B) 0-12 to 18 km</div>
+        <div class="option">C) 18-50 km</div>
+        <div class="option">D) 50-80 km</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: B) 0–12 to 18 km</strong><br>
+        The troposphere thickness varies with latitude: ~8 km at poles, ~18 km at the equator (average ~12 km). All weather occurs here. Temperature decreases with altitude at a lapse rate of ~2°C per 1,000 ft (standard).
+      </div>
+    </div>
+  </div>
+
+  <!-- Q79 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">79</div>
+      <div class="q-text">The ozone layer is located in which layer of the atmosphere?</div>
+      <div class="q-answer-badge">Stratosphere</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) Troposphere</div>
+        <div class="option correct">B) Stratosphere</div>
+        <div class="option">C) Mesosphere</div>
+        <div class="option">D) Thermosphere</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: B) Stratosphere</strong><br>
+        The ozone (O₃) layer is concentrated between 15–35 km altitude in the <strong>stratosphere</strong>. It absorbs harmful ultraviolet (UV-B and UV-C) radiation from the sun, protecting life on Earth.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title"><span class="icon">🇹🇭</span> Thai Airways A321neo (Q80–85)</div>
+
+  <!-- Q80 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">80</div>
+      <div class="q-text">What was the first flight route of Thai Airways' A321neo?</div>
+      <div class="q-answer-badge">Bangkok → Singapore</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) Bangkok to Phuket</div>
+        <div class="option">B) Bangkok to Tokyo</div>
+        <div class="option correct">C) Bangkok to Singapore</div>
+        <div class="option">D) Bangkok to Hong Kong</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: C) Bangkok to Singapore</strong><br>
+        Thai Airways' A321neo inaugural commercial flight operated the Bangkok (BKK) – Singapore (SIN) route. This was a significant milestone for the airline's fleet renewal program during its rehabilitation period.
+      </div>
+    </div>
+  </div>
+
+  <!-- Q81 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">81</div>
+      <div class="q-text">When did Thai Airways operate its first A321neo flight?</div>
+      <div class="q-answer-badge">14 February 2026</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) 22 January 2026</div>
+        <div class="option correct">B) 14 February 2026</div>
+        <div class="option">C) 1 March 2026</div>
+        <div class="option">D) 15 December 2025</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: B) 14 February 2026</strong><br>
+        Thai Airways International operated its first A321neo commercial flight on <strong>14 February 2026</strong> (Valentine's Day). This marked the start of a new chapter as the airline completed its fleet modernization with fuel-efficient narrow-body aircraft.
+        <br><br><span class="warn">⚠️ This is a highly exam-specific date — memorize it!</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q82 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">82</div>
+      <div class="q-text">What is the registration of Thai Airways' first A321neo aircraft?</div>
+      <div class="q-answer-badge">HS-TOA</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) HS-TKQ</div>
+        <div class="option">B) HS-TEO</div>
+        <div class="option correct">C) HS-TOA</div>
+        <div class="option">D) HS-TOB</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: C) HS-TOA</strong><br>
+        Thai aircraft registrations begin with <strong>HS-</strong> (Thailand ICAO prefix). The first Thai Airways A321neo is registered <strong>HS-TOA</strong>. The second aircraft is HS-TOB.<br><br>
+        <span class="warn">⚠️ HS-TOA is the one with the Royal name — remember this pairing!</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q83 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">83</div>
+      <div class="q-text">What is the Royal name (นามพระราชทาน) of HS-TOA?</div>
+      <div class="q-answer-badge">บวรรังษี (Bowonrangsi)</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) เทพประสิทธิ์ (Thepprasit)</div>
+        <div class="option correct">B) บวรรังษี (Bowonrangsi)</div>
+        <div class="option">C) บางระจัน (Bang Rachan)</div>
+        <div class="option">D) ส่องดาว (Song Dao)</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: B) บวรรังษี (Bowonrangsi)</strong><br>
+        HS-TOA received the Royal name <strong>"บวรรังษี"</strong> (Bowonrangsi), meaning "radiant glory." Thai Airways aircraft traditionally receive Royal names bestowed by the Thai Royal Family, a prestigious tradition reflecting the airline's national carrier status.<br><br>
+        <span class="warn">⚠️ Key pairing: HS-TOA = บวรรังษี (Bowonrangsi)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q84 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">84</div>
+      <div class="q-text">How many total seats does the Thai Airways A321neo have?</div>
+      <div class="q-answer-badge">175 seats</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option">A) 159</div>
+        <div class="option correct">B) 175</div>
+        <div class="option">C) 200</div>
+        <div class="option">D) 144</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: B) 175 seats total</strong><br>
+        Thai Airways' A321neo configuration: <strong>16 Royal Silk (Business) + 159 Economy = 175 total</strong>.<br><br>
+        <span class="warn">⚠️ The total is 175. Don't confuse 159 (economy only) with the total seat count!</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q85 -->
+  <div class="q-card">
+    <div class="q-header" onclick="toggle(this)">
+      <div class="q-num">85</div>
+      <div class="q-text">The A321neo seating is 16 Royal Silk and how many Economy?</div>
+      <div class="q-answer-badge">159 Economy</div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="q-body">
+      <div class="options">
+        <div class="option correct">A) 143 — WAIT, answer is 159</div>
+        <div class="option correct">B) 159 ✅</div>
+        <div class="option">C) 175</div>
+        <div class="option">D) 185</div>
+      </div>
+      <div class="explain">
+        <strong>Answer: A) 159 Economy seats</strong><br>
+        Configuration: <strong>16 Royal Silk (Business Class) + 159 Economy = 175 total</strong>.<br><br>
+        Royal Silk seats are in a 2-2 configuration at the front. Economy is in 3-3 configuration. The A321neo's cabin is notably efficient for regional Asian routes.
+      </div>
+    </div>
+  </div>
+
+</div><!-- end sec-all -->
+
+<!-- ===== AIRPORTS SECTION ===== -->
+<div id="sec-airports" class="section">
+  <div class="section-title"><span class="icon">🏢</span> Thailand Airport Codes — Master Table</div>
+
+  <table>
+    <thead>
+      <tr><th>Airport</th><th>IATA</th><th>ICAO</th><th>City</th><th>Memory Hook</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Suvarnabhumi</td><td class="highlight">BKK</td><td class="highlight">VTBS</td><td>Bangkok</td><td>B=Bangkok, S=Suvarnabhumi</td></tr>
+      <tr><td>Don Mueang</td><td class="highlight">DMK</td><td class="highlight">VTBD</td><td>Bangkok</td><td>D=Don Mueang, DMK from name</td></tr>
+      <tr><td>Chiang Mai Intl</td><td class="highlight">CNX</td><td class="highlight">VTCC</td><td>Chiang Mai</td><td>CNX = Chiang Mai North X</td></tr>
+      <tr><td>Phuket Intl</td><td class="highlight">HKT</td><td class="highlight">VTSP</td><td>Phuket</td><td>SP = South Phuket</td></tr>
+      <tr><td>Hat Yai Intl</td><td class="highlight">HDY</td><td class="highlight">VTSS</td><td>Hat Yai</td><td>SS = South South</td></tr>
+      <tr><td>Chiang Rai Intl</td><td class="highlight">CEI</td><td class="highlight">VTCT</td><td>Chiang Rai</td><td>CEI = Chiang Rai</td></tr>
+      <tr><td>Khon Kaen</td><td class="highlight">KKC</td><td class="highlight">VTUK</td><td>Khon Kaen</td><td>KKC from name</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title"><span class="icon">💡</span> IATA vs ICAO — Key Difference</div>
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>✈️ IATA Codes</h3>
+      <ul>
+        <li><strong>Airlines:</strong> 2 letters (TG, SQ, CX)</li>
+        <li><strong>Airports:</strong> 3 letters (BKK, SIN, HKG)</li>
+        <li>Used on tickets, baggage tags, booking systems</li>
+        <li>Managed by IATA (Montreal-based)</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>📡 ICAO Codes</h3>
+      <ul>
+        <li><strong>Airlines:</strong> 3 letters (THA, SIA, CPA)</li>
+        <li><strong>Airports:</strong> 4 letters (VTBS, WSSS, VHHH)</li>
+        <li>Used in ATC, flight plans, official documents</li>
+        <li>VT = Thailand prefix for all Thai airports</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title"><span class="icon">🛬</span> Suvarnabhumi Runways</div>
+  <div class="info-card">
+    <h3>🛫 BKK Runway Configuration</h3>
+    <p>Suvarnabhumi Airport has <strong>3 runways</strong> (after 2024 expansion):</p><br>
+    <div style="margin-top:8px">
+      <div class="atm-layer layer-tropo" style="margin-bottom:6px">
+        <div class="layer-label">Runway 01L/19R</div>
+        <div class="layer-detail">Original parallel runway (North–South orientation)</div>
+      </div>
+      <div class="atm-layer layer-strato" style="margin-bottom:6px">
+        <div class="layer-label">Runway 01R/19L</div>
+        <div class="layer-detail">Second parallel runway (North–South orientation)</div>
+      </div>
+      <div class="atm-layer layer-meso">
+        <div class="layer-label">Runway 02/20 (3rd runway)</div>
+        <div class="layer-detail">New runway completed as part of Phase 2 expansion</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TG SECTION ===== -->
+<div id="sec-tg" class="section">
+  <div class="section-title"><span class="icon">🇹🇭</span> Thai Airways — Complete Facts</div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>📋 Codes & Alliance</h3>
+      <ul>
+        <li>IATA: <strong>TG</strong></li>
+        <li>ICAO: <strong>THA</strong></li>
+        <li>Callsign: <strong>"THAI"</strong></li>
+        <li>Alliance: <strong>Star Alliance</strong> (founding member, 1997)</li>
+        <li>Hub: Suvarnabhumi Airport (BKK)</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>✈️ A321neo Specs</h3>
+      <ul>
+        <li>Engine: <strong>CFM LEAP-1A</strong></li>
+        <li>NEO = <strong>New Engine Option</strong></li>
+        <li>Total seats: <strong>175</strong></li>
+        <li>Royal Silk (Business): <strong>16</strong></li>
+        <li>Economy: <strong>159</strong></li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>🏷️ HS-TOA Facts</h3>
+      <ul>
+        <li>Registration: <strong>HS-TOA</strong></li>
+        <li>Royal name: <strong>บวรรังษี (Bowonrangsi)</strong></li>
+        <li>First flight: <strong>14 Feb 2026</strong></li>
+        <li>Route: <strong>Bangkok → Singapore</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title"><span class="icon">🌟</span> Star Alliance Members (Key ones)</div>
+  <div class="info-card">
+    <h3>✈️ Star Alliance Key Members</h3>
+    <p>Lufthansa (LH) • United Airlines (UA) • Singapore Airlines (SQ) • Thai Airways (TG) • ANA (NH) • Air Canada (AC) • Turkish Airlines (TK) • Swiss (LX) • Scandinavian (SK) • TAP Air Portugal (TP)</p>
+    <br>
+    <p style="color:#ef9a9a">NOT in Star Alliance: Cathay Pacific (Oneworld) • Air France (SkyTeam) • Emirates (no alliance)</p>
+  </div>
+</div>
+
+<!-- ===== AIRCRAFT SECTION ===== -->
+<div id="sec-aircraft" class="section">
+  <div class="section-title"><span class="icon">🛩️</span> Aircraft Axes & Control Surfaces</div>
+
+  <!-- SVG Diagram -->
+  <div class="diagram-box">
+    <svg viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg">
+      <!-- Background -->
+      <rect width="600" height="340" fill="#060d1a" rx="10"/>
+
+      <!-- Aircraft body (fuselage) -->
+      <ellipse cx="300" cy="170" rx="130" ry="22" fill="#1e3a5f" stroke="#42a5f5" stroke-width="1.5"/>
+      <!-- Nose -->
+      <path d="M430,170 Q470,170 490,170" stroke="#42a5f5" stroke-width="2" fill="none" marker-end="url(#arrow-blue)"/>
+      <!-- Tail -->
+      <path d="M170,170 Q130,170 110,170" stroke="#42a5f5" stroke-width="2" fill="none"/>
+
+      <!-- Wings -->
+      <path d="M280,170 L230,90 L320,115 L320,170 Z" fill="#1565c0" stroke="#42a5f5" stroke-width="1" opacity="0.8"/>
+      <path d="M280,170 L230,250 L320,225 L320,170 Z" fill="#1565c0" stroke="#42a5f5" stroke-width="1" opacity="0.8"/>
+
+      <!-- Aileron labels -->
+      <rect x="225" y="83" width="65" height="20" rx="4" fill="#4a1e00"/>
+      <text x="258" y="97" text-anchor="middle" fill="#ffa726" font-size="11" font-weight="bold">AILERON</text>
+      <rect x="225" y="247" width="65" height="20" rx="4" fill="#4a1e00"/>
+      <text x="258" y="261" text-anchor="middle" fill="#ffa726" font-size="11" font-weight="bold">AILERON</text>
+
+      <!-- Vertical tail -->
+      <path d="M155,170 L140,110 L175,145 L175,170 Z" fill="#1565c0" stroke="#42a5f5" stroke-width="1" opacity="0.8"/>
+      <!-- Rudder label -->
+      <rect x="108" y="105" width="55" height="20" rx="4" fill="#1b3a1b"/>
+      <text x="135" y="119" text-anchor="middle" fill="#66bb6a" font-size="11" font-weight="bold">RUDDER</text>
+
+      <!-- Horizontal stabilizer -->
+      <path d="M155,170 L140,200 L175,185 Z" fill="#1565c0" stroke="#42a5f5" stroke-width="1" opacity="0.8"/>
+      <!-- Elevator label -->
+      <rect x="100" y="195" width="60" height="20" rx="4" fill="#1a1a3e"/>
+      <text x="130" y="209" text-anchor="middle" fill="#90caf9" font-size="11" font-weight="bold">ELEVATOR</text>
+
+      <!-- Axes -->
+      <!-- Longitudinal axis (roll) - nose to tail, horizontal -->
+      <line x1="100" y1="170" x2="500" y2="170" stroke="#ef5350" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="505" y="165" fill="#ef5350" font-size="10" font-weight="bold">LONGITUDINAL</text>
+      <text x="505" y="178" fill="#ef5350" font-size="10">(Roll / Aileron)</text>
+
+      <!-- Lateral axis (pitch) - wingtip to wingtip, horizontal through middle -->
+      <line x1="300" y1="50" x2="300" y2="290" stroke="#66bb6a" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="305" y="45" fill="#66bb6a" font-size="10" font-weight="bold">LATERAL AXIS</text>
+      <text x="305" y="298" fill="#66bb6a" font-size="10">(Pitch / Elevator)</text>
+
+      <!-- Vertical axis (yaw) - shown as circle -->
+      <ellipse cx="300" cy="170" rx="30" ry="30" fill="none" stroke="#ffcc02" stroke-width="1.5" stroke-dasharray="6,4"/>
+      <text x="340" y="148" fill="#ffcc02" font-size="10" font-weight="bold">VERTICAL</text>
+      <text x="340" y="160" fill="#ffcc02" font-size="10">(Yaw / Rudder)</text>
+
+      <!-- Title -->
+      <text x="300" y="325" text-anchor="middle" fill="#546e7a" font-size="12">Aircraft 3 Axes of Motion</text>
+
+      <!-- Arrow marker -->
+      <defs>
+        <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 Z" fill="#42a5f5"/>
+        </marker>
+      </defs>
+    </svg>
+    <p>Red = Longitudinal axis (Roll/Aileron) | Green = Lateral axis (Pitch/Elevator) | Yellow = Vertical axis (Yaw/Rudder)</p>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>🔄 Roll — Aileron</h3>
+      <p><strong>Axis:</strong> Longitudinal (nose→tail)<br>
+      <strong>Control:</strong> Aileron (outer trailing edge of wings)<br>
+      <strong>Action:</strong> One up, one down — tips wings left/right</p>
+    </div>
+    <div class="info-card">
+      <h3>↕️ Pitch — Elevator</h3>
+      <p><strong>Axis:</strong> Lateral (wingtip→wingtip)<br>
+      <strong>Control:</strong> Elevator (horizontal tail)<br>
+      <strong>Action:</strong> Nose up/down</p>
+    </div>
+    <div class="info-card">
+      <h3>↔️ Yaw — Rudder</h3>
+      <p><strong>Axis:</strong> Vertical (top→bottom)<br>
+      <strong>Control:</strong> Rudder (vertical tail fin)<br>
+      <strong>Action:</strong> Nose swings left/right</p>
+    </div>
+  </div>
+
+  <div class="section-title"><span class="icon">🔧</span> Secondary Controls & Devices</div>
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>🟢 Slats (Leading Edge)</h3>
+      <p>Extend from <strong>front</strong> of wing. Increase lift at low speeds (takeoff & landing). Prevent stall by allowing higher angle of attack.</p>
+    </div>
+    <div class="info-card">
+      <h3>🟡 Flaps (Trailing Edge)</h3>
+      <p>Extend from <strong>rear</strong> of wing. Increase both <strong>lift AND drag</strong>. Used during takeoff (less) and landing (more).</p>
+    </div>
+    <div class="info-card">
+      <h3>⬛ Spoilers</h3>
+      <p>Rise from upper wing surface. <strong>Destroy lift</strong> and increase drag. Used for descent, braking after landing (ground spoilers), and roll assist.</p>
+    </div>
+    <div class="info-card">
+      <h3>🔺 Winglets</h3>
+      <p>Upturned wingtip extensions. Reduce <strong>induced drag</strong> from wingtip vortices. Save 3–5% fuel. Now standard on most modern jets.</p>
+    </div>
+  </div>
+
+  <div class="section-title"><span class="icon">📦</span> Black Box & Safety Equipment</div>
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>🟠 CVR — Cockpit Voice Recorder</h3>
+      <p>Records last <strong>2 hours</strong> of cockpit audio. Microphones capture all crew speech, radio, and background noise. Bright orange color.</p>
+    </div>
+    <div class="info-card">
+      <h3>🟠 FDR — Flight Data Recorder</h3>
+      <p>Records <strong>25+ hours</strong> of flight parameters (88+ items): altitude, speed, heading, control positions, engine data. Also orange.</p>
+    </div>
+    <div class="info-card">
+      <h3>📡 ELT — Emergency Locator Transmitter</h3>
+      <p>Activates on impact. Transmits on <strong>406 MHz</strong> to Cospas-Sarsat satellites. Helps SAR teams find crashed aircraft.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ATMOSPHERE SECTION ===== -->
+<div id="sec-atmosphere" class="section">
+  <div class="section-title"><span class="icon">🌤️</span> Atmospheric Layers</div>
+
+  <div class="diagram-box">
+    <svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="500" height="300" fill="#060d1a" rx="10"/>
+      <!-- Layers -->
+      <rect x="50" y="230" width="400" height="40" fill="#1b2e4b" rx="4"/>
+      <text x="250" y="245" text-anchor="middle" fill="#42a5f5" font-size="12" font-weight="bold">TROPOSPHERE</text>
+      <text x="250" y="260" text-anchor="middle" fill="#546e7a" font-size="10">0 – 12 km | All weather | Commercial aircraft takeoff/land</text>
+
+      <rect x="50" y="175" width="400" height="50" fill="#1b3a1b" rx="4"/>
+      <text x="250" y="193" text-anchor="middle" fill="#66bb6a" font-size="12" font-weight="bold">STRATOSPHERE</text>
+      <text x="250" y="208" text-anchor="middle" fill="#546e7a" font-size="10">12 – 50 km | Ozone layer (15–35 km) | Aircraft CRUISE here</text>
+      <text x="250" y="220" text-anchor="middle" fill="#546e7a" font-size="10">✈️ 35,000–42,000 ft = ~10–13 km altitude</text>
+
+      <rect x="50" y="115" width="400" height="55" fill="#3e2000" rx="4"/>
+      <text x="250" y="135" text-anchor="middle" fill="#ffa726" font-size="12" font-weight="bold">MESOSPHERE</text>
+      <text x="250" y="152" text-anchor="middle" fill="#546e7a" font-size="10">50 – 80 km | Meteors burn up here</text>
+
+      <rect x="50" y="55" width="400" height="55" fill="#3e0a0a" rx="4"/>
+      <text x="250" y="75" text-anchor="middle" fill="#ef5350" font-size="12" font-weight="bold">THERMOSPHERE</text>
+      <text x="250" y="92" text-anchor="middle" fill="#546e7a" font-size="10">80 – 700 km | Aurora borealis | ISS orbits here</text>
+
+      <text x="250" y="30" text-anchor="middle" fill="#37474f" font-size="10">EXOSPHERE (700+ km)</text>
+
+      <!-- Aircraft icon -->
+      <text x="430" y="200" fill="#42a5f5" font-size="20">✈️</text>
+      <line x1="410" y1="200" x2="360" y2="200" stroke="#42a5f5" stroke-width="1" stroke-dasharray="4,3"/>
+    </svg>
+    <p>✈️ Commercial aircraft cruise in the lower stratosphere (~35,000–42,000 ft)</p>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>🌡️ Lift Equation Variables</h3>
+      <p style="font-family: monospace; background:#0a1628; padding:10px; border-radius:6px; color:#42a5f5; font-size:0.9rem; margin:8px 0">
+        L = CL × ½ρv²S
+      </p>
+      <ul>
+        <li><strong>L</strong> = Lift (Newtons)</li>
+        <li><strong>CL</strong> = Coefficient of lift</li>
+        <li><strong>ρ</strong> = Air density (kg/m³)</li>
+        <li><strong>v</strong> = Velocity/airspeed (m/s)</li>
+        <li><strong>S</strong> = Wing area (m²)</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>⛽ Fuel Types</h3>
+      <ul>
+        <li><strong>Jet A-1</strong>: International standard, -47°C freeze point</li>
+        <li><strong>Jet A</strong>: USA standard, -40°C freeze point</li>
+        <li><strong>Jet B</strong>: Cold weather / wide-cut fuel</li>
+        <li><strong>Avgas 100LL</strong>: Piston aircraft only (NOT jets)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ===== QUICK REFERENCE SECTION ===== -->
+<div id="sec-quick" class="section">
+  <div class="section-title"><span class="icon">⚡</span> Quick Reference — All Answers at a Glance</div>
+
+  <table>
+    <thead>
+      <tr><th>Q#</th><th>Question Topic</th><th>Answer</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>51</td><td>IATA code Thai Airways</td><td class="highlight">TG</td></tr>
+      <tr><td>52</td><td>ICAO code Thai Airways</td><td class="highlight">THA</td></tr>
+      <tr><td>53</td><td>ICAO code Suvarnabhumi</td><td class="highlight">VTBS</td></tr>
+      <tr><td>54</td><td>IATA code Don Mueang</td><td class="highlight">DMK</td></tr>
+      <tr><td>55</td><td>ICAO code Don Mueang</td><td class="highlight">VTBD</td></tr>
+      <tr><td>56</td><td>IATA code Chiang Mai</td><td class="highlight">CNX</td></tr>
+      <tr><td>57</td><td>ICAO code Phuket</td><td class="highlight">VTSP</td></tr>
+      <tr><td>58</td><td>Suvarnabhumi runways</td><td class="highlight">01/19, 02L/20R, 02R/20L</td></tr>
+      <tr><td>59</td><td>NEO stands for</td><td class="highlight">New Engine Option</td></tr>
+      <tr><td>60</td><td>A321neo engine</td><td class="highlight">CFM LEAP-1A</td></tr>
+      <tr><td>61</td><td>CVR stands for</td><td class="highlight">Cockpit Voice Recorder</td></tr>
+      <tr><td>62</td><td>FDR stands for</td><td class="highlight">Flight Data Recorder</td></tr>
+      <tr><td>63</td><td>ELT stands for</td><td class="highlight">Emergency Locator Transmitter</td></tr>
+      <tr><td>64</td><td>Thai Airways alliance</td><td class="highlight">Star Alliance</td></tr>
+      <tr><td>65</td><td>3rd primary flight control</td><td class="highlight">Rudder</td></tr>
+      <tr><td>66</td><td>Controls roll</td><td class="highlight">Aileron</td></tr>
+      <tr><td>67</td><td>Controls pitch</td><td class="highlight">Elevator</td></tr>
+      <tr><td>68</td><td>Controls yaw</td><td class="highlight">Rudder</td></tr>
+      <tr><td>69</td><td>Aileron axis</td><td class="highlight">Longitudinal axis</td></tr>
+      <tr><td>70</td><td>Rudder axis</td><td class="highlight">Vertical axis</td></tr>
+      <tr><td>71</td><td>Slats function</td><td class="highlight">Increase lift at low speed</td></tr>
+      <tr><td>72</td><td>Winglets purpose</td><td class="highlight">Reduce drag / save fuel</td></tr>
+      <tr><td>73</td><td>ρ in lift equation</td><td class="highlight">Air density</td></tr>
+      <tr><td>74</td><td>B787 primary material</td><td class="highlight">Composites ~50%</td></tr>
+      <tr><td>75</td><td>International jet fuel</td><td class="highlight">Jet A-1</td></tr>
+      <tr><td>76</td><td>Jet A-1 freezing point</td><td class="highlight">-47°C</td></tr>
+      <tr><td>77</td><td>Commercial aircraft cruise layer</td><td class="highlight">Stratosphere</td></tr>
+      <tr><td>78</td><td>Troposphere altitude</td><td class="highlight">0–12 to 18 km</td></tr>
+      <tr><td>79</td><td>Ozone layer location</td><td class="highlight">Stratosphere</td></tr>
+      <tr><td>80</td><td>First A321neo route (TG)</td><td class="highlight">Bangkok → Singapore</td></tr>
+      <tr><td>81</td><td>First A321neo flight date (TG)</td><td class="highlight">14 February 2026</td></tr>
+      <tr><td>82</td><td>First A321neo registration (TG)</td><td class="highlight">HS-TOA</td></tr>
+      <tr><td>83</td><td>Royal name of HS-TOA</td><td class="highlight">บวรรังษี (Bowonrangsi)</td></tr>
+      <tr><td>84</td><td>Total seats A321neo (TG)</td><td class="highlight">175 seats</td></tr>
+      <tr><td>85</td><td>Economy seats A321neo (TG)</td><td class="highlight">159 seats</td></tr>
+    </tbody>
+  </table>
+
+  <div class="score-box">
+    <div class="big">35</div>
+    <p>Questions in Section 6 — Master all of these! 🛫</p>
+  </div>
+
+  <div class="section-title"><span class="icon">🎯</span> Top Exam Tips</div>
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>⚠️ Most Commonly Confused</h3>
+      <ul>
+        <li>VTBS = Suvarnabhumi (NOT VTBD)</li>
+        <li>VTBD = Don Mueang (D for Don)</li>
+        <li>CVR = Voice | FDR = Data (not the other way!)</li>
+        <li>Slats = Leading edge | Flaps = Trailing edge</li>
+        <li>Total seats = 175 (16+159), not 159</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>🔑 Key Numbers to Memorize</h3>
+      <ul>
+        <li>Jet A-1 freeze: <strong>-47°C</strong></li>
+        <li>Troposphere: <strong>0–12/18 km</strong></li>
+        <li>TG A321neo total seats: <strong>175</strong></li>
+        <li>TG A321neo business: <strong>16</strong></li>
+        <li>TG A321neo economy: <strong>159</strong></li>
+        <li>First flight date: <strong>14 Feb 2026</strong></li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>🧠 Memory Tricks</h3>
+      <ul>
+        <li><strong>A-E-R</strong>: Aileron=Roll, Elevator=Pitch, Rudder=Yaw</li>
+        <li><strong>L-L-V</strong>: Long=Roll, Lat=Pitch, Vert=Yaw</li>
+        <li><strong>NEO</strong>: New Engine Option</li>
+        <li><strong>ρ</strong> = rho = air density (Greek letter)</li>
+        <li>Bangkok airports: BKK=new, DMK=old</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div><!-- end container -->
+
+<footer>
+  <strong>SPTG Aviation Knowledge Guide</strong> — Q51 to Q85 • 2026 Recruitment Cycle<br>
+  Study hard and fly safe! 🛫✈️
+</footer>
+
+<script>
+function toggle(header) {
+  const body = header.nextElementSibling;
+  const chevron = header.querySelector('.chevron');
+  if (body.classList.contains('open')) {
+    body.classList.remove('open');
+    chevron.textContent = '▼';
+  } else {
+    body.classList.add('open');
+    chevron.textContent = '▲';
+  }
+}
+
+function showSection(name) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('sec-' + name).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
